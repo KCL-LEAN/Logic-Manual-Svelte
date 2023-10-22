@@ -1,15 +1,13 @@
+
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const mode = process.env.NODE_ENV || 'development';
-const prod = mode === 'production';
+const prod = mode === 'development';
 
   const babelOptions = {
       presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
-    plugins: [
-      isDevelopment && require.resolve('react-refresh/babel'),
-    ].filter(Boolean),
   };
 
 
@@ -49,13 +47,6 @@ module.exports = {
                 }
             }
         },
-        {
-            test: /\.css$/,
-            use: [
-                MiniCssExtractPlugin.loader,
-                'css-loader'
-            ]
-            },
             {
               test: /\.(js|jsx)$/,
               exclude: [/server/, /node_modules/],
@@ -72,25 +63,31 @@ module.exports = {
               }],
               exclude:[/server/, /node_modules\/(?!lean4)/], // Allow .ts imports from node_modules/lean4
             },
-            {
-              test: /\.css$/,
-              use: ["style-loader", "css-loader"]
-            },
+            
             {
               test: /\.svg$/i,
               issuer: /\.[jt]sx?$/,
               use: [{
                 loader: "@svgr/webpack",
                 options: { dimensions: false }
-              }],
-            }
+              },
+              ],
+            },
+        {
+            test: /\.css$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader'
+                ]
+
+        }
     	]
     },
     mode,
     plugins: [
-        new MiniCssExtractPlugin({
-            filename: '[name].css'
-        }),
+		new MiniCssExtractPlugin({
+			filename: '[name].css'
+		}),
         new CopyPlugin({
           patterns: [{
             context: path.resolve(__dirname, 'client', 'public'),
@@ -110,7 +107,7 @@ module.exports = {
             from: 'favicon.ico',
           }]
         }),
-        isDevelopment && new ReactRefreshWebpackPlugin(),
+        prod && new ReactRefreshWebpackPlugin(),
 
     ].filter(Boolean),
     devtool: prod ? false : 'source-map',
