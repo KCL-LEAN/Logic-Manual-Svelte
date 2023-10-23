@@ -5,8 +5,6 @@ const CopyPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const mode = process.env.NODE_ENV || 'development';
 const prod = mode === 'development';
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-
 
   const babelOptions = {
       presets: ['@babel/preset-env', '@babel/preset-typescript'], //'@babel/preset-react',
@@ -14,7 +12,6 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = {
-    
     entry: {//The first module we start building a dependency graph around
         'build/bundle': ['./src/main.js']
     },
@@ -23,12 +20,12 @@ module.exports = {
             svelte: path.resolve('node_modules', 'svelte/src/runtime')
         },
         extensions: ['.mjs', '.js', '.svelte', ".jsx", ".tsx", ".ts"], //what file extensions we can viably resolve
-        fallback: { //I think it goes to that stupid directory page because of browserify
+        fallback: {
          "http": require.resolve("stream-http"), //I had to install these as packages from npm like "npm i path-browserify"
          "path": require.resolve("path-browserify")
         },
         mainFields: ['svelte', 'browser', 'module', 'main'],
-        conditionNames: ['svelte', 'browser', 'import']
+        conditionNames: ['svelte', 'browser']
     },
     output: {
         path: path.join(__dirname, '/public'),
@@ -40,12 +37,12 @@ module.exports = {
         {
             test: /\.svelte$/,
             use: {
-                loader: 'svelte-loader',
+                loader: require('svelte-loader'),
                 options: {
                     compilerOptions: {
                         dev: !prod
                     },
-                    emitCss: true,
+                    emitCss: prod,
                     hotReload: !prod
                 }
             }
@@ -68,7 +65,7 @@ module.exports = {
             //},
             
             {
-              test: /\.svg$/,
+              test: /\.svg$/i,
               issuer: /\.[jt]sx?$/,
               use: [{
                 loader: "@svgr/webpack",
@@ -91,8 +88,7 @@ module.exports = {
 		new MiniCssExtractPlugin({
 			filename: 'styles.css'
 		}),
-    new HtmlWebpackPlugin()
-        //new CopyPlugin({ //TODO
+        //new CopyPlugin({
          // patterns: [
           //{
             //context: path.resolve(__dirname, 'client', 'public'),
@@ -115,7 +111,7 @@ module.exports = {
         //}),
         //prod && new ReactRefreshWebpackPlugin(),
 
-    ],
+    ].filter(Boolean),
     devtool: prod ? false : 'source-map',
     devServer: {
         hot: true,
