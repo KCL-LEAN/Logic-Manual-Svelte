@@ -9,7 +9,12 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
   const babelOptions = {
-      presets: ['@babel/preset-env', '@babel/preset-typescript'], //'@babel/preset-react',
+      presets: ['@babel/preset-env','@babel/preset-react', '@babel/preset-typescript'], 
+      //options: {
+      //      compilerOptions: {
+      //          "noEmit": false
+      //      }
+      //}
   };
 
 
@@ -22,7 +27,7 @@ module.exports = {
         alias: { //changes paths when we query for modules
             svelte: path.resolve('node_modules', 'svelte/src/runtime')
         },
-        extensions: ['.mjs', '.js', '.svelte', ".jsx", ".tsx", ".ts"], //what file extensions we can viably resolve
+        extensions: [".tsx", '.js', '.svelte', ".ts", '.mjs', ".jsx" ], //what file extensions we can viably resolve
         fallback: { //I think it goes to that stupid directory page because of browserify
          "http": require.resolve("stream-http"), //I had to install these as packages from npm like "npm i path-browserify"
          "path": require.resolve("path-browserify")
@@ -50,23 +55,51 @@ module.exports = {
                 }
             }
         },
-            //{
-            //  test: /\.(js|jsx)$/,
-            //  exclude: [/server/, /node_modules/],
-            //  use: [{
-            //    loader: require.resolve('babel-loader'),
-            //    options: babelOptions,
-            //  }]
-            //},
-            //{
-            //  test: /\.tsx?$/,
-            //  use: [{
-            //    loader: 'ts-loader',
-            //    options: { allowTsInNodeModules: false }
-            //  }],
-            //  exclude:[/server/, /node_modules\/(?!lean4)/], // Allow .ts imports from node_modules/lean4
-            //},
-            
+            {
+              test: /\.jsx?$/,
+              exclude: [/server/, /node_modules/],
+              use: [{
+                loader: require.resolve('babel-loader'),
+                options: babelOptions,
+              }]
+            },
+            {
+              test: /\.tsx?$/,
+              use: [{
+                loader: 'ts-loader',
+                options: { allowTsInNodeModules: true,
+                    compilerOptions: {
+                        "noEmit": false,
+
+                    },
+                },
+              }],
+              exclude:[/server/,
+                  /node_modules\/(?!vscode)/,
+                  /node_modules\/(?!monaco_editor)/,
+                  /node_modules\/(?!lean4)/,
+                  /ClientFiles\/m-editor\/(?!abbreviation)/
+              ], // Allow .ts imports from node_modules/lean4
+            },
+            {
+              test: /\.tsx?$/,
+                include: [
+                  /server/,
+                  /node_modules\/(?!vscode)/,
+                  /node_modules\/(?!monaco_editor)/,
+                  /node_modules\/(?!lean4)/,
+                  /ClientFiles\/m-editor\/(?!abbreviation)/
+                ],
+              use: [{
+                loader: 'ts-loader',
+                options: { allowTsInNodeModules: true,
+                    compilerOptions: {
+                        "noEmit": true,
+
+                    },
+                },
+              }]
+            },
             {
               test: /\.svg$/,
               issuer: /\.[jt]sx?$/,

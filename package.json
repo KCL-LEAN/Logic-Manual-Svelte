@@ -53,7 +53,7 @@
     "lean4": "https://gitpkg.now.sh/leanprover/vscode-lean4/vscode-lean4?79d345c739bf707024eef5057ccef81b404a2ddf",
     "mobx": "^6.6.2",
     "moment-timezone": "^0.5.39",
-    "monaco-editor": "^0.34.1",
+    "monaco-editor": "^0.4.0",
     "monaco-editor-textmate": "^4.0.0",
     "monaco-languageclient": "^4.0.1",
     "monaco-textmate": "^3.0.1",
@@ -65,6 +65,8 @@
     "react-popper": "^2.3.0",
     "react-split": "^2.0.14",
     "stream-http": "^3.2.0",
+    "vscode": "npm:@codingame/monaco-vscode-api@^1.83.4",
+    "monaco-editor-webpack-plugin": "^7.1.0",
     "vscode-ws-jsonrpc": "^2.0.0",
     "ws": "^8.9.0"
   },

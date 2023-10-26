@@ -2,6 +2,7 @@
 <script lang="ts">
     import { Eczar } from 'fontsource-eczar'
     import Sidebar from './Sidebar.svelte'
+    import Editor from './Editor.svelte'
 	import { createEventDispatcher, onMount } from 'svelte';
 	const dispatch = createEventDispatcher();
 	onMount(() => {
@@ -30,10 +31,13 @@
         Document Header
     </h1>
     <main>
+
     <p>
         Rendering Latex
         $$\alpha\varphi$$
     </p>
+    <Editor>
+    </Editor>
         <slot name = "content"/>
         <p class = "missing"> No Content </p>
     </main>
