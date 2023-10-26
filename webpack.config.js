@@ -10,11 +10,6 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
   const babelOptions = {
       presets: ['@babel/preset-env','@babel/preset-react', '@babel/preset-typescript'], 
-      //options: {
-      //      compilerOptions: {
-      //          "noEmit": false
-      //      }
-      //}
   };
 
 
@@ -25,7 +20,7 @@ module.exports = {
     },
     resolve: {
         alias: { //changes paths when we query for modules
-            svelte: path.resolve('node_modules', 'svelte/src/runtime')
+            svelte: path.resolve('node_modules', 'svelte/src/runtime') //TODO: This is probably causing all of my issues
         },
         extensions: [".tsx", '.js', '.svelte', ".ts", '.mjs', ".jsx" ], //what file extensions we can viably resolve
         fallback: { //I think it goes to that stupid directory page because of browserify
@@ -59,8 +54,12 @@ module.exports = {
               test: /\.jsx?$/,
               exclude: [/server/, /node_modules/],
               use: [{
-                loader: require.resolve('babel-loader'),
-                options: babelOptions,
+                loader: require.resolve('ts-loader'),
+                  options: { allowTsInNodeModules: true,
+                     compilerOptions: {
+                        
+                     }
+                  },
               }]
             },
             {
@@ -85,10 +84,10 @@ module.exports = {
               test: /\.tsx?$/,
                 include: [
                   /server/,
-                  /node_modules\/(?!vscode)/,
-                  /node_modules\/(?!monaco_editor)/,
-                  /node_modules\/(?!lean4)/,
-                  /ClientFiles\/m-editor\/(?!abbreviation)/
+                  /node_modules\/vscode/,
+                  /node_modules\/monaco_editor/,
+                  /node_modules\/lean4/,
+                  /ClientFiles\/m-editor\/abbreviation/
                 ],
               use: [{
                 loader: 'ts-loader',
@@ -100,6 +99,17 @@ module.exports = {
                 },
               }]
             },
+        /*
+        { 
+            test: /\.ts$/,
+            use: [{
+                loader: 'ts-loader',
+                options: { allowTsInNodeModules: true,
+                    compilerOptions: {"noEmit": false}
+                }
+            }]
+        },
+        */
             {
               test: /\.svg$/,
               issuer: /\.[jt]sx?$/,

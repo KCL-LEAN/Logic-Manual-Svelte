@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useState, Suspense, useEffect } from 'react'
-import './editor/vscode.module.css'
+import './m-editor/vscode.module.css'
 import './css/EditorViewport.module.css'
 import './css/dark-theme.module.css'
 import PrivacyPolicy from './PrivacyPolicy'

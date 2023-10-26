@@ -2,9 +2,9 @@ import * as React from 'react'
 import { useEffect, useRef, useState } from 'react'
 import {verticalLayout} from "./config/config.js"
 import './css/Editor.module.css'
-import './editor/infoview.module.css'
-import './editor/vscode.module.css'
-import * as monaco from 'm-editor/esm/vs/editor/editor.api.js'
+import './m-editor/infoview.module.css'
+import './m-editor/vscode.module.css'
+import * as monaco from 'monaco-editor/esm/vs/editor/editor.api.js'
 import { loadRenderInfoview } from '@leanprover/infoview/loader'
 import { InfoviewApi } from '@leanprover/infoview-api'
 import { InfoProvider } from './m-editor/infoview'
@@ -50,9 +50,9 @@ const Editor: React.FC<{setRestart?, onDidChangeContent?, value: string}> =
         lightbulb: {
           enabled: true
         },
-        unicodeHighlight: {
-            ambiguousCharacters: false,
-        },
+        //unicodeHighlight: { //TODO reimplement highlighting
+        //    ambiguousCharacters: false,
+        //},
         automaticLayout: true,
         minimap: {
           enabled: false
