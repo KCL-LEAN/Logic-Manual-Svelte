@@ -18,7 +18,7 @@ we want to be able to render the documents
         </p>
 
     <div>
-            $$wow$$
+            $$\Sigma$$
     </div>
         </svelte:fragment>
     </Document>
