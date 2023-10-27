@@ -4,6 +4,11 @@
   "private": true,
   "homepage": ".",
   "devDependencies": {
+    "ts-loader": "^9.0.0",
+    "@tsconfig/svelte": "^4.0.0",
+    "@types/node": "^16.0.0",
+    "svelte-check": "^3.4.4",
+    "svelte-preprocess": "^5.0.4",
     "@babel/cli": "^7.1.0",
     "@babel/core": "^7.1.0",
     "@babel/preset-env": "^7.1.0",

@@ -1,4 +1,7 @@
 {
+"include": ["src/**/*", "src/node_modules/**/*"],
+"exclude": ["node_modules/*", "__sapper__/*", "static/*"],
+
   "compilerOptions": {
     "target": "es5",
     "lib": [
@@ -12,7 +15,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": false,
-    "forceConsistentCasingInFileNames": true,
+    "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": true,
     "experimentalDecorators": true,
     "downlevelIteration": true,
@@ -21,6 +24,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": false,
+    "sourceMap": false,
     "jsx": "react-jsx"
   },
   "include": [

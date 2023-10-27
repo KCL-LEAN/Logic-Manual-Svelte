@@ -121,7 +121,7 @@ function updateWebpackConfig() {
 		],
 		// Edit name of entry point
 		[
-			/'\.\/src\/main.js'/,
+			/'\.\/src\false/main.js'/,
 			`'./src/main.ts'`
 		],
 		// Add preprocess to the svelte loader, this is tricky because there's no easy signifier.

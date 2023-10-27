@@ -87,7 +87,8 @@ module.exports = {
                   /node_modules\/vscode/,
                   /node_modules\/monaco_editor/,
                   /node_modules\/lean4/,
-                  /ClientFiles\/m-editor\/abbreviation/
+                  /ClientFiles\/m-editor\/(abbreviation)/,
+                  /ClientFiles\/m-editor\/(taskgutter.ts)/
                 ],
               use: [{
                 loader: 'ts-loader',
@@ -99,17 +100,18 @@ module.exports = {
                 },
               }]
             },
-        /*
         { 
-            test: /\.ts$/,
+            test: /leanclient\.ts$/,
             use: [{
                 loader: 'ts-loader',
                 options: { allowTsInNodeModules: true,
-                    compilerOptions: {"noEmit": false}
+                    compilerOptions: {
+                        "noEmit": true,
+                    "transpileOnly": true
+                    }
                 }
             }]
         },
-        */
             {
               test: /\.svg$/,
               issuer: /\.[jt]sx?$/,
