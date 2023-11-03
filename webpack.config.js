@@ -21,7 +21,7 @@ module.exports = {
 		alias: {
 			svelte: path.resolve('node_modules', 'svelte/src/runtime')
 		},
-		extensions: ['.mjs', '.js', '.ts', '.svelte'],
+		extensions: ['.mjs', '.js', '.ts', '.svelte', '.sty'],
 		mainFields: ['svelte', 'browser', 'module', 'main'],
 		conditionNames: ['svelte', 'browser']
 	},
@@ -57,6 +57,12 @@ module.exports = {
 					MiniCssExtractPlugin.loader,
 					'css-loader'
 				]
+			},
+			{
+				test: /\.sty$/,
+				use: {
+					loader: 'raw-loader'
+				}
 			}
 		]
 	},

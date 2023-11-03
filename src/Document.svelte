@@ -3,16 +3,20 @@
 </script>
 <script lang="ts">
     import Sidebar from './Sidebar.svelte'
-    import { readFile, readFileSync } from 'fs';
+    import sty from './static/proof.sty';
+
 	import { createEventDispatcher, onMount } from 'svelte';
 	const dispatch = createEventDispatcher();
     let latexMacros: String = '';
 
 
 	onMount(() => {
-	let script = document.createElement('script');
-    script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js";
-    let latexMacros = readFileSync('./static/proof.sty', 'utf-8')
+        let script = document.createElement('script');
+        script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js";
+        console.log(sty);
+        let latexMacros = sty; 
+        
+
     script.onload = () => {
       MathJax = {
         packages: {'[+]': ['proof']},
