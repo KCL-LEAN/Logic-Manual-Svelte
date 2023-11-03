@@ -2,8 +2,17 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const sveltePreprocess = require('svelte-preprocess');
 
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const mode = process.env.NODE_ENV || 'development';
-const prod = mode === 'production';
+const prod = mode === 'development';
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
+
+  const babelOptions = {
+      presets: ['@babel/preset-env', '@babel/preset-typescript'], //'@babel/preset-react',
+  };
+
 
 module.exports = {
 	entry: {
@@ -52,17 +61,18 @@ module.exports = {
 			}
 		]
 	},
-	mode,
+	mode, // just deleted a whole lot of deps here
 	plugins: [
 		new MiniCssExtractPlugin({
-			filename: '[name].css'
-		})
-	],
-	devtool: prod ? false : 'source-map',
-	devServer: {
-		hot: true,
-		static: {
-			directory: path.join(__dirname, 'public'),
-		}
-	}
+			filename: 'styles.css'
+		}),
+    new HtmlWebpackPlugin()
+    ],
+    devtool: prod ? false : 'source-map',
+    devServer: {
+        hot: true,
+        static: {
+            directory: path.join(__dirname, 'public'),
+        }
+    }
 };
