@@ -1,5 +1,5 @@
 <div class = 'sidebar'>
-    <slot/>
+   <slot/>
 </div>
 <style>
 

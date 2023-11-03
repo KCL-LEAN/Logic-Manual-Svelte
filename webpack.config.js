@@ -2,7 +2,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const sveltePreprocess = require('svelte-preprocess');
 
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const mode = process.env.NODE_ENV || 'development';
 const prod = mode === 'development';

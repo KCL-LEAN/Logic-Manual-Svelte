@@ -1,34 +1,40 @@
-
+<script context="module" lang="ts">
+    declare var MathJax: any;
+</script>
 <script lang="ts">
-    import { Eczar } from 'fontsource-eczar'
     import Sidebar from './Sidebar.svelte'
+    import { readFile, readFileSync } from 'fs';
 	import { createEventDispatcher, onMount } from 'svelte';
 	const dispatch = createEventDispatcher();
+    let latexMacros: String = '';
+
+
 	onMount(() => {
-		let script = document.createElement('script');
+	let script = document.createElement('script');
     script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js";
-    document.head.append(script);
-	    
-	    script.onload = () => {
+    let latexMacros = readFileSync('./static/proof.sty', 'utf-8')
+    script.onload = () => {
       MathJax = {
-        tex: {inlineMath: [['$', '$'], ['\\(', '\\)']],
-        
-        packages: {'[+]': ['proof']}
-        },
+        packages: {'[+]': ['proof']},
         loader: {load: ['[tex]/proof']},
+        tex: {inlineMath: [['$', '$'], ['\\(', '\\)']],
+        },
         svg: {fontCache: 'global'}
       };
-	    };
-	    console.log("Here")
-	});
+    };
 
+	    console.log("Here")
+        document.head.append(script);
+	}
+    );
 
     let problems = ["Problem One", "Problem Two","Problem Three","Problem Four","Problem Five"]
+    
 </script>
 
 
 <div class="Document">
-\( \require{proof}\)
+    \(\usepackage{"{" + latexMacros + "}"}\)
     <Sidebar>
     <h1>
         Problems
@@ -58,9 +64,9 @@
     <div>
     The plan for this section is to review the natural deduction rules for propositional logic and learn their implementation in Lean.
 
-    $$\infer[land Elim] &#123A B&#125&#123A\&B&#125$$
+    $$\land\infer[land Elim] &#123A B&#125&#123A\&B&#125$$
+    
     </div>
-
 
 
 
