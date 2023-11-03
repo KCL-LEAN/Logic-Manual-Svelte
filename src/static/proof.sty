@@ -70,43 +70,13 @@
 
 %	Style Parameters
 
-\newdimen\inferLineSkip		\inferLineSkip=2pt
-\newdimen\inferLabelSkip	\inferLabelSkip=5pt
+%\newdimen\inferLineSkip		\inferLineSkip=2pt
+%\newdimen\inferLabelSkip	\inferLabelSkip=5pt
 \def\inferTabSkip{\quad}
 
-%	Variables
 
-\newdimen\@LeftOffset	% global
-\newdimen\@RightOffset	% global
-\newdimen\@SavedLeftOffset	% safe from users
 
-\newdimen\UpperWidth
-\newdimen\LowerWidth
-\newdimen\LowerHeight
-\newdimen\UpperLeftOffset
-\newdimen\UpperRightOffset
-\newdimen\UpperCenter
-\newdimen\LowerCenter
-\newdimen\UpperAdjust
-\newdimen\RuleAdjust
-\newdimen\LowerAdjust
-\newdimen\RuleWidth
-\newdimen\HLabelAdjust
-\newdimen\VLabelAdjust
-\newdimen\WidthAdjust
 
-\newbox\@UpperPart
-\newbox\@LowerPart
-\newbox\@LabelPart
-\newbox\ResultBox
-
-%	Flags
-
-\newif\if@inferRule	% whether \@infer draws a rule.
-\newif\if@DoubleRule	% whether \@infer draws doulbe rules.
-\newif\if@ReturnLeftOffset	% whether \@infer returns \@LeftOffset.
-
-%	Special Fonts
 
 \def\DeduceSym{\vtop{\baselineskip4\p@ \lineskiplimit\z@
     \vbox{\hbox{.}\hbox{.}\hbox{.}}\hbox{.}}}

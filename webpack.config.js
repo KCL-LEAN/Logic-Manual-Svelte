@@ -59,7 +59,7 @@ module.exports = {
 				]
 			},
 			{
-				test: /\.sty$/,
+				test: /\.sty$/i,
 				use: {
 					loader: 'raw-loader'
 				}

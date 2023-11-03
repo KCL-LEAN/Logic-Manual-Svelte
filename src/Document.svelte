@@ -13,8 +13,6 @@
 	onMount(() => {
         let script = document.createElement('script');
         script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js";
-        console.log(sty);
-        let latexMacros = sty; 
         
 
     script.onload = () => {
@@ -38,7 +36,8 @@
 
 
 <div class="Document">
-    \(\usepackage{"{" + latexMacros + "}"}\)
+    
+    \({sty}\)
     <Sidebar>
     <h1>
         Problems
@@ -55,6 +54,8 @@
         Document Header
     </h1>
 
+
+    $$\infer &lbrack;A&rbrack;&lbrack;B&rbrack;$$
     <main>
     <p>
         Rendering Latex
@@ -68,7 +69,7 @@
     <div>
     The plan for this section is to review the natural deduction rules for propositional logic and learn their implementation in Lean.
 
-    $$\land\infer[land Elim] &#123A B&#125&#123A\&B&#125$$
+    $$\land\infer&;brack;land Elim&rbrack; &lbrack;&#123A B&#125&#123A\&B&#125&rbrack;$$
     
     </div>
 
