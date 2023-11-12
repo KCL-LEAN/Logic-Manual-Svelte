@@ -13,7 +13,7 @@ we want to be able to render the documents
         <svelte:fragment slot="content">
         <p>
             This is text that will contain Mathjax, look here is some mathjax, 
-            $$\alpha 555123213123$$
+            $$\alpha\top\alpha$$
 
         </p>
 

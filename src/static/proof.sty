@@ -1,3 +1,4 @@
+{"
 %	proof.sty	(Proof Figure Macros)
 %
 % 	version 3.1 (for both LaTeX 2.09 and LaTeX 2e)
@@ -70,16 +71,15 @@
 
 %	Style Parameters
 
-%\newdimen\inferLineSkip		\inferLineSkip=2pt
-%\newdimen\inferLabelSkip	\inferLabelSkip=5pt
+\itemskip=0pt\inferLineSkip		\inferLineSkip=2pt %replace \newdimen with def?
+\newskip \itemskip=0pt\inferLabelSkip	\inferLabelSkip=5pt
 \def\inferTabSkip{\quad}
 
 
 
 
 
-\def\DeduceSym{\vtop{\baselineskip4\p@ \lineskiplimit\z@
-    \vbox{\hbox{.}\hbox{.}\hbox{.}}\hbox{.}}}
+\def\DeduceSym{\vtop{\baselineskip4\vbox{\hbox{.}\hbox{.}\hbox{.}}\hbox{.}}}
 
 %	Macros
 
@@ -226,5 +226,4 @@
 	\if@ReturnLeftOffset \else \global\@LeftOffset=\@SavedLeftOffset \fi
 %
 	\box\ResultBox
-}
-
+"}

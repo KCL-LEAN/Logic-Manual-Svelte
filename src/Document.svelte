@@ -7,7 +7,6 @@
 
 	import { createEventDispatcher, onMount } from 'svelte';
 	const dispatch = createEventDispatcher();
-    let latexMacros: String = '';
 
 
 	onMount(() => {
@@ -37,7 +36,7 @@
 
 <div class="Document">
     
-    \({sty}\)
+    <!--\({sty}\)-->
     <Sidebar>
     <h1>
         Problems
@@ -54,12 +53,16 @@
         Document Header
     </h1>
 
+    \({"\\newcommand{\\infer}[2]{\\cfrac{#1\\qquad #2}{#1 \\wedge #2}\\small{\\wedge_I}}"}\)
+    \({"\\newcommand{\\infert}[2]{\\dfrac{#1\\qquad #2}{#1 \\wedge #2}\\wedge_I}"}\)
 
-    $$\infer &lbrack;A&rbrack;&lbrack;B&rbrack;$$
+    $${"\\cfrac{\\cfrac{a\\hbox{asdf}}{b}}{\\cfrac{c}{d}}"}$$
+    $$ {"\\infer{ \\infer{a}{b} }{c}"} $$
+    $$ {"\\infer{a} {b}"} $$
+
     <main>
     <p>
         Rendering Latex
-        $$\alpha\varphi$$
     </p>
         <slot name = "content"/>
         <p class = "missing"> No Content </p>
@@ -68,9 +71,10 @@
     <h2>Propositional Logic</h2>
     <div>
     The plan for this section is to review the natural deduction rules for propositional logic and learn their implementation in Lean.
-
+    $${"\\frac{A}{B}"}$$
     $$\land\infer&;brack;land Elim&rbrack; &lbrack;&#123A B&#125&#123A\&B&#125&rbrack;$$
     
+    $${"\\cfrac{ A \\vee B \\hbox{ true} \\quad \\begin{matrix} \\cfrac{}{A \\hbox{ true}}\\ u \\\\ \\vdots \\\\ C \\hbox{ true} \\end{matrix} \\quad \\begin{matrix} \\cfrac{}{B \\hbox{ true}}\\ w \\\\ \\vdots \\\\ C \\hbox{ true} \\end{matrix} }{C \\hbox{ true}}\\ \\vee_{E^{u,w}}"}$$
     </div>
 
 
@@ -78,6 +82,11 @@
 </div>
 
 <style> 
+    div {
+        background-color: #212730;
+        padding-width: 0;
+        color: #FFFFAA;
+    }   
     h1 {
         font-family: "Eczar", serif;
         font-weight: bold;
