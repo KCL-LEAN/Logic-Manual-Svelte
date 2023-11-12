@@ -3,6 +3,7 @@
 </script>
 <script lang="ts">
     import Sidebar from './Sidebar.svelte'
+    import Swap from './Swap.svelte'
     import sty from './static/proof.sty';
 
 	import { createEventDispatcher, onMount } from 'svelte';
@@ -52,14 +53,12 @@
     <h1>
         Document Header
     </h1>
-
-    \({"\\newcommand{\\infer}[2]{\\cfrac{#1\\qquad #2}{#1 \\wedge #2}\\small{\\wedge_I}}"}\)
-    \({"\\newcommand{\\infert}[2]{\\dfrac{#1\\qquad #2}{#1 \\wedge #2}\\wedge_I}"}\)
-
+    
+    \({"\\newcommand{\\infer}[3]{\\cfrac{#3}{#2}\\small{#1}}"}\)
+    
     $${"\\cfrac{\\cfrac{a\\hbox{asdf}}{b}}{\\cfrac{c}{d}}"}$$
-    $$ {"\\infer{ \\infer{a}{b} }{c}"} $$
-    $$ {"\\infer{a} {b}"} $$
-
+    $$ {"\\infer{I\\land}{ a}{\\lower5pt c \\qquad d}"} $$
+    <Swap/>
     <main>
     <p>
         Rendering Latex

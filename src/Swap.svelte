@@ -1,22 +1,23 @@
 <script lang="ts">
 let samp: string = `
-    \\infer{E}{
+    \\infer{\\land}{E}{
             A
             &
-            \\infer{D}{B & C}
+            \\infer{\\lor}{D}{B & C}
         }
     `;
 `\\newcommand{\\infer}[3]{\\cfrac{#2\\qquad #3}{#2 \\wedge #3}\\small{#1}}`
 
- //it has been so long since I have written code without using functional programming paradigms so I wanted to practice my fundamentals here
-const map = {
+
+const map = { //here is where we're going to store constants, I just think it looks better this way, this is the same as just declaring them as constants except now you need to preface their names with 'map.'
     splitr: "&",
     splitrRep: "\\qquad",
-    labelMark: "="
+    labelMark: "=",
+    singleVarRep: "\\lower5pt" //TODO: remove awkward height of single variables when next to large formulas
 
 };
 
-let ns:string[] = [];
+let ns:string[] = []; //We make an array and then push each individual character present in the string into the array, in typescript, you declare the type of a variable with :type after the name of the variable in its declaration
 function addAll (arr: string[], str: string){
         for(let ii = 0; ii < str.length; ii++){
             arr.push(str.charAt(ii));
@@ -41,8 +42,13 @@ for(let i = 0; i < samp.length; i++){
     else{
         ns.push(samp.charAt(i));
     }
-
 }
-
-
+let output = ns.join(""); 
 </script>
+<main>
+    <div>
+        Input: {samp}
+    </div>
+        Output: $${output}$$
+    <div>
+</main>
