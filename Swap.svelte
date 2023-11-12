@@ -12,29 +12,31 @@ let samp: string = `
 const map = {
     splitr: "&",
     splitrRep: "\\qquad",
-    labelMark: "=",
-    labelMarkRep: "="
+    labelMark: "="
 
 };
 
 let ns:string[] = [];
+function addAll (arr: string[], str: string){
+        for(let ii = 0; ii < str.length; ii++){
+            arr.push(str.charAt(ii));
+        }
+    return arr;
+}
 for(let i = 0; i < samp.length; i++){
     let char = samp.charAt(i)
     if(char == map.splitr){
-        for(let ii = 0; ii < map.splitrRep.length; ii++){
-            ns.push(map.splitrRep.charAt(ii));
-        }
+        ns = addAll(ns, map.splitrRep);
     }
     else if(char == map.labelMark){
-        let labelIndices: Number[] = [];
+        let labelIndices: number[] = [];
         for(let ii=i; ii < samp.length; ii++){
             if(samp.charAt(ii) == "[" || samp.charAt(ii) == "]"){
-                samp.
+                labelIndices.push(ii);
             }
         } 
-        for(let ii = 0; ii < map.labelMarkRep.length; ii++){
-            ns.push(map.splitrRep.charAt(ii));
-        }
+        const str = samp.substring(labelIndices[0], labelIndices[1]); //might be wrong
+        ns = addAll(ns, str);
     }
     else{
         ns.push(samp.charAt(i));
