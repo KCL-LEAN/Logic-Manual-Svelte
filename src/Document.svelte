@@ -57,7 +57,7 @@
     \({"\\newcommand{\\infer}[3]{\\cfrac{#3}{#2}\\small{#1}}"}\)
     
     $${"\\cfrac{\\cfrac{a\\hbox{asdf}}{b}}{\\cfrac{c}{d}}"}$$
-    $$ {"\\infer{I\\land}{ a}{\\lower5pt c \\qquad d}"} $$
+    $$ {"\\infer{I\\land}{ a}{ c \\qquad d}"} $$
     <Swap/>
     <main>
     <p>
