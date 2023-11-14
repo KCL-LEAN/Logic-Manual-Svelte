@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
     import  Document  from './Document.svelte'
 
 /*What is it going to be like?

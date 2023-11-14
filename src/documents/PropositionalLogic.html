@@ -1,0 +1,62 @@
+<h1>
+    Propositional Logic and Lean
+    </h1>
+    <h2>
+    Introduction
+    </h2>
+    <div>
+       <p>
+        The plan for this section is to review the natural deduction rules for propositional logic and learn their implementation in Lean. 
+        The rules are familiar for you from the lectures. This section provides no new content, the aim is to get to familiar with the basic lean syntax. At the end, we will look at more advanced proofs in Lean.
+        </p> 
+    
+    <h3>Conjunction</h3>
+        <p>  The rules for conjunction are the following:
+        $$\infer[\land Intro]{A\land B}{A&B}$$ \qquad  $$\infer[\land Elim] {A} {A\land B}$$ \qquad $$\infer[\land Elim] {B} {A\land B}$$ 
+        This is an example natural deduction proof involving the rules for conjunction:</p> 
+        <p>
+         Example 1: $$B \land A \vdash A \land B$$
+        $$\infer[\land Intro]
+          {A\land B} 
+            {\infer[\land Elim] {A} {B \land A}
+          & \infer [\land Elim]{B} {B \land A}}$$
+        Now compare this to the derivation in Lean. 
+        </p>
+    
+    <h3> Conditional</h3>
+        <p> The rules for the Conditional are the following: 
+         $$\infer[\rightarrow Intro]{A\rightarrow B} {\infer*{B}{[A]}}$$ $$\infer[Elim]{B} {A\rightarrow B& A}$$
+        This is an example natural deduction proof involving the rules for the conditional: </p>
+        <p>
+        Example 2: $$A\rightarrow B, B\rightarrow C \vdash A \rightarrow $$
+        $$\infer[\rightarrow Intro]{A\rightarrow C}{\infer[\rightarrow Elim] {C}{B \rightarrow C & \infer [\rightarrow Elim]{B} {A\rightarrow B & [A]}}}$$
+        </p>
+    
+    <h3>Disjunction</h3>
+        <p> 
+        The rules for Disjunction are the following: 
+         $$\infer[\lor Intro] {A\lor B} {A}$$ \qquad  $$\infer[\lor Intro] {A\lor B} {B}$$  \qquad $$\infer[\lor Elim] {C} 
+            {A \lor B & \infer*{C}{[A]}& \infer*{C}{[B]}}$$
+        Now look at an example natural deduction proof using the rules for conjunction and its implementation in Lean:
+        </p>
+        <p>
+            Example 3: $$A\lor B \vdash A \lor (B \lor C)$$
+            $$\infer[\lor Elim]{A\lor (B \lor C)}{A\lor B &\infer[\lor Intro]{A\lor (B\lor C)}{[A]} & \infer[\lor Intro]{A\lor (B\lor C)}{\infer[\lor Intro]{B\lor C}{[B]}}} $$
+        </p>
+    
+    <h3> Negation</h3>
+        <p>
+            The rules for negation are the following: 
+            \newline $$\infer[\neg Intro] {\neg A} {\infer*{B}{[A]} & \infer*{\neg B}{[A]}}$$  $$\infer[\neg Elim ] { A} infer*{B}{[neg A]} & infer*{neg B}{[neg A]}$$
+        </p>
+    
+    <h3> Example Proofs</h3>
+        <p>
+            Example  $$A\lor (B \land C)\vdash (A\lor B) \land (A \lor C)$$
+            $$\infer[\land Intro]{ (A\lor B) \land (A \lor C)} 
+            {\infer[\lor Elim]{A \lor B}{A\lor (B \land C) &
+            \infer[\lor Intro]{A\lor B}{A}& \infer[\lor Intro]{A\lor B}{\infer[\land Elim]{B}{B\land C}}} & 
+            \infer[\lor Elim]{A\lor C}{A\lor (B \land C) & \infer[\lor Intro]{A\lor C}{A}& \infer[\lor Intro]{A\lor C}{\infer[\land Elim]{C}{B\land C}}}} $$   
+        </p>
+    </div>
+    

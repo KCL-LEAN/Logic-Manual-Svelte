@@ -28,19 +28,20 @@
         </p>
     </Sidebar>
     <h1>
-        Document Header
-    </h1>
-    <main>
-
-    <p>
-        Rendering Latex
-        $$\alpha\varphi$$
-    </p>
-    <Editor>
-    </Editor>
-        <slot name = "content"/>
-        <p class = "missing"> No Content </p>
-    </main>
+Propositional Logic and Lean
+</h1>
+<h2>
+Introduction
+</h2>
+$$ $$
+<div>
+   <p>The plan for this section is to review the natural deduction rules for propositional logic and learn their implementation in Lean. 
+    The rules are familiar for you from the lectures. This section provides no new content, the aim is to get to familiar with the basic lean syntax. At the end, we will look at more advanced proofs in Lean.
+    </p> 
+    <p>  The rules for conjunction are the following:
+    
+    This is an example natural deduction proof involving the rules for conjunction:</p> 
+</div>
 </div>
 
 <style> 
