@@ -6,8 +6,8 @@ import {
   WorkspaceFolder, window
 } from 'vscode'
 import {
-  DidChangeTextDocumentParams,
-  DidCloseTextDocumentParams,
+  type DidChangeTextDocumentParams,
+  type DidCloseTextDocumentParams,
   DidOpenTextDocumentNotification,
   DocumentFilter,
   InitializeResult,

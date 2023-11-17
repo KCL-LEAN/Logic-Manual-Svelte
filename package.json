@@ -21,19 +21,25 @@
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
   },
+  "overrides": {
+    "monaco-editor": "npm:@codingame/monaco-editor-treemended@>=1.83.7 <1.84.0",
+    "vscode": "npm:@codingame/monaco-vscode-api@>=1.83.7 <1.84.0"
+  },
+  "resolutions": {
+    "monaco-editor": "npm:@codingame/monaco-editor-treemended@>=1.83.7 <1.84.0",
+    "vscode": "npm:@codingame/monaco-vscode-api@>=1.83.7 <1.84.0"
+  },
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
     "dev": "webpack serve",
     "validate": "svelte-check"
   },
   "dependencies": {
+    "@codingame/monaco-vscode-textmate-service-override": "^1.83.8",
     "copy-webpack-plugin": "^11.0.0",
     "fontsource-eczar": "^4.0.0",
     "html-webpack-plugin": "^5.5.3",
-    "monaco-editor": "^0.44.0",
-    "monaco-editor-textmate": "^4.0.0",
-    "monaco-textmate": "^3.0.1",
-    "vscode": "npm:@codingame/monaco-vscode-api@^1.83.8",
+    "monaco-languageclient": "^7.0.2",
     "vscode-ws-jsonrpc": "^3.1.0"
   }
 }

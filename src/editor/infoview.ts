@@ -1,5 +1,7 @@
 /* This file is based on `vscode-lean4/vscode-lean4/src/infoview.ts ` */
 
+import * as monaco from 'monaco-editor';
+import * as vscode from 'vscode';
 import { join } from 'path'
 import {
   commands, Disposable, DocumentSelector,
@@ -21,7 +23,6 @@ import { LeanClient } from './leanclient'
 import * as ls from 'vscode-languageserver-protocol'
 import { c2pConverter, fromLanguageServerPosition, fromLanguageServerRange, p2cConverter, toLanguageServerRange } from './utils/converters'
 // import { logger } from './utils/logger'
-import * as monaco from 'monaco-editor/esm/vs/editor/editor.api.js'
 
 const keepAlivePeriodMs = 10000
 
@@ -125,6 +126,10 @@ export class InfoProvider implements Disposable {
       }
       return undefined
     },
+        copyToClipboard: async (text: string): Promise<any> => {
+            const str: string = 'copy';
+            const promy: Promise<string> = Promise.resolve(str as string) 
+        return (promy)},
     sendClientNotification: async (uri: string, method: string, params: any): Promise<void> => {
       const client = this.client // this.clientProvider.findClient(uri)
       if (client != null) {
@@ -210,13 +215,9 @@ export class InfoProvider implements Disposable {
         this.clientNotifSubscriptions.set(method, [count - 1, subscriptions])
       }
     },
-    copyToClipboard: async (text) => {
-      await window.clipboard.writeText(text)
-      await window.showInformationMessage(`Copied to clipboard: ${text}`)
-    },
     insertText: async (text, kind, tdpp) => {
       let uri: Uri | undefined
-      let pos: Position | undefined
+      let pos: any | undefined
       if (tdpp != null) {
         uri = p2cConverter.asUri(tdpp.textDocument.uri)
         pos = fromLanguageServerPosition(tdpp.position)
