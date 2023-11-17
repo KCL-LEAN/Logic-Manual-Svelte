@@ -1,32 +1,32 @@
 import { Registry } from 'monaco-textmate' // peer dependency
 import { wireTmGrammars } from 'monaco-editor-textmate'
-import * as lightPlusTheme from './lightPlus.json'
+//import * as lightPlusTheme from './lightPlus.json'
 import * as leanSyntax from './syntaxes/lean.json'
 import * as leanMarkdownSyntax from './syntaxes/lean-markdown.json'
 import * as codeblockSyntax from './syntaxes/codeblock.json'
 import languageConfig from 'lean4/language-configuration.json';
 import { loadWASM } from 'onigasm'
 import * as monaco from 'monaco-editor/esm/vs/editor/editor.api.js'
-import { MonacoServices } from 'monaco-languageclient';
-import { StandaloneServices } from 'vscode/services';
-import getMessageServiceOverride from 'vscode/service-override/messages';
+//import { MonacoServices } from 'monaco-languageclient';
+//import { StandaloneServices } from 'vscode/services';
+import getMessageServiceOverride from '@codingame/monaco-vscode-languages-service-override';
 //@ts-ignore
 import onigasmUrl from 'onigasm/lib/onigasm.wasm?url'
 
 export function monacoSetup () {
 
-  StandaloneServices.initialize({
+  initialize({
     ...getMessageServiceOverride(document.body)
   });
 
   // install Monaco language client services
-  MonacoServices.install();
+  //MonacoServices.install(); //TODO: Changed, may break it all
 
   // map of monaco "language id's" to TextMate scopeNames
   const grammars = new Map()
   grammars.set('lean4', 'source.lean')
 
-  monaco.editor.defineTheme('vs-code-theme-converted', lightPlusTheme as any);
+  //monaco.editor.defineTheme('vs-code-theme-converted', lightPlusTheme as any);
 
   // register Monaco languages
   monaco.languages.register({

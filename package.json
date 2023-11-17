@@ -1,11 +1,13 @@
 {
-  "name": "svelte-app",
+  "name": "Lean Four King's College London",
   "version": "1.0.0",
   "devDependencies": {
     "@tsconfig/svelte": "^4.0.0",
     "@types/node": "^16.0.0",
+    "@types/vscode": "^1.84.1",
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
+    "lean4": "https://gitpkg.now.sh/leanprover/vscode-lean4/vscode-lean4?79d345c739bf707024eef5057ccef81b404a2ddf",
     "mini-css-extract-plugin": "^2.6.0",
     "raw-loader": "^4.0.2",
     "svelte": "^4.0.0",
@@ -31,6 +33,7 @@
     "monaco-editor": "^0.44.0",
     "monaco-editor-textmate": "^4.0.0",
     "monaco-textmate": "^3.0.1",
-    "vscode": "^1.1.37"
+    "vscode": "npm:@codingame/monaco-vscode-api@^1.83.8",
+    "vscode-ws-jsonrpc": "^3.1.0"
   }
 }

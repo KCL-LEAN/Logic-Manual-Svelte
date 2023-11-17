@@ -1,4 +1,3 @@
-/* This file is based on `vscode-lean4/src/leanclient.ts` */
 
 import {
   TextDocument, EventEmitter, Diagnostic,
@@ -20,7 +19,7 @@ import {
 } from 'monaco-languageclient'
 import { State } from 'vscode-languageclient'
 import * as ls from 'vscode-languageserver-protocol'
-import { toSocket, WebSocketMessageReader, WebSocketMessageWriter } from 'vscode-ws-jsonrpc'
+import {type toSocket, type WebSocketMessageReader, type WebSocketMessageWriter } from 'vscode-ws-jsonrpc'
 
 import {
   // toolchainPath, lakePath, addServerEnvPaths, serverArgs, serverLoggingEnabled, serverLoggingPath, shouldAutofocusOutput,
