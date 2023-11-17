@@ -4,8 +4,7 @@
 <script lang="ts">
     import Sidebar from './Sidebar.svelte'
     import Swap from './Swap.svelte'
-    import sty from './static/proof.sty';
-
+    import page from './static/documents/PropositionalLogic.sty';
 	import { createEventDispatcher, onMount } from 'svelte';
 	const dispatch = createEventDispatcher();
 
@@ -31,13 +30,17 @@
     );
 
     let problems = ["Problem One", "Problem Two","Problem Three","Problem Four","Problem Five"]
-    
+    export const load = (async () => {
+        return page;
+    })
 </script>
 
 
 <div class="Document">
     
-    <!--\({sty}\)-->
+    \({"\\newcommand{\\infer}[3]{\\cfrac{#3}{#2}\\small{#1}}"}\)
+
+    <Swap samp={page}/>
     <Sidebar>
     <h1>
         Problems
@@ -54,11 +57,8 @@
         Document Header
     </h1>
     
-    \({"\\newcommand{\\infer}[3]{\\cfrac{#3}{#2}\\small{#1}}"}\)
-    
     $${"\\cfrac{\\cfrac{a\\hbox{asdf}}{b}}{\\cfrac{c}{d}}"}$$
     $$ {"\\infer{I\\land}{ a}{ c \\qquad d}"} $$
-    <Swap/>
     <main>
     <p>
         Rendering Latex

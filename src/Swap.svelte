@@ -1,5 +1,5 @@
 <script lang="ts">
-let samp: string = `
+export let samp: string = `
     \\infer{\\land}{E}{
             A
             &
@@ -36,7 +36,7 @@ for(let i = 0; i < samp.length; i++){
                 labelIndices.push(ii);
             }
         } 
-        const str = samp.substring(labelIndices[0], labelIndices[1]); //might be wrong
+        const str = "{" + samp.substring(labelIndices[0]+1, labelIndices[1]-2) + "}"; //might be wrong
         ns = addAll(ns, str);
     }
     else{
@@ -45,10 +45,9 @@ for(let i = 0; i < samp.length; i++){
 }
 let output = ns.join(""); 
 </script>
+
 <main>
     <div>
-        Input: {samp}
-    </div>
-        Output: $${output}$$
+        $${@html output}$$
     <div>
 </main>
