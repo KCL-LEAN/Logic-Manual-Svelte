@@ -10,7 +10,6 @@ import languageConfig from 'lean4/language-configuration.json';
 import { Registry } from 'monaco-editor/esm/vs/platform/registry/common/platform.js';//Fix
 import { default as wireTmGrammars } from '@codingame/monaco-vscode-textmate-service-override';
 import getTextmateServiceOverride from '@codingame/monaco-vscode-textmate-service-override';
-import ITe from '@codingame/monaco-vscode-textmate-service-override';
 import getMessageServiceOverride from '@codingame/monaco-vscode-languages-service-override';
 //import { loadWASM } from 'onigasm'
 //import { MonacoServices } from 'monaco-languageclient';

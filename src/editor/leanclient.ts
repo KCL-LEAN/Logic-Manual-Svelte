@@ -5,9 +5,10 @@ import {
   Disposable, Uri, ConfigurationChangeEvent, OutputChannel, DiagnosticCollection,
   WorkspaceFolder, window
 } from 'vscode'
+import * from ""
 import {
-  type DidChangeTextDocumentParams,
-  type DidCloseTextDocumentParams,
+  DidChangeTextDocumentParams,
+  DidCloseTextDocumentParams,
   DidOpenTextDocumentNotification,
   DocumentFilter,
   InitializeResult,
