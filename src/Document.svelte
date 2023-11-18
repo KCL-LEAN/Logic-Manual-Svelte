@@ -2,6 +2,7 @@
     declare var MathJax: any;
 </script>
 <script lang="ts">
+    export let ref; //for styling
     import Sidebar from './Sidebar.svelte'
     import Swap from './Swap.svelte'
     import page from './static/documents/PropositionalLogic.sty';

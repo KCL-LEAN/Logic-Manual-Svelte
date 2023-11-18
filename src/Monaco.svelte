@@ -1,75 +1,71 @@
 <script lang="ts">
-	import { onDestroy, onMount } from 'svelte';
+    import { onDestroy, onMount } from 'svelte';
     import * as monaco from 'monaco-editor';
-    import * as vscode from 'vscode';
-	import editorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker';
-	import jsonWorker from 'monaco-editor/esm/vs/language/json/json.worker?worker';
-	import cssWorker from 'monaco-editor/esm/vs/language/css/css.worker?worker';
-	import htmlWorker from 'monaco-editor/esm/vs/language/html/html.worker?worker';
-	import tsWorker from 'monaco-editor/esm/vs/language/typescript/ts.worker?worker';
+    //import * as vscode from 'vscode';
+    //import { buildWorkerDefinition } from 'monaco-editor-workers';
+    //
+    //import editorWorker from ...;
+    //import jsonWorker from 'monaco-editor/esm/vs/language/json/json.worker.js'; 
+    //import cssWorker from 'monaco-editor/esm/vs/language/css/css.worker';
+    //import htmlWorker from 'monaco-editor/esm/vs/language/html/html.worker';
+    //import tsWorker from 'monaco-editor/esm/vs/language/typescript/ts.worker';
 
-	import { code as jsCode } from '$lib/js_code';
-	import { code as tsCode } from '$lib/ts_code';
-	import { code as phpCode } from '$lib/php_code';
-	import { code as pyCode } from '$lib/py_code';
-	import { code as htmlCode } from '$lib/html_code';
+    //import { code as jsCode } from '$lib/js_code';
+    //import { code as tsCode } from '$lib/ts_code';
+    //import { code as phpCode } from '$lib/php_code';
+    //import { code as pyCode } from '$lib/py_code';
+    //import { code as htmlCode } from '$lib/html_code';
 
-	let editorElement: HTMLDivElement;
-	let editor: monaco.editor.IStandaloneCodeEditor;
-	let model: monaco.editor.ITextModel;
+    import { buildWorkerDefinition } from 'monaco-editor-workers';
 
-	function loadCode(code: string, language: string) {
-		model = monaco.editor.createModel(code, language);
+    export let ref;//for styling
+    let editorElement: HTMLDivElement;
+    let editor: monaco.editor.IStandaloneCodeEditor;
+    let model: monaco.editor.ITextModel;
 
-		editor.setModel(model);
-	}
+    function loadCode(code: string, language: string, editor: monaco.editor.IStandaloneCodeEditor) {
+    	model = monaco.editor.createModel(code, language);
 
-	onMount(async () => {
-		self.MonacoEnvironment = {
-			getWorker: function (_: any, label: string) {
-				if (label === 'json') {
-					return new jsonWorker();
-				}
-				if (label === 'css' || label === 'scss' || label === 'less') {
-					return new cssWorker();
-				}
-				if (label === 'html' || label === 'handlebars' || label === 'razor') {
-					return new htmlWorker();
-				}
-				if (label === 'typescript' || label === 'javascript') {
-					return new tsWorker();
-				}
-				return new editorWorker();
-			}
-		};
+    	editor.setModel(model);
+    }
 
-		monaco.languages.typescript.typescriptDefaults.setEagerModelSync(true);
+    onMount(async () => {
+        buildWorkerDefinition('./node_modules/monaco-editor-workers/dist/workers', import.meta.url, true);
+        
+        editor = monaco.editor.create(editorElement, {
+        	automaticLayout: true,
+        	theme: 'vs-dark'
+        });
 
-		editor = monaco.editor.create(editorElement, {
-			automaticLayout: true,
-			theme: 'vs-dark'
-		});
+        monaco.languages.typescript.typescriptDefaults.setEagerModelSync(true);
 
-		loadCode(jsCode, 'javascript');
-	});
 
-	onDestroy(() => {
-		monaco?.editor.getModels().forEach((model) => model.dispose());
-		editor?.dispose();
-	});
+        loadCode('a', 'code', editor);
+    });
+
+    onDestroy(() => {
+    	monaco?.editor.getModels().forEach((model) => model.dispose());
+    	editor?.dispose();
+    });
 </script>
 
-<div class="flex h-screen w-full flex-col">
-	<div class="flex gap-x-1 p-1">
-		<button class="w-fit border-2 p-1" on:click={() => loadCode(jsCode, 'javascript')}
-			>JavaScript</button
-		>
-		<button class="w-fit border-2 p-1" on:click={() => loadCode(tsCode, 'typescript')}
-			>TypeScript</button
-		>
-		<button class="w-fit border-2 p-1" on:click={() => loadCode(phpCode, 'php')}>PHP</button>
-		<button class="w-fit border-2 p-1" on:click={() => loadCode(pyCode, 'python')}>Python</button>
-		<button class="w-fit border-2 p-1" on:click={() => loadCode(htmlCode, 'html')}>HTML</button>
-	</div>
-	<div class="flex-grow" bind:this={editorElement} />
+<div class="monacoframe">
+    <div class="ba">
+        <button class="" on:click={() => loadCode('loader', 'html', editor)}>HTML</button>
+    </div>
+    <div class="editor" bind:this={editorElement} />
 </div>
+
+<style>
+    .editor{
+        min-width: 500px;
+        min-height: 1000px;
+        text-align:left;
+    }
+    .monacoframe{
+        display: flex;
+        justify-content: space-between;
+        border-radius: 5%;
+    }
+</style>
+

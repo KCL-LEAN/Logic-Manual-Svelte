@@ -76,6 +76,9 @@ module.exports = {
     devtool: prod ? false : 'source-map',
     devServer: {
         hot: true,
+        client: {
+            overlay: false
+        },
         static: {
             directory: path.join(__dirname, 'public'),
         }
