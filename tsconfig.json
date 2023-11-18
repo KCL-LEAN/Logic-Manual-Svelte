@@ -6,7 +6,7 @@
   "compilerOptions": {
     "outDir": "./client/dist/",
     "module": "esnext",
-    "target": "es5",
+    "target": "es6",
     "allowJs": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,

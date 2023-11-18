@@ -31,7 +31,7 @@
   },
   "scripts": {
     "postinstall": "monaco-treemending",
-    "build": "cross-env NODE_ENV=production webpack && npm run build_server",
+    "build": "cross-env NODE_ENV=production webpack",
     "build_server": "server/build.sh",
     "dev": "webpack serve",
     "validate": "svelte-check"

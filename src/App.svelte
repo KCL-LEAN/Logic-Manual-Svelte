@@ -11,14 +11,8 @@ we want to be able to render the documents
 <main>
     <Document>
         <svelte:fragment slot="content">
-        <p>
-            This is text that will contain Mathjax, look here is some mathjax, 
-            $$\alpha\top\alpha$$
-
-        </p>
 
     <div>
-            $$\Sigma$$
     </div>
         </svelte:fragment>
     </Document>
