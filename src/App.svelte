@@ -1,12 +1,7 @@
-<script>
-    import  Document  from './Document.svelte'
-    import  Monaco from './Monaco.svelte'
+<script lang="ts">
+    import Document  from './Document.svelte'
+    import Monaco from './Monaco.svelte'
 
-/*What is it going to be like?
-We want a side bar and NOT a top bar because people will probably mostly be using this on their laptop,
-we want a funky lil css grid menu where you can select different challenges
-we want to be able to render the documents
-*/
 </script>
 
 <main>
