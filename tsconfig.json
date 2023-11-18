@@ -12,8 +12,7 @@
     "esModuleInterop": true,
     "moduleResolution": "node",
     "downlevelIteration": true,
-    "experimentalDecorators": true,
-    "verbatimModuleSyntax": false 
+    "experimentalDecorators": true
   },
   "exclude": [
     "server",
