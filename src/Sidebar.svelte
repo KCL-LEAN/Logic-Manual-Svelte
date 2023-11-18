@@ -1,5 +1,5 @@
 <div class = 'sidebar'>
-    <slot/>
+   <slot/>
 </div>
 <style>
 
@@ -13,7 +13,7 @@ div {}
   border: 5px solid;
   border-color: green;
   background: black;
-  border-radius: 00px;
+    border-radius: 40px;
   height: 100%;
   z-index: 3;
   color: white;
@@ -22,7 +22,7 @@ div {}
   text-align: center;
   overflow: hidden;
   &:hover {
-    border-radius: 40px;
+  border-radius: 50px;
   }
   }
 </style>

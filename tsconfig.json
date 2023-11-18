@@ -1,33 +1,22 @@
 {
-"include": ["src/**/*", "src/node_modules/**/*"],
-"exclude": ["node_modules/*", "__sapper__/*", "static/*"],
+		"extends": "@tsconfig/svelte/tsconfig.json",
+		"include": ["src/**/*", "src/node_modules/**/*"],
+		"exclude": ["node_modules/*", "__sapper__/*", "static/*"],
 
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "outDir": "./public",
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": false,
-    "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": true,
-    "experimentalDecorators": true,
-    "downlevelIteration": true,
+    "outDir": "./client/dist/",
     "module": "esnext",
-    "moduleResolution": "node",
+    "target": "es6",
+    "allowJs": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": false,
-    "sourceMap": false,
-    "jsx": "react-jsx"
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "verbatimModuleSyntax": false 
   },
-  "include": [
-    "src"
+  "exclude": [
+    "server",
+    "node_modules"
   ]
 }
