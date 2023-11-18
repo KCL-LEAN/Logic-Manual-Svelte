@@ -30,6 +30,7 @@
     "vscode": "npm:@codingame/monaco-vscode-api@>=1.83.7 <1.84.0"
   },
   "scripts": {
+    "postinstall": "monaco-treemending",
     "build": "cross-env NODE_ENV=production webpack",
     "dev": "webpack serve",
     "validate": "svelte-check"

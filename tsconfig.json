@@ -13,6 +13,7 @@
     "moduleResolution": "node",
     "downlevelIteration": true,
     "experimentalDecorators": true,
+    "verbatimModuleSyntax": false 
   },
   "exclude": [
     "server",

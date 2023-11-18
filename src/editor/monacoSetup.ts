@@ -1,25 +1,28 @@
 import * as monaco from 'monaco-editor';
 import * as vscode from 'vscode';
-import { Registry } from 'monaco-textmate' // peer dependency
-import { wireTmGrammars } from 'monaco-editor-textmate'
 //import * as lightPlusTheme from './lightPlus.json'
 import * as leanSyntax from './syntaxes/lean.json'
 import * as leanMarkdownSyntax from './syntaxes/lean-markdown.json'
 import * as codeblockSyntax from './syntaxes/codeblock.json'
 import { initServices, MonacoLanguageClient } from 'monaco-languageclient';
 import languageConfig from 'lean4/language-configuration.json';
+
+import { Registry } from 'monaco-editor/esm/vs/platform/registry/common/platform.js';//Fix
+import { default as wireTmGrammars } from '@codingame/monaco-vscode-textmate-service-override';
 import getTextmateServiceOverride from '@codingame/monaco-vscode-textmate-service-override';
+import ITe from '@codingame/monaco-vscode-textmate-service-override';
+import getMessageServiceOverride from '@codingame/monaco-vscode-languages-service-override';
 //import { loadWASM } from 'onigasm'
 //import { MonacoServices } from 'monaco-languageclient';
 //import { StandaloneServices } from 'vscode/services';
-import getMessageServiceOverride from '@codingame/monaco-vscode-languages-service-override';
 //@ts-ignore
 import onigasmUrl from 'onigasm/lib/onigasm.wasm?url'
-
+import textmate from '@codingame/monaco-vscode-textmate-service-override/textmate';
 export function monacoSetup () {
 
   initServices({
-    ...getMessageServiceOverride(document.body)
+    ...getMessageServiceOverride(),//(document.body) //TODO: I have 0 clue if this is correct at all
+    ...getTextmateServiceOverride()
   });
 
   // install Monaco language client services
@@ -63,11 +66,11 @@ export function monacoSetup () {
       }
     }
   });
-
-  // Load onigasm
+/*
+  // Load onigasm//No more textmate TODO
   (async () => {
     try {
-      await loadWASM(onigasmUrl)
+      textmate()
     } catch (err) {
       // Hot module replacement can cause us to run this code twice and that's ok.
       if (!(err as Error).message?.startsWith('Onigasm#init has been called')) {
@@ -76,4 +79,5 @@ export function monacoSetup () {
     }
     wireTmGrammars(monaco, registry, grammars)
   })()
+    */
 }
