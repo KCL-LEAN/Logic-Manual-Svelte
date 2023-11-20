@@ -1,0 +1,124 @@
+.container {
+  display: flex;
+  padding: 10px;
+  margin: 30px auto 0 auto;
+  width: 940px;
+  color: 36454F;
+}
+
+h1 {
+  font-size: 35px;
+}
+
+h2 {
+  font-size: 25px;
+}
+
+p{
+  font-size: 17px;
+}
+
+/* Links  */
+
+a:link {
+  color: 36454F;
+  background-color: transparent;
+  text-decoration: none;
+  }
+
+
+  a:visited {
+    color: 36454F;
+    background-color: transparent;
+    text-decoration: none;
+    }
+
+/* Navbar CSS */
+
+.navbar {
+  display: inline-block;
+  padding: 18px 10px;
+  width: 550px;
+  align-items: left;
+  text-decoration: none;
+}
+
+h1.logo{
+  font-size: 30px;
+  margin-top: 25px;
+  width: 200px;
+  text-align: center;
+  color: 36454F;
+}
+
+
+/* Navbar Pages CSS */
+
+.current{
+  list-style-type: none;
+  font-size: 15px;
+  line-height: 1.5;
+  text-align: left;
+  margin-left: -27px;
+}
+
+
+.internal_reference{
+  text-align: left;
+}
+
+/* Introduction to Lean CSS  */
+
+.lean_intro {
+  padding: 0 30px 0 30px;
+  text-align: left;
+  min-width: 450px;
+  max-width: 800px;
+}
+
+/* Expressions Paragraph CSS */
+
+.expressions_para {
+  margin-top: 30px;
+  margin-bottom: 25px;
+}
+
+/* Syntax Paragraph CSS */
+
+.syntax_para{
+  margin-top: 30px;
+  margin-bottom: 25px;
+}
+
+/* Logic Connectives for Lean CSS */
+
+.syntax_table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.syntax_table td, .syntax_table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.syntax_table tr:nth-child(even){background-color: #f2f2f2;}
+
+/* .syntax_table tr:hover {background-color: #ddd;} */
+
+.syntax_table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+/* footer */
+
+.footer{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
