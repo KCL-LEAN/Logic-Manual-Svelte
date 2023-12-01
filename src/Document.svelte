@@ -42,18 +42,9 @@
     \({"\\newcommand{\\infer}[3]{\\cfrac{#3}{#2}\\small{#1}}"}\)
 
     <Swap samp={page}/>
-    <Sidebar>
     <h1>
         Problems
     </h1>
-    {#each problems as problem}
-        <h2 >
-        <a href = "molin.ski">
-            {problem} 
-        </a>
-        </h2>
-    {/each}
-    </Sidebar>
     <h1>
         Document Header
     </h1>
