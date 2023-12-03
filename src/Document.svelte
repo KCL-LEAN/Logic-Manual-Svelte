@@ -74,9 +74,9 @@
 
 <style>
     div {
-        background-color: #212730;
+        background-color: #ffffff;
         padding: 0;
-        color: #FFFFAA;
+        color: rgb(54, 54, 54);
     }
     h1 {
         font-family: "Eczar", serif;
@@ -87,8 +87,6 @@
     }
 
     .document{
-      padding: 20px;
-      width: 67%;
-      justify-content: left;
+      padding: 50px;
     }
 </style>

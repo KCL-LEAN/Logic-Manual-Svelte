@@ -58,10 +58,11 @@
 
 <style>
     .editor{
-        min-width: 500px;
+        min-width: 400px;
         min-height: 1000px;
         text-align:left;
-        width: 33%;
+        /* width: 0%; */
+
     }
     .monacoframe{
         display: flex;

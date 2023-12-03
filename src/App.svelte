@@ -1,12 +1,17 @@
 <script lang="ts">
     import Document  from './Document.svelte'
     import Monaco from './Monaco.svelte'
+    import Sidebar from './Sidebar.svelte'
 
 </script>
 
-<container>
+
+
+<body>
+  <Sidebar ref = "sidebar"></Sidebar>
   <main>
       <!-- <Monaco ref = "monaco"/> -->
+      <!-- <Sidebar ref = "sidebar"></Sidebar> -->
       <Document ref = "document">
           <svelte:fragment slot="content">
 
@@ -16,28 +21,38 @@
       </Document>
       <Monaco ref = "monaco"/>
   </main>
-</container>
+</body>
+<footer id="footer">
+  <p>© 2023 Logic Manual. All rights reserved.</p>
+</footer>
+
 
 <style>
-    main {
+
+  .container {
+    /* display: flex; */
+    width: 100%;
+
+  }
+
+  main {
         text-align: center;
         display: flex;
-      flex-direction: row;
+        width: 80%;
+        float: right;
     }
 
 
-    /* .container{
-      display: flex;
-      flex-direction: row;
-    } */
+  #footer{
+    background-color: white;
+    color: #36454F;
+    text-align: center;
+    position: fixed;
+    padding: 1em;
+    bottom: 0;
+  }
 
 
-
-
-    .document{
-      display: order;
-
-    }
 
     :global([ref=monaco]){
         min-width: 500px;
