@@ -13,7 +13,7 @@
 	onMount(() => {
         let script = document.createElement('script');
         script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js";
-        
+
 
     script.onload = () => {
       MathJax = {
@@ -37,8 +37,8 @@
 </script>
 
 
-<div class="Document">
-    
+<div class="document">
+
     \({"\\newcommand{\\infer}[3]{\\cfrac{#3}{#2}\\small{#1}}"}\)
 
     <Swap samp={page}/>
@@ -48,7 +48,7 @@
     <h1>
         Document Header
     </h1>
-    
+
     $${"\\cfrac{\\cfrac{a\\hbox{asdf}}{b}}{\\cfrac{c}{d}}"}$$
     $$ {"\\infer{I\\land}{ a}{ c \\qquad d}"} $$
     <main>
@@ -64,7 +64,7 @@
     The plan for this section is to review the natural deduction rules for propositional logic and learn their implementation in Lean.
     $${"\\frac{A}{B}"}$$
     $$\land\infer&;brack;land Elim&rbrack; &lbrack;&#123A B&#125&#123A\&B&#125&rbrack;$$
-    
+
     $${"\\cfrac{ A \\vee B \\hbox{ true} \\quad \\begin{matrix} \\cfrac{}{A \\hbox{ true}}\\ u \\\\ \\vdots \\\\ C \\hbox{ true} \\end{matrix} \\quad \\begin{matrix} \\cfrac{}{B \\hbox{ true}}\\ w \\\\ \\vdots \\\\ C \\hbox{ true} \\end{matrix} }{C \\hbox{ true}}\\ \\vee_{E^{u,w}}"}$$
     </div>
 
@@ -72,17 +72,23 @@
 
 </div>
 
-<style> 
+<style>
     div {
         background-color: #212730;
-        padding-width: 0;
+        padding: 0;
         color: #FFFFAA;
-    }   
+    }
     h1 {
         font-family: "Eczar", serif;
         font-weight: bold;
     }
     p {
         font-family: "Eczar", serif;
+    }
+
+    .document{
+      padding: 20px;
+      width: 67%;
+      justify-content: left;
     }
 </style>

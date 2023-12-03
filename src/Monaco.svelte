@@ -5,7 +5,7 @@
     //import { buildWorkerDefinition } from 'monaco-editor-workers';
     //
     //import editorWorker from ...;
-    //import jsonWorker from 'monaco-editor/esm/vs/language/json/json.worker.js'; 
+    //import jsonWorker from 'monaco-editor/esm/vs/language/json/json.worker.js';
     //import cssWorker from 'monaco-editor/esm/vs/language/css/css.worker';
     //import htmlWorker from 'monaco-editor/esm/vs/language/html/html.worker';
     //import tsWorker from 'monaco-editor/esm/vs/language/typescript/ts.worker';
@@ -31,7 +31,7 @@
 
     onMount(async () => {
         buildWorkerDefinition('./node_modules/monaco-editor-workers/dist/workers', import.meta.url, true);
-        
+
         editor = monaco.editor.create(editorElement, {
         	automaticLayout: true,
         	theme: 'vs-dark'
@@ -51,7 +51,7 @@
 
 <div class="monacoframe">
     <div class="ba">
-        <button class="" on:click={() => loadCode('loader', 'html', editor)}>HTML</button>
+        <!-- <button class="" on:click={() => loadCode('loader', 'html', editor)}>HTML</button> -->
     </div>
     <div class="editor" bind:this={editorElement} />
 </div>
@@ -61,6 +61,7 @@
         min-width: 500px;
         min-height: 1000px;
         text-align:left;
+        width: 33%;
     }
     .monacoframe{
         display: flex;
@@ -68,4 +69,3 @@
         border-radius: 5%;
     }
 </style>
-

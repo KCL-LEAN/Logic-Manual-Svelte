@@ -4,20 +4,39 @@
 
 </script>
 
-<main>
-    <Monaco ref = "monaco"/>
-    <Document ref = "document">
-        <svelte:fragment slot="content">
-    
-    <div>
-    </div>
-        </svelte:fragment>
-    </Document>
-</main>
+<container>
+  <main>
+      <!-- <Monaco ref = "monaco"/> -->
+      <Document ref = "document">
+          <svelte:fragment slot="content">
+
+      <div>
+      </div>
+          </svelte:fragment>
+      </Document>
+      <Monaco ref = "monaco"/>
+  </main>
+</container>
 
 <style>
     main {
         text-align: center;
+        display: flex;
+      flex-direction: row;
+    }
+
+
+    /* .container{
+      display: flex;
+      flex-direction: row;
+    } */
+
+
+
+
+    .document{
+      display: order;
+
     }
 
     :global([ref=monaco]){
