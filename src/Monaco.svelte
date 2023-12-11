@@ -1,12 +1,14 @@
 <script lang="ts">
     import { onDestroy, onMount } from 'svelte';
-    import * as monaco from 'monaco-editor';
+    import * as monaco from 'monaco-editor/esm/vs/editor/editor.api.js'
+
     import { loadWASM } from 'onigasm'
     import onigasmUrl from 'onigasm/lib/onigasm.wasm'
     import languageConfig from 'lean4/language-configuration.json';
     import getConfigurationServiceOverride, { updateUserConfiguration, configurationRegistry } from '@codingame/monaco-vscode-configuration-service-override'
-    import Registry from '@codingame/monaco-vscode-textmate-service-override'
+    import  Registry  from '@codingame/monaco-vscode-textmate-service-override'
     import getTextMateServiceOverride from '@codingame/monaco-vscode-textmate-service-override'
+    import { ITextMateTokenizationService } from '@codingame/monaco-vscode-textmate-service-override'
     import wireTmGrammars from '@codingame/monaco-vscode-textmate-service-override'
     //import * as vscode from 'vscode';
     //import { buildWorkerDefinition } from 'monaco-editor-workers';
@@ -29,11 +31,10 @@
     let model: monaco.editor.ITextModel;
 
     function loadCode(code: string, language: string, editor: monaco.editor.IStandaloneCodeEditor) {
-    	model = monaco.editor.createModel(code, language);
+        model = monaco.editor.createModel(code, language);
 
-    	editor.setModel(model);
+        editor.setModel(model);
     }
-
     onMount(async () => {
         buildWorkerDefinition('./node_modules/monaco-editor-workers/dist/workers', import.meta.url, true);
 
@@ -82,23 +83,8 @@
           }
         });
 
-        (async () => {
-          try {
-            await loadWASM(onigasmUrl.code)
-          } catch (err) {
-            // Hot module replacement can cause us to run this code twice and that's ok.
-            if (!(err as Error).message?.startsWith('Onigasm#init has been called')) {
-              throw err
-            }
-          }
-          wireTmGrammars(monaco, registry, grammars)
-        })()
+
     });
-
-
-
-
-
     onDestroy(() => {
     	monaco?.editor.getModels().forEach((model) => model.dispose());
     	editor?.dispose();
