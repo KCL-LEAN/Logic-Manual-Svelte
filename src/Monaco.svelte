@@ -2,13 +2,12 @@
     import { onDestroy, onMount } from 'svelte';
     import * as monaco from 'monaco-editor/esm/vs/editor/editor.api.js'
 
-    import { loadWASM } from 'onigasm'
-    import onigasmUrl from 'onigasm/lib/onigasm.wasm'
     import languageConfig from 'lean4/language-configuration.json';
-    import getConfigurationServiceOverride, { updateUserConfiguration, configurationRegistry } from '@codingame/monaco-vscode-configuration-service-override'
     import  Registry  from '@codingame/monaco-vscode-textmate-service-override'
     import getTextMateServiceOverride from '@codingame/monaco-vscode-textmate-service-override'
-    import { ITextMateTokenizationService } from '@codingame/monaco-vscode-textmate-service-override'
+    import * as vscode from 'vscode'
+    import 'vscode/localExtensionHost'
+    import monacoVscodeTextmateServiceOverride, { ITextMateTokenizationService } from '@codingame/monaco-vscode-textmate-service-override'
     import wireTmGrammars from '@codingame/monaco-vscode-textmate-service-override'
     //import * as vscode from 'vscode';
     //import { buildWorkerDefinition } from 'monaco-editor-workers';
@@ -23,7 +22,7 @@
     import * as leanMarkdownSyntax from './syntaxes/lean-markdown.json'
     import * as codeblockSyntax from './syntaxes/codeblock.json'
     import { buildWorkerDefinition } from 'monaco-editor-workers';
-    import { IStorageService, LogLevel, getService, initialize as initializeMonacoService } from 'vscode/services'
+    import { IStorageService, LogLevel, getService, initialize } from 'vscode/services'
 
     export let ref;//for styling
     let editorElement: HTMLDivElement;
@@ -36,17 +35,11 @@
         editor.setModel(model);
     }
     onMount(async () => {
-        buildWorkerDefinition('./node_modules/monaco-editor-workers/dist/workers', import.meta.url, true);
 
-        editor = monaco.editor.create(editorElement, {
-        	automaticLayout: true,
-        	theme: 'vs-dark'
-        });
-
-        //start of lean4web file
-        await initializeMonacoService({
+        await initialize({
             ...getTextMateServiceOverride()
         })
+        //start of lean4web file
         const grammars = new Map()
         grammars.set('lean4', 'source.lean')
 
@@ -82,8 +75,13 @@
             }
           }
         });
+        buildWorkerDefinition('./node_modules/monaco-editor-workers/dist/workers', import.meta.url, true);
 
-
+        editor = monaco.editor.create(editorElement, {
+        	automaticLayout: true,
+        	theme: 'vs-dark',
+            
+        });
     });
     onDestroy(() => {
     	monaco?.editor.getModels().forEach((model) => model.dispose());
