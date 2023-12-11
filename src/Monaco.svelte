@@ -1,6 +1,13 @@
 <script lang="ts">
     import { onDestroy, onMount } from 'svelte';
     import * as monaco from 'monaco-editor';
+    import { loadWASM } from 'onigasm'
+    import onigasmUrl from 'onigasm/lib/onigasm.wasm'
+    import languageConfig from 'lean4/language-configuration.json';
+    import getConfigurationServiceOverride, { updateUserConfiguration, configurationRegistry } from '@codingame/monaco-vscode-configuration-service-override'
+    import Registry from '@codingame/monaco-vscode-textmate-service-override'
+    import getTextMateServiceOverride from '@codingame/monaco-vscode-textmate-service-override'
+    import wireTmGrammars from '@codingame/monaco-vscode-textmate-service-override'
     //import * as vscode from 'vscode';
     //import { buildWorkerDefinition } from 'monaco-editor-workers';
     //
@@ -10,13 +17,11 @@
     //import htmlWorker from 'monaco-editor/esm/vs/language/html/html.worker';
     //import tsWorker from 'monaco-editor/esm/vs/language/typescript/ts.worker';
 
-    //import { code as jsCode } from '$lib/js_code';
-    //import { code as tsCode } from '$lib/ts_code';
-    //import { code as phpCode } from '$lib/php_code';
-    //import { code as pyCode } from '$lib/py_code';
-    //import { code as htmlCode } from '$lib/html_code';
-
+    import * as leanSyntax from './syntaxes/lean.json'
+    import * as leanMarkdownSyntax from './syntaxes/lean-markdown.json'
+    import * as codeblockSyntax from './syntaxes/codeblock.json'
     import { buildWorkerDefinition } from 'monaco-editor-workers';
+    import { IStorageService, LogLevel, getService, initialize as initializeMonacoService } from 'vscode/services'
 
     export let ref;//for styling
     let editorElement: HTMLDivElement;
@@ -37,11 +42,62 @@
         	theme: 'vs-dark'
         });
 
-        monaco.languages.typescript.typescriptDefaults.setEagerModelSync(true);
+        //start of lean4web file
+        await initializeMonacoService({
+            ...getTextMateServiceOverride()
+        })
+        const grammars = new Map()
+        grammars.set('lean4', 'source.lean')
 
+        monaco.languages.register({
+          id: 'lean4',
+          extensions: ['.lean']
+        })
 
-        loadCode('a', 'code', editor);
+        let config: any = { ...languageConfig }
+        config.autoClosingPairs = config.autoClosingPairs.map(
+          pair => { return {'open': pair[0], 'close': pair[1]} }
+        )
+        monaco.languages.setLanguageConfiguration('lean4', config);
+
+              loadCode('a', 'code', editor);
+        const registry = new Registry({
+          getGrammarDefinition: async (scopeName) => {
+            if (scopeName === 'source.lean') {
+              return {
+                  format: 'json',
+                  content: JSON.stringify(leanSyntax)
+              }
+            } else if (scopeName === 'source.lean.markdown') {
+              return {
+                  format: 'json',
+                  content: JSON.stringify(leanMarkdownSyntax)
+              }
+            } else {
+              return {
+                  format: 'json',
+                  content: JSON.stringify(codeblockSyntax)
+              }
+            }
+          }
+        });
+
+        (async () => {
+          try {
+            await loadWASM(onigasmUrl.code)
+          } catch (err) {
+            // Hot module replacement can cause us to run this code twice and that's ok.
+            if (!(err as Error).message?.startsWith('Onigasm#init has been called')) {
+              throw err
+            }
+          }
+          wireTmGrammars(monaco, registry, grammars)
+        })()
     });
+
+
+
+
 
     onDestroy(() => {
     	monaco?.editor.getModels().forEach((model) => model.dispose());

@@ -7,5 +7,10 @@ declare module '*.sty' {
 declare module '*.txt' {
     export const code;
 }
+declare module '*.json' {
+    export const code;
+}
 
-
+declare module '*.wasm' {
+    export const code;
+}
