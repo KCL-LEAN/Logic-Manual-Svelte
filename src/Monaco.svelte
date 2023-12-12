@@ -5,8 +5,6 @@
     import languageConfig from 'lean4/language-configuration.json';
     import  Registry  from '@codingame/monaco-vscode-textmate-service-override'
     import getTextMateServiceOverride from '@codingame/monaco-vscode-textmate-service-override'
-    import * as vscode from 'vscode'
-    import 'vscode/localExtensionHost'
     import monacoVscodeTextmateServiceOverride, { ITextMateTokenizationService } from '@codingame/monaco-vscode-textmate-service-override'
     import wireTmGrammars from '@codingame/monaco-vscode-textmate-service-override'
     //import * as vscode from 'vscode';
@@ -28,17 +26,13 @@
     let editorElement: HTMLDivElement;
     let editor: monaco.editor.IStandaloneCodeEditor;
     let model: monaco.editor.ITextModel;
+    const uri = monaco.Uri.parse('file:///LeanProject/LeanProject.lean')
 
-    function loadCode(code: string, language: string, editor: monaco.editor.IStandaloneCodeEditor) {
-        model = monaco.editor.createModel(code, language);
-
-        editor.setModel(model);
-    }
     onMount(async () => {
 
-        await initialize({
-            ...getTextMateServiceOverride()
-        })
+        //await initialize({
+        //    ...getTextMateServiceOverride()
+        //})
         //start of lean4web file
         const grammars = new Map()
         grammars.set('lean4', 'source.lean')
@@ -47,16 +41,14 @@
           id: 'lean4',
           extensions: ['.lean']
         })
-
         let config: any = { ...languageConfig }
         config.autoClosingPairs = config.autoClosingPairs.map(
           pair => { return {'open': pair[0], 'close': pair[1]} }
         )
-        monaco.languages.setLanguageConfiguration('lean4', config);
+        config.automaticLayout = true;
+        config.theme = 'vs-dark';
 
-              loadCode('a', 'code', editor);
-        const registry = new Registry({
-          getGrammarDefinition: async (scopeName) => {
+          let grammardef = async (scopeName) => {
             if (scopeName === 'source.lean') {
               return {
                   format: 'json',
@@ -74,14 +66,38 @@
               }
             }
           }
-        });
+        
         buildWorkerDefinition('./node_modules/monaco-editor-workers/dist/workers', import.meta.url, true);
+        const model = monaco.editor.createModel('', 'lean4', uri)
+        //if (onDidChangeContent) {
+        //  model.onDidChangeContent(() => onDidChangeContent(model.getValue()))
+        //}
+        const editor = monaco.editor.create(editorElement, {
+          model,
+          glyphMargin: true,
+          lineDecorationsWidth: 5,
+          folding: false,
+          lineNumbers: 'on',
+          lineNumbersMinChars: 1,
+          // rulers: [100],
+          lightbulb: {
+            enabled: true
+          },
+          unicodeHighlight: {
+              ambiguousCharacters: false,
+          },
+          automaticLayout: true,
+          minimap: {
+            enabled: false
+          },
+          tabSize: 2,
+          'semanticHighlighting.enabled': true,
+          theme: 'vs-dark'
+        })
+    //const abbrevRewriter = new AbbreviationRewriter(new AbbreviationProvider(), model, editor)
 
-        editor = monaco.editor.create(editorElement, {
-        	automaticLayout: true,
-        	theme: 'vs-dark',
-            
-        });
+        //model = monaco.editor.createModel("axiom a", "lean4");
+        //editor = monaco.editor.create(editorElement, config);
     });
     onDestroy(() => {
     	monaco?.editor.getModels().forEach((model) => model.dispose());
@@ -108,5 +124,8 @@
         display: flex;
         justify-content: space-between;
         border-radius: 5%;
+        border-width: 10%;
+        border-color: black;
+
     }
 </style>
