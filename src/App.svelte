@@ -1,8 +1,7 @@
 <script lang="ts">
     import Document  from './Document.svelte'
-    import Monaco from './Monaco.svelte'
     import Sidebar from './Sidebar.svelte'
-
+    import IFrameEditor from './IFrameEditor.svelte'
 </script>
 
 
@@ -10,8 +9,6 @@
 <body>
   <Sidebar ref = "sidebar"></Sidebar>
   <main>
-      <!-- <Monaco ref = "monaco"/> -->
-      <!-- <Sidebar ref = "sidebar"></Sidebar> -->
       <Document ref = "document">
           <svelte:fragment slot="content">
 
@@ -19,7 +16,8 @@
       </div>
           </svelte:fragment>
       </Document>
-      <Monaco ref = "monaco"/>
+
+  <IFrameEditor style="align:right;"/>
   </main>
 </body>
 <footer id="footer">

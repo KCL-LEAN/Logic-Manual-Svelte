@@ -61,3 +61,12 @@
     </div>
     
 
+        else if(char == map.labelMark){
+            let labelIndices: number[] = [];
+            for(let ii=i; ii < samp.length; ii++){
+                    if(samp.charAt(ii) == "{"){labelIndices[0] = ii}
+                    if(samp.charAt(ii) == "}"){labelIndices[1] = ii; break;}
+            } 
+            ns = addAll(ns, addAll(ns, ));
+            i = i+str.length+2;
+        }
