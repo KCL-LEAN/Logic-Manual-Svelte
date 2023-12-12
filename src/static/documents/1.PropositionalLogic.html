@@ -1,0 +1,86 @@
+<h1>
+    Propositional Logic and Lean
+    </h1>
+    <div>
+       <p>
+        The plan for this section is to review the natural deduction rules for propositional logic and to learn their implementation in LEAN. 
+        The rules of propositional logic should be familiar to you from the lectures. 
+        The aim is to get to familiar with the basic LEAN syntax.
+        This is best done by looking at examples and then solving exercises.
+        In the coding window, every "sorry" should be removed by your deduction. 
+        "Sorry" is a trick to make LEAN move on and not display an error warning.
+        </p> 
+    
+    
+    
+    <h3> Conditional</h3>
+        <p> The rules for the Conditional are the following: 
+            $\infer[\rightarrow Intro]{A\rightarrow B} {\infer*{B}{[A]}}$ 
+            $\infer[Elim]{B} {A\rightarrow B& A}$ </p>
+        <p> With the introduction of the conditional, you discharge the assumption of the antecedent, A in this case. 
+            The discharged assumption is indicated by the square brackets [ ].
+            In LEAN the rules function very similar. 
+            The Elimination is easier: Given two assumptions $(h1: A \rightarrow B)$ and $(h2: A)$ you get $B$
+            simply by writing $h1$ $h2$ consecutively (see the example in the code). 
+            The introduction of the conditional is more complex, as we need to remove an assumption. This works in LEAN via a so called lambda function, where we define $fun$ $h:$ Antecedent $=> $ Consequent. 
+            The $h:$ stands for hypothesis, you designate the Antecedent as an hypothesis.  You can define more complex statements in the antecedent and consequent as well. </p>
+        <p>
+            Here are three examples of natural deduction proofs involving the rules for the conditional. 
+            There are more example so that the functioning of the $fun$ tactic becomes clear.
+            Example 1: $A \rightarrow B, B\rightarrow C, A \vdash C$
+            \[\infer[\rightarrow Elim]{C}{B\rightarrow C &\infer[\rightarrow Elim]{B}{A\rightarrow B & A}}\]
+            Example 2: $\vdash A \rightarrow A \land A$
+            \[\infer[\rightarrow Intro]{A\rightarrow A \land A}{\infer[\land Intro]{A\land A}{\infer{A}{[A]} & \infer{A}{[A]}}}\]
+            Example 3: $A\rightarrow B, B\rightarrow C \vdash A \rightarrow C$
+            \[\infer[\rightarrow Intro]{A\rightarrow C}{\infer[\rightarrow Elim] {C}{B \rightarrow C & \infer [\rightarrow Elim]{B} {A\rightarrow B & [A]}}}\] 
+        </p>
+    
+    <h3>Disjunction</h3>
+        <p> 
+            The rules for Disjunction are the following: 
+            $$\infer{\lor Intro} {A\lor B} {A}$$   $$\infer{\lor Intro} {A\lor B} {B}$$  $$\infer{\lor Elim} {C} 
+            {A \lor B & \infer*{C}{{A}}& \infer*{C}{{B}}}$$
+        </p>
+        <p> Similarly In LEAN the rules are again very similar. For the introduction of the disjunction you can use $Or.intro\_left$ $A $ $ B$ to get $A \lor B$ or $Or.intro\_right$ $A$ $B$ to get $B\lor A$.
+            Note in LEAN the order of the disjunctions matters. The rule of the Elimination is a bit more complicated. You need to show that $C$ follows from both $A, B$ independently to be able to eliminate the disjunction.
+            This is done using the same tactic as above with the conditional using $fun$. 
+            So we write $Or.elim $ $ A \lor B $ ($fun$ $ h1:$ A  $=>$ C)  ($fun$ $ h1:$ B  $=>$ C). </p>
+        <p>
+            Now look at an example natural deduction proof using the rules for conjunction and its implementation in LEAN. 
+            Example : $A\lor B \vdash A \lor (B \lor C)$
+            \[\infer[\lor Elim]{A\lor (B \lor C)}{A\lor B &\infer[\lor Intro]{A\lor (B\lor C)}{[A]} & \infer[\lor Intro]{A\lor (B\lor C)}{\infer[\lor Intro]{B\lor C}{[B]}}} \]
+            And there are again some exercises for you to complete. 
+        </p>
+    
+    <h3> Negation</h3>
+        <p>
+            The rules for negation are the following: 
+            \newline $$\infer{\neg Intro} {\neg A} {\infer*{B}{{A}} & \infer*{\neg B}{{A}}}$$  $$\infer{\neg Elim } { A} infer*{B}{{neg A}} & infer*{neg B}{{neg A}}$$
+        </p>
+        <p>
+            This works a little bit differently in LEAN. Negation $\neg A$ is here defined as $A \rightarrow \bot$, where $\bot$ is a contradiction such as $0\not=0$ for example.
+            There are two main tactics with respect to negations in LEAN. The first one is some sort of negation introduction. If you want to prove $\neg A$ then you assume $A$ and show that it leads to a contradiction. 
+            This assumption is constructed similarly to the conditional and disjunctive rules above. So given that you want to prove $\neg A$ from the assumption $h1:$ $\neg A$, then  $fun$ $h:$ $A$ $=>$ $show$ $False$ $from$ $h1$ $h$ gives the result. 
+            Here $h1 $ $ h$, which are defined as $\neg A$ $A$ respectively, gives the False. Note that the order matters here, the negated statement must come first.  \\
+            The second tactic involving negation is the often so called Ex falso quodlibet principle, which states that anything can be derived from a contradiction. In LEAN this is done by the tactic absurd. 
+            So suppose you are given some contradictory assumptions such as $h1: $ $ A$ and $h2: $ $\neg A$. Then you can prove $B$ simply by stating $absurd $ $h2$ $h1$. Again here the order matters. 
+        </p>
+        <p>
+            Let's look at some example derivations both in propositional logic and LEAN. 
+            Example 1: $A\rightarrow B, \neg B\vdash \neg A$
+            \[\infer[\neg Intro]{\neg A}{\infer{B}{A\rightarrow B & [A]} & \neg B}\]
+            Example 2: $A\land B, \neg A\vdash C$
+            \[\infer{C}{\infer[\land Elim]{A}{A\land B}&\neg A}\]
+        </p>
+    <h3> Combination of Rules</h3>
+        <p>
+            Let's look at some example natural deduction proofs combining the rules introduced above. We will discuss one example together and then there are some more exercises.  </p>
+        <p>
+            Example  $$A\lor (B \land C)\vdash (A\lor B) \land (A \lor C)$$
+            $$\infer{\land Intro}{ (A\lor B) \land (A \lor C)} 
+            {\infer{\lor Elim}{A \lor B}{A\lor (B \land C) &
+            \infer{\lor Intro}{A\lor B}{A}& \infer{\lor Intro}{A\lor B}{\infer{\land Elim}{B}{B\land C}}} & 
+            \infer{\lor Elim}{A\lor C}{A\lor (B \land C) & \infer{\lor Intro}{A\lor C}{A}& \infer{\lor Intro}{A\lor C}{\infer{\land Elim}{C}{B\land C}}}} $$   
+        </p>
+    </div>
+    

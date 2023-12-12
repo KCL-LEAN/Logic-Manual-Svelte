@@ -1,0 +1,10 @@
+<h3> Combination of Rules</h3>
+        <p>
+            Let's look at some example natural deduction proofs combining the rules introduced above. We will discuss one example together and then there are some more exercises.  </p>
+        <p>
+            Example  $$A\lor (B \land C)\vdash (A\lor B) \land (A \lor C)$$
+            $$\infer{\land Intro}{ (A\lor B) \land (A \lor C)} 
+            {\infer{\lor Elim}{A \lor B}{A\lor (B \land C) &
+            \infer{\lor Intro}{A\lor B}{A}& \infer{\lor Intro}{A\lor B}{\infer{\land Elim}{B}{B\land C}}} & 
+            \infer{\lor Elim}{A\lor C}{A\lor (B \land C) & \infer{\lor Intro}{A\lor C}{A}& \infer{\lor Intro}{A\lor C}{\infer{\land Elim}{C}{B\land C}}}} $$   
+        </p>

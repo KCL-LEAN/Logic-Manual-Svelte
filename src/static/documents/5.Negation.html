@@ -1,0 +1,20 @@
+<h3> Negation</h3>
+        <p>
+            The rules for negation are the following: 
+            \newline $$\infer{\neg Intro} {\neg A} {\infer*{B}{{A}} & \infer*{\neg B}{{A}}}$$  $$\infer{\neg Elim } { A} infer*{B}{{neg A}} & infer*{neg B}{{neg A}}$$
+        </p>
+        <p>
+            This works a little bit differently in LEAN. Negation $\neg A$ is here defined as $A \rightarrow \bot$, where $\bot$ is a contradiction such as $0\not=0$ for example.
+            There are two main tactics with respect to negations in LEAN. The first one is some sort of negation introduction. If you want to prove $\neg A$ then you assume $A$ and show that it leads to a contradiction. 
+            This assumption is constructed similarly to the conditional and disjunctive rules above. So given that you want to prove $\neg A$ from the assumption $h1:$ $\neg A$, then  $fun$ $h:$ $A$ $=>$ $show$ $False$ $from$ $h1$ $h$ gives the result. 
+            Here $h1 $ $ h$, which are defined as $\neg A$ $A$ respectively, gives the False. Note that the order matters here, the negated statement must come first.  \\
+            The second tactic involving negation is the often so called Ex falso quodlibet principle, which states that anything can be derived from a contradiction. In LEAN this is done by the tactic absurd. 
+            So suppose you are given some contradictory assumptions such as $h1: $ $ A$ and $h2: $ $\neg A$. Then you can prove $B$ simply by stating $absurd $ $h2$ $h1$. Again here the order matters. 
+        </p>
+        <p>
+            Let's look at some example derivations both in propositional logic and LEAN. 
+            Example 1: $A\rightarrow B, \neg B\vdash \neg A$
+            \[\infer[\neg Intro]{\neg A}{\infer{B}{A\rightarrow B & [A]} & \neg B}\]
+            Example 2: $A\land B, \neg A\vdash C$
+            \[\infer{C}{\infer[\land Elim]{A}{A\land B}&\neg A}\]
+        </p>
