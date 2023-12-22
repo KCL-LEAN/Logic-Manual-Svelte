@@ -91,7 +91,7 @@
             enabled: false
           },
           tabSize: 2,
-          'semanticHighlighting.enabled': true,
+          'semanticHighlighting.enabled': false,
           theme: 'vs-dark'
         })
     //const abbrevRewriter = new AbbreviationRewriter(new AbbreviationProvider(), model, editor)

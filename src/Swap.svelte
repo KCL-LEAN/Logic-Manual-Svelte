@@ -10,11 +10,13 @@ export let samp: string = `
 `\\newcommand{\\infer}[3]{\\cfrac{#2\\qquad #3}{#2 \\wedge #3}\\small{#1}}`
 
 
-const map = { //here is where we're going to store constants, I just think it looks better this way, this is the same as just declaring them as constants except now you need to preface their names with 'map.'
+const map = { //here is where we're going to store constants, I just think it looks better this way, this is the same as just declaring them as constants except now you need to preface their names with 'map.'(I am writing this as example easy code by the way if any programmers are wondering why it looks like this)
     splitr: "&",
     splitrRep: "\\qquad ",
     labelMark: "=",
-    singleVarRep: "\\lower5pt" //TODO: remove awkward height of single variables when next to large formulas
+    singleVarRep: "\\lower5pt", //TODO: remove awkward height of single variables when next to large formulas
+    entail: "*",
+    entailRep: "\\vdots"
 
 };
     let output: string = 'CONTENTS NOT LOADED'
@@ -28,8 +30,21 @@ onMount(() => {
     }
     for(let i = 0; i < samp.length; i++){
         let char = samp.charAt(i)
+
         if(char == map.splitr){
             ns = addAll(ns, map.splitrRep);
+        }
+
+
+        else if(char == map.entail){
+            let labelIndices: number[] = [];
+            for(let ii=i; ii < samp.length; ii++){
+                    if(samp.charAt(ii) == "{"){labelIndices[0] = ii}
+                    if(samp.charAt(ii) == "}"){labelIndices[1] = ii; break;}
+            } 
+            ns = addAll(ns, samp.substring(labelIndices[0], labelIndices[1]-1));
+            ns = addAll(ns, map.entailRep + "}");
+            i = i+map.entailRep.length + labelIndices[1]-labelIndices[0];
         }
         else if(char == map.labelMark){
             let labelIndices: number[] = [];
@@ -38,10 +53,11 @@ onMount(() => {
                     labelIndices.push(ii);
                 }
             } 
-            const str = "{" + samp.substring(labelIndices[0]+1, labelIndices[1]-2) + "}"; //might be wrong
+            const str = "{" + samp.substring(labelIndices[0]+1, labelIndices[1]-2) + "}"; 
             ns = addAll(ns, str);
             i = i+str.length+2;
         }
+
         else{
             ns.push(samp.charAt(i));
         }
