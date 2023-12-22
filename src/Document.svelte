@@ -4,13 +4,9 @@
 <script lang="ts">
 	import { createEventDispatcher, onMount } from 'svelte';
     import Swap from './Swap.svelte'
-    let page;
     export let ref; //for styling
     export let documentPath: string; //for styling
-    onMount(async () => {
-        //Dynamically load html content 
-        page = await import(documentPath); 
-    })
+    let page;
 	onMount(() => {
         //mathJax
         let script = document.createElement('script');
@@ -18,6 +14,7 @@
 
 
     script.onload = () => {
+        console.log("MathJax Loaded");
       MathJax = {
         packages: {'[+]': ['proof']},
         loader: {load: ['[tex]/proof']},
@@ -32,6 +29,13 @@
 	}
     );
 
+    onMount(async () => {
+        //Dynamically load html content 
+        console.log("reloading with new page async:" + documentPath);
+        page = (await import(documentPath)).default; 
+
+    })
+
     export const load = (async () => {
         return page;
     })
@@ -41,8 +45,9 @@
 <div class="document">
 
     \({"\\newcommand{\\infer}[3]{\\cfrac{#3}{#2}\\small{#1}}"}\)
-    <Swap samp={page}/>
-
+    {#if page}
+        <Swap samp={page}/>
+    {/if}
 </div>
 
 <style>

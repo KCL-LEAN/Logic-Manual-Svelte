@@ -2,6 +2,9 @@
     import { createEventDispatcher } from "svelte";
     const dispatch = createEventDispatcher();
     function event(documentName: string) {
+
+        console.log("emitting event, button pressed: " + documentName);
+
         dispatch ('documentSelection', {
             document: documentName 
         });
@@ -18,25 +21,25 @@
     </h1>
       <div class = "links_to_pages">
         <ul>
-          <button on:click={() => event("Introduction.html")}>1. Introduction to using Lean</button>
+          <button on:click={() => event("Introduction")}>1. Introduction to using Lean</button>
         </ul>
         <ul>
-          <button on:click={() => event("PropositionalLogic.html")} >Propositional Logic</button>
+          <button on:click={() => event("PropositionalLogic")} >Propositional Logic</button>
         </ul>
         <ul>
-          <button on:click={() => event("Conjunction.html")}>Conjunction</button>
+          <button on:click={() => event("Conjunction")}>Conjunction</button>
         </ul>
         <ul>
-          <button on:click={() => event("Conditional.html")} >Conditionals</button>
+          <button on:click={() => event("Conditional")} >Conditionals</button>
         </ul>
         <ul>
-          <button on:click={() => event("Disjunction.html")} >Disjunction</button>
+          <button on:click={() => event("Disjunction")} >Disjunction</button>
         </ul>
         <ul>
-          <button on:click={() => event("Negation.html")} >Negation</button>
+          <button on:click={() => event("Negation")} >Negation</button>
         </ul>
         <ul>
-          <button on:click={() => event("CombinedRules.html")} >Putting It All Together</button>
+          <button on:click={() => event("CombinedRules")} >Putting It All Together</button>
         </ul>
       </div>
    </div>

@@ -2,10 +2,11 @@
     import Document  from './Document.svelte'
     import Sidebar from './Sidebar.svelte'
     import IFrameEditor from './IFrameEditor.svelte'
-    let editorText;//This sets text in editor and updates lean web editor component
-    let selectedDocument = "./static/documents/Introduction.html";
+    let editorText = "";//This sets text in editor and updates lean web editor component
+    let selectedDocument = "static/documents/Conjunction.html";
     function handlePageChange(event) {
-        selectedDocument = "./static/documents/" + event.detail.document;
+        console.log("caught event in App.svelte: " + selectedDocument);
+        selectedDocument = "static/documents/" + event.detail.document;
         //TODO: Also need code to change editor content
         
     }
@@ -16,7 +17,7 @@
 <body>
   <Sidebar on:documentSelection={handlePageChange}></Sidebar>
   <main>
-      <Document ref = "document" documentPath = {selectedDocument}>
+      <Document ref = "document" bind:documentPath = {selectedDocument}>
           <svelte:fragment slot="content">
 
       <div>

@@ -21,7 +21,7 @@ module.exports = {
 		alias: {
 			svelte: path.resolve('node_modules', 'svelte/src/runtime')
 		},
-		extensions: ['.mjs', '.js', '.ts', '.svelte', '.sty'],
+		extensions: ['.mjs', '.js', '.ts', '.svelte', '.sty', '.x.html'],
 		mainFields: ['svelte', 'browser', 'module', 'main'],
 		conditionNames: ['svelte', 'browser']
 	},
@@ -60,6 +60,12 @@ module.exports = {
 			},
 			{
 				test: /\.sty$/i,
+				use: {
+					loader: 'raw-loader'
+				}
+			},
+			{
+				test: /\.x.html$/i,
 				use: {
 					loader: 'raw-loader'
 				}
