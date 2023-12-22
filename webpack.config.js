@@ -78,14 +78,8 @@ module.exports = {
 		new MiniCssExtractPlugin({
 			filename: 'styles.css'
 		}),
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin()
 
-        new CopyWebpackPlugin({
-            patterns: [
-                { from: 'static', to:'public' },
-                path.join(__dirname, 'src')
-            ]
-        })
     ],
     devtool: prod ? false : 'source-map',
     devServer: {

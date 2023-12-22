@@ -2,30 +2,23 @@
     import Document  from './Document.svelte'
     import Sidebar from './Sidebar.svelte'
     import IFrameEditor from './IFrameEditor.svelte'
+    import MathJax from './MathJax.svelte';
     let editorText = "";//This sets text in editor and updates lean web editor component
     let selectedDocument = "static/documents/Conjunction.html";
     function handlePageChange(event) {
+        selectedDocument = event.detail.document;
         console.log("caught event in App.svelte: " + selectedDocument);
-        selectedDocument = `./static/documents/ ${event.detail.document}.x.html`;
         //TODO: Also need code to change editor content
         
     }
 </script>
-
-
-
 <body>
   <Sidebar on:documentSelection={handlePageChange}></Sidebar>
   <main>
-      <Document ref = "document" bind:documentPath = {selectedDocument}>
-          <svelte:fragment slot="content">
-
-      <div>
-      </div>
-          </svelte:fragment>
-      </Document>
-
-  <IFrameEditor editorText={editorText}/>
+    {#key selectedDocument}
+        <Document ref="document" bind:documentPath={selectedDocument}></Document>
+    {/key}
+    <IFrameEditor editorText={editorText}/>
   </main>
 </body>
 <footer id="footer">

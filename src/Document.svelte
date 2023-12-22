@@ -1,40 +1,24 @@
-<script context="module" lang="ts">
-    declare var MathJax: any;
-</script>
 <script lang="ts">
-	import { createEventDispatcher, onMount } from 'svelte';
     import Swap from './Swap.svelte'
+    import MathJax from './MathJax.svelte'
+    import CombinedRules from './static/documents/CombinedRules.x.html'
+    import Conditional from './static/documents/Conditional.x.html'
+    import Conjunction from './static/documents/Conjunction.x.html'
+    import Disjunction from './static/documents/Disjunction.x.html'
+    import Introduction from './static/documents/Introduction.x.html'
+    import Negation from './static/documents/Negation.x.html'
+    let map = new Map();
+    map.set("CombinedRules", CombinedRules)
+    map.set("Conditional", Conditional)
+    map.set("Conjunction", Conjunction)
+    map.set("Disjunction", Disjunction)
+    map.set("Introduction", Introduction)
+    map.set("Negation", Negation)
+    
     export let ref; //for styling
     export let documentPath: string; //for styling
-    let page;
-	onMount(() => {
-        //mathJax
-        let script = document.createElement('script');
-        script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js";
-
-
-    script.onload = () => {
-        console.log("MathJax Loaded");
-      MathJax = {
-        packages: {'[+]': ['proof']},
-        loader: {load: ['[tex]/proof']},
-        tex: {inlineMath: [['$', '$'], ['\\(', '\\)']],
-        },
-        svg: {fontCache: 'global'}
-      };
-    };
-
-	    console.log("Here")
-        document.head.append(script);
-	}
-    );
-
-    onMount(async () => {
-        //Dynamically load html content 
-        console.log("reloading with new page async:" + documentPath);
-        page = (await import(documentPath)); 
-
-    })
+    let page = map.get(documentPath);
+    console.log(page);
 
     export const load = (async () => {
         return page;
@@ -43,11 +27,9 @@
 
 
 <div class="document">
-
     \({"\\newcommand{\\infer}[3]{\\cfrac{#3}{#2}\\small{#1}}"}\)
-    {#if page}
         <Swap samp={page}/>
-    {/if}
+        <MathJax></MathJax>
 </div>
 
 <style>

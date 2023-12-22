@@ -3,7 +3,6 @@
     export let editorText;
     let frame;
     function onLoad() {
-        
         const head = frame.contentDocument.querySelector('leanheader');
         console.log(head);
     }   
