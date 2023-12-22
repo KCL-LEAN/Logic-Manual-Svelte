@@ -1,3 +1,14 @@
+<script lang="ts">
+    import { createEventDispatcher } from "svelte";
+    const dispatch = createEventDispatcher();
+    function event(documentName: string) {
+        dispatch ('documentSelection', {
+            document: documentName 
+        });
+    }
+
+</script>
+
 <div class = 'sidebar'>
    <!-- <slot/> -->
 
@@ -7,19 +18,25 @@
     </h1>
       <div class = "links_to_pages">
         <ul>
-          <a href="naturaldeduct.html">1. Introducion to using Lean</a>
+          <button on:click={() => event("Introduction.html")}>1. Introduction to using Lean</button>
         </ul>
         <ul>
-          <a href="" >2. Syntax of Propositional Logic</a>
+          <button on:click={() => event("PropositionalLogic.html")} >Propositional Logic</button>
         </ul>
         <ul>
-          <a href="">3. Semantics of Propositional Logic</a>
+          <button on:click={() => event("Conjunction.html")}>Conjunction</button>
         </ul>
         <ul>
-          <a href="" >4. Syntax of First Order Logic</a>
+          <button on:click={() => event("Conditional.html")} >Conditionals</button>
         </ul>
         <ul>
-          <a id="" href="" >5. Semantics of First Order Logic</a>
+          <button on:click={() => event("Disjunction.html")} >Disjunction</button>
+        </ul>
+        <ul>
+          <button on:click={() => event("Negation.html")} >Negation</button>
+        </ul>
+        <ul>
+          <button on:click={() => event("CombinedRules.html")} >Putting It All Together</button>
         </ul>
       </div>
    </div>
