@@ -32,7 +32,7 @@
     onMount(async () => {
         //Dynamically load html content 
         console.log("reloading with new page async:" + documentPath);
-        page = (await import(documentPath)).default; 
+        page = (await import(documentPath)); 
 
     })
 

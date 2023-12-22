@@ -6,7 +6,7 @@
     let selectedDocument = "static/documents/Conjunction.html";
     function handlePageChange(event) {
         console.log("caught event in App.svelte: " + selectedDocument);
-        selectedDocument = "static/documents/" + event.detail.document;
+        selectedDocument = `./static/documents/ ${event.detail.document}.x.html`;
         //TODO: Also need code to change editor content
         
     }
