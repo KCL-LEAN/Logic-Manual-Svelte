@@ -1,23 +1,9 @@
 <script lang="ts">
     import Swap from './Swap.svelte'
     import MathJax from './MathJax.svelte'
-    import CombinedRules from './static/documents/CombinedRules.x.html'
-    import Conditional from './static/documents/Conditional.x.html'
-    import Conjunction from './static/documents/Conjunction.x.html'
-    import Disjunction from './static/documents/Disjunction.x.html'
-    import Introduction from './static/documents/Introduction.x.html'
-    import Negation from './static/documents/Negation.x.html'
-    let map = new Map();
-    map.set("CombinedRules", CombinedRules)
-    map.set("Conditional", Conditional)
-    map.set("Conjunction", Conjunction)
-    map.set("Disjunction", Disjunction)
-    map.set("Introduction", Introduction)
-    map.set("Negation", Negation)
     
     export let ref; //for styling
-    export let documentPath: string; //for styling
-    let page = map.get(documentPath);
+    export let page: string; //for styling
     console.log(page);
 
     export const load = (async () => {
