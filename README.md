@@ -1,5 +1,5 @@
-# Logic Manual Interactive Proof Assistant(Written In Svelte)
-
+# Logic Manual Natural Deduction Proof Assistant (Written In Svelte)
+This website is a teaching tool which uses the L∃∀N Interactive Proof Assistant in order to facilitate better understanding of the ND Proof Systems for Sentential Logic and First-Order Logic. 
 
 
 ## Instructions
