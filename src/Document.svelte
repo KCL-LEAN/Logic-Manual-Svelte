@@ -21,7 +21,6 @@
 <style>
     div {
         background-color: #ffffff;
-        padding: 0;
         color: rgb(54, 54, 54);
     }
     h1 {
@@ -32,7 +31,13 @@
         font-family: "Eczar", serif;
     }
 
-    .document{
-      padding: 50px;
+    .document {
+        border-width:5px;
+        border-color:black;
+        text-align: center;
+        position:relative;
+        left:15vw;
+        width: 52vw;
+        overflow: scroll;
     }
 </style>

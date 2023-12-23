@@ -3,9 +3,9 @@
     const editorUrl = "https://leanprover-community.github.io/lean-web-editor/"
 
     export let editorText;
-    let frame;
+    let frame: HTMLIFrameElement;
      onMount(() => {
-        frame.addEventListener('load', onLoad());
+        
       })
     function onLoad () {
         let loadHelper = async function () { setTimeout(async function () {
@@ -24,12 +24,16 @@
     }
     
 </script>
-<div class = "IFrameEditor">
-        <iframe bind:this={frame} src = "https://leanprover-community.github.io/lean-web-editor/" width = "300" height = "800"></iframe>
-</div>
+        <iframe bind:this={frame} src = {editorUrl} width = "300" height = "100vh"></iframe>
 
 <style>
-    IFrameEditor {
-        float: right;
+    iframe {
+        position: fixed;
+        overflow: hidden;
+        flex: 0.8 0 0px;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        width: 30vw;
     }
 </style>

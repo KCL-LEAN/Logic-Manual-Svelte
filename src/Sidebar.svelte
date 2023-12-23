@@ -48,18 +48,14 @@
 
 <style>
   .sidebar {
-    margin-top: 30px;
-    margin-left: 30px;
-    padding: 20px;
     position: fixed;
-    width: 220px;
-    /* left: 0%;
-    top: 0%; */
+    width: 15vw;
+    left: 0;
     border: 3px solid;
     border-color: #36454F;
     background: white;
-      border-radius: 35px;
-    height: 50%;
+    border-radius: 35px;
+    height: 100vh;
     /* z-index: 3; */
     color: rgb(13, 13, 13);
     transition: all ease .3s;
@@ -67,8 +63,7 @@
     overflow: hidden;
     &:hover {
     border-radius: 35px;
-    width: 260px;
-    /* margin-left: auto; */
+    width: 20vw;
     transition: width 0.5s ease-in-out, margin-left 0.5s ease-in-out;
     }
   }

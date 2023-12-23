@@ -48,12 +48,6 @@
 
   }
 
-  main {
-        text-align: center;
-        display: flex;
-        width: 80%;
-        float: right;
-    }
 
 
   #footer{
@@ -67,20 +61,8 @@
 
 
 
-    :global([ref=monaco]){
-        min-width: 500px;
-        min-height: 500px;
-        display: flex;
-        justify-content: space-between;
-        border-radius: 5%;
-    }
+    
 
-    :global([ref=document]){
-        display: flex;
-        justify-content: space-between;
-        border-radius: 5%;
-        align-self: center;
-    }
     @media (min-width: 640px) {
         main {
         	max-width: none;
