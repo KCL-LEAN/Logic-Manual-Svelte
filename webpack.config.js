@@ -70,6 +70,12 @@ module.exports = {
 				use: {
 					loader: 'raw-loader'
 				}
+			},
+			{
+				test: /\.txt$/i,
+				use: {
+					loader: 'raw-loader'
+				}
 			}
 		]
 	},

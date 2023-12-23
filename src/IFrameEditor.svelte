@@ -1,16 +1,11 @@
 <script lang="ts">
     import { onMount } from 'svelte';
 
-    export let editorText;
+    export let editorUrl;
     let frame: HTMLIFrameElement;
-    let editorUrl =
-        `https://leanprover-community.github.io/lean-web-editor/#code=${editorText}`;
-     onMount(() => {
-        
-      })
-    function onLoad () {
+    console.log(editorUrl);
+    function onLoad () {//TODO Fix This
         let loadHelper = async function () { setTimeout(async function () {
-            console.log(frame.contentDocument);
             const head : HTMLIFrameElement = (frame.contentDocument).querySelector(".leanheader");
             if (head) {
             console.log("loaded frame: " + head);
