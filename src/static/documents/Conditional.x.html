@@ -1,27 +1,21 @@
 <h3> Conditional</h3>
 <p> The rules for the Conditional are the following: 
-    $$\infer=[\rightarrow Intro]{A\rightarrow B} {\underset{B}{\overset{[A]}{\vdots} }}$$ 
-
-    $$\infer=[Elim]{B} {A\rightarrow B&A}$$
-</p>
+    $\infer[\rightarrow Intro]{A\rightarrow B} {\infer*{B}{[A]}}$ 
+    $\infer[Elim]{B} {A\rightarrow B& A}$ </p>
 <p> With the introduction of the conditional, you discharge the assumption of the antecedent, A in this case. 
     The discharged assumption is indicated by the square brackets [ ].
     In LEAN the rules function very similar. 
-    The Elimination is easier: Given two assumptions $$(h1: A \rightarrow B)$$ and $$(h2: A)$$ you get $$B$$
-    simply by writing $$h1$$ $$h2$$ consecutively (see the example in the code). 
-    The introduction of the conditional is more complex, as we need to remove an assumption. This works in LEAN via a so called lambda function, where we define $$fun$$ $$h:$$ Antecedent $$=> $$ Consequent. 
-    The $$h:$$ stands for hypothesis, you designate the Antecedent as an hypothesis.  You can define more complex statements in the antecedent and consequent as well. </p>
+    The Elimination is easier: Given two assumptions $(h1: A \rightarrow B)$ and $(h2: A)$ you get $B$
+    simply by writing $h1$ $h2$ consecutively (see the example in the code). 
+    The introduction of the conditional is more complex, as we need to remove an assumption. This works in LEAN via a so called lambda function, where we define $fun$ $h:$ Antecedent $=> $ Consequent. 
+    The $h:$ stands for hypothesis, you designate the Antecedent as an hypothesis.  You can define more complex statements in the antecedent and consequent as well. </p>
 <p>
     Here are three examples of natural deduction proofs involving the rules for the conditional. 
-    There are more example so that the functioning of the $$fun$$ tactic becomes clear.
-    Example 1: $$A \rightarrow B, B\rightarrow C, A \vdash C$$
-
-    $$\infer[=\rightarrow Elim]{C}{B\rightarrow C &\infer=[\rightarrow Elim]{B}{A\rightarrow B & A}}$$
-
-    Example 2: $$\vdash A \rightarrow A \land A$$
-
-    $$\infer=[\rightarrow Intro]{A\rightarrow A \land A}{\infer=[\land Intro]{A\land A}{\infer{A}{[A]} & \infer{A}{[A]}}}$$
-
-    Example 3: $$A\rightarrow B, B\rightarrow C \vdash A \rightarrow C$$
-    $$\infer=[\rightarrow Intro]{A\rightarrow C}{\infer=[\rightarrow Elim] {C}{B \rightarrow C & \infer [\rightarrow Elim]{B} {A\rightarrow B & [A]}}}$$ 
+    There are more example so that the functioning of the $fun$ tactic becomes clear.
+    Example 1: $A \rightarrow B, B\rightarrow C, A \vdash C$
+    \[\infer[\rightarrow Elim]{C}{B\rightarrow C &\infer[\rightarrow Elim]{B}{A\rightarrow B & A}}\]
+    Example 2: $\vdash A \rightarrow A \land A$
+    \[\infer[\rightarrow Intro]{A\rightarrow A \land A}{\infer[\land Intro]{A\land A}{\infer{A}{[A]} & \infer{A}{[A]}}}\]
+    Example 3: $A\rightarrow B, B\rightarrow C \vdash A \rightarrow C$
+    \[\infer[\rightarrow Intro]{A\rightarrow C}{\infer[\rightarrow Elim] {C}{B \rightarrow C & \infer [\rightarrow Elim]{B} {A\rightarrow B & [A]}}}\] 
 </p>

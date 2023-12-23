@@ -68,6 +68,6 @@ onMount(() => {
 
 <main>
     <div>
-        {@html output}
+        $${@html output}$$
     <div>
 </main>

@@ -2,6 +2,7 @@
     import Document  from './Document.svelte'
     import Sidebar from './Sidebar.svelte'
     import IFrameEditor from './IFrameEditor.svelte'
+    import MathJax from './MathJax.svelte';
 
     import CombinedRules from './static/documents/CombinedRules.x.html'
     import Conditional from './static/documents/Conditional.x.html'
