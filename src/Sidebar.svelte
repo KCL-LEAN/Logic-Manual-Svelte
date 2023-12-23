@@ -61,11 +61,6 @@
     transition: all ease .3s;
     text-align: center;
     overflow: hidden;
-    &:hover {
-    border-radius: 35px;
-    width: 20vw;
-    transition: width 0.5s ease-in-out, margin-left 0.5s ease-in-out;
-    }
   }
 
   .links_to_pages{
