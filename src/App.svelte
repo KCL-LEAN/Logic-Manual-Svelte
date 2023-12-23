@@ -18,11 +18,11 @@
     import NegationT from './static/exercises/Negation.txt'
 
     let map = new Map();
-    map.set("CombinedRules", { CombinedRules, CombinedRulesT })
-    map.set("Conditional", { Conditional, ConditionalT })
-    map.set("Conjunction", { Conjunction, ConjunctionT })
-    map.set("Disjunction", { Disjunction, DisjunctionT })
-    map.set("Introduction", { Introduction, IntroductionT })
+    map.set("CombinedRules", [ CombinedRules, CombinedRulesT ])
+    map.set("Conditional", [ Conditional, ConditionalT ])
+    map.set("Conjunction", [ Conjunction, ConjunctionT ])
+    map.set("Disjunction", [ Disjunction, DisjunctionT ])
+    map.set("Introduction", [ Introduction, IntroductionT ])
     map.set("Negation", { Negation, NegationT })
     console.log("NegationT is : " + NegationT);
     let selectedDocument = Conjunction;
@@ -43,6 +43,7 @@
     {#key selectedDocument}
         <Document ref="document" bind:page={selectedDocument}></Document>
     {/key}
+
     <IFrameEditor editorUrl={editorText}/>
   </main>
 </body>
