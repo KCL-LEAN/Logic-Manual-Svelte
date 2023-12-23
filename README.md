@@ -1,5 +1,17 @@
 # Logic Manual Interactive Proof Assistant(Written In Svelte)
-This project uses LEAN 
+
+
 
 ## Instructions
-You must run build.sh if you want to install up to date lean files.
+To build and run this project, you must have an up-to-date version of the Node Package Manager installed on your system. Assuming that npm is installed correctly, you must then(in the project directory) run the command:
+
+´´´
+npm i
+´´´
+and then:
+´´´
+npm run dev
+
+´´´
+
+
