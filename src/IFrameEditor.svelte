@@ -1,9 +1,10 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    const editorUrl = "https://leanprover-community.github.io/lean-web-editor/"
 
     export let editorText;
     let frame: HTMLIFrameElement;
+    let editorUrl =
+        `https://leanprover-community.github.io/lean-web-editor/#code=${editorText}`;
      onMount(() => {
         
       })

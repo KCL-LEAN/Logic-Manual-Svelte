@@ -9,7 +9,8 @@ declare module '*.html' {
   export default content;
 }
 declare module '*.txt' {
-    export const code;
+    const content: any;
+    export default content;
 }
 declare module '*.json' {
     export const code;

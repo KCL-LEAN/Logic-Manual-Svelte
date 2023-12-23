@@ -9,18 +9,29 @@
     import Disjunction from './static/documents/Disjunction.x.html'
     import Introduction from './static/documents/Introduction.x.html'
     import Negation from './static/documents/Negation.x.html'
-    let map = new Map();
-    map.set("CombinedRules", CombinedRules)
-    map.set("Conditional", Conditional)
-    map.set("Conjunction", Conjunction)
-    map.set("Disjunction", Disjunction)
-    map.set("Introduction", Introduction)
-    map.set("Negation", Negation)
 
-    let editorText = "";//This sets text in editor and updates lean web editor component
+    import CombinedRulesT from './static/exercises/CombinedRules.txt'
+    import ConditionalT from './static/exercises/Conditional.txt'
+    import ConjunctionT from './static/exercises/Conjunction.txt'
+    import DisjunctionT from './static/exercises/Disjunction.txt'
+    import IntroductionT from './static/exercises/Introduction.txt'
+    import NegationT from './static/exercises/Negation.txt'
+
+    let map = new Map();
+    map.set("CombinedRules", { CombinedRules, CombinedRulesT })
+    map.set("Conditional", { Conditional, ConditionalT })
+    map.set("Conjunction", { Conjunction, ConjunctionT })
+    map.set("Disjunction", { Disjunction, DisjunctionT })
+    map.set("Introduction", { Introduction, IntroductionT })
+    map.set("Negation", { Negation, NegationT })
+
     let selectedDocument = Introduction;
+    let editorText = IntroductionT;//This sets text in editor and updates lean web editor component
+
     function handlePageChange(event) {
-        selectedDocument = map.get(event.detail.document);
+        const values = map.get(event.detail.document);
+        selectedDocument = values[0];
+        editorText = values[1];
         console.log("caught event in App.svelte: " + selectedDocument);
         //TODO: Also need code to change editor content
         
@@ -32,12 +43,11 @@
     {#key selectedDocument}
         <Document ref="document" bind:page={selectedDocument}></Document>
     {/key}
-    <IFrameEditor editorText={editorText}/>
+    {#key editorText}
+        <IFrameEditor editorText={editorText}/>
+    {/key}
   </main>
 </body>
-<footer id="footer">
-  <p>© 2023 Logic Manual. All rights reserved.</p>
-</footer>
 
 
 <style>
