@@ -1,0 +1,12 @@
+function! FixDoc()
+
+    update
+
+    %s/\$\+/\$\$/g
+    %s/\\infer\[/\\infer\[=/g
+    %s/\\\[/\$\$/g
+    %s/\\\]/\$\$/g
+    
+    update
+
+endfunction
