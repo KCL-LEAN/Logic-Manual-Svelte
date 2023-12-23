@@ -4,14 +4,14 @@
             $$\infer{\lor Intro} {A\lor B} {A}$$   $$\infer{\lor Intro} {A\lor B} {B}$$  $$\infer{\lor Elim} {C} 
             {A \lor B & \infer*{C}{{A}}& \infer*{C}{{B}}}$$
         </p>
-        <p> Similarly In LEAN the rules are again very similar. For the introduction of the disjunction you can use $Or.intro\_left$ $A $ $ B$ to get $A \lor B$ or $Or.intro\_right$ $A$ $B$ to get $B\lor A$.
-            Note in LEAN the order of the disjunctions matters. The rule of the Elimination is a bit more complicated. You need to show that $C$ follows from both $A, B$ independently to be able to eliminate the disjunction.
-            This is done using the same tactic as above with the conditional using $fun$. 
-            So we write $Or.elim $ $ A \lor B $ ($fun$ $ h1:$ A  $=>$ C)  ($fun$ $ h1:$ B  $=>$ C). </p>
+        <p> Similarly In LEAN the rules are again very similar. For the introduction of the disjunction you can use $$Or.intro\_left$$ $$A $$ $$ B$$ to get $$A \lor B$$ or $$Or.intro\_right$$ $$A$$ $$B$$ to get $$B\lor A$$.
+            Note in LEAN the order of the disjunctions matters. The rule of the Elimination is a bit more complicated. You need to show that $$C$$ follows from both $$A, B$$ independently to be able to eliminate the disjunction.
+            This is done using the same tactic as above with the conditional using $$fun$$. 
+            So we write $$Or.elim $$ $$ A \lor B $$ ($$fun$$ $$ h1:$$ A  $$=>$$ C)  ($$fun$$ $$ h1:$$ B  $$=>$$ C). </p>
         <p>
             Now look at an example natural deduction proof using the rules for conjunction and its implementation in LEAN. 
-            Example : $A\lor B \vdash A \lor (B \lor C)$
-            \[\infer[\lor Elim]{A\lor (B \lor C)}{A\lor B &\infer[\lor Intro]{A\lor (B\lor C)}{[A]} & \infer[\lor Intro]{A\lor (B\lor C)}{\infer[\lor Intro]{B\lor C}{[B]}}} \]
+            Example : $$A\lor B \vdash A \lor (B \lor C)$$
+            $$\infer[=\lor Elim]{A\lor (B \lor C)}{A\lor B &\infer[=\lor Intro]{A\lor (B\lor C)}{[A]} & \infer[=\lor Intro]{A\lor (B\lor C)}{\infer[=\lor Intro]{B\lor C}{[B]}}} $$
             And there are again some exercises for you to complete. 
         </p>
     

@@ -13,9 +13,9 @@
 
 
 <div class="document">
+   <MathJax></MathJax>
     \({"\\newcommand{\\infer}[3]{\\cfrac{#3}{#2}\\small{#1}}"}\)
         <Swap samp={page}/>
-        <MathJax></MathJax>
 </div>
 
 <style>
