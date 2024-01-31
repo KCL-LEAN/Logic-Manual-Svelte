@@ -1,8 +1,8 @@
 <h3>Disjunction</h3>
         <p> 
             The rules for Disjunction are the following: 
-            $$\infer{\lor Intro} {A\lor B} {A}$$   $$\infer{\lor Intro} {A\lor B} {B}$$  $$\infer{\lor Elim} {C} 
-            {A \lor B & \infer*{C}{{A}}& \infer*{C}{{B}}}$$
+            $$\infer{\lor Intro} {A\lor B} {A}$$   $$\infer{\lor Intro} {A\lor B} {B}$$ 
+            $$\infer{\lor Elim} {C} {A \lor B & \infer*{C}{{A}}& \infer*{C}{{B}}}$$
         </p>
         <p> Similarly In LEAN the rules are again very similar. For the introduction of the disjunction to get $$A \lor B$$ you can use one of the following:
             <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">Or.intro_left</span> A  B 

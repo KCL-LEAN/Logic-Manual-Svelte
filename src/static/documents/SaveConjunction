@@ -3,7 +3,7 @@
             $$\infer=[\land Intro]{A\land B}{A&B}$$ 
             $$\infer=[\land Elim] {A} {A\land B}$$ 
             $$\infer=[\land Elim] {B} {A\land B}$$ </p> 
-
+       <p> 
     In the programming languag LEAN, the rules function similarly. For example, in the LEAN syntax you write:
 <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">and</span>.right h
 </pre></div>
@@ -38,3 +38,4 @@
     This should give you an example to then continue the exercises in LEAN using the syntax for conjunction we just introduced. There are easier and harder exercises. 
 
 
+    
