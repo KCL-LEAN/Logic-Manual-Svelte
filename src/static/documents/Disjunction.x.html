@@ -1,23 +1,22 @@
 <h3>Disjunction</h3>
         <p> 
-            The rules for Disjunction are the following: 
-            $$\infer{\lor Intro} {A\lor B} {A}$$   $$\infer{\lor Intro} {A\lor B} {B}$$ 
-            $$\infer{\lor Elim} {C} {A \lor B & \infer*{C}{{A}}& \infer*{C}{{B}}}$$
+            The rules for disjunction in propositional logic are the following: 
+            $$\infer=[\lor Intro] {A\lor B} {A}$$   $$\infer=[\lor Intro] {A\lor B} {B}$$ 
+            $$\infer=[\lor Elim] {C} {A \lor B & {\underset{C}{\overset{[A]}{\vdots}}} & {\underset{C}{\overset{[B]}{\vdots}}}}$$
         </p>
-        <p> Similarly In LEAN the rules are again very similar. For the introduction of the disjunction to get $$A \lor B$$ you can use one of the following:
+        <p> The syntax of the rules in LEAN is again very similar. For the introduction of the disjunction, you can use one of the follwing. Note in LEAN the order of the disjuncts matters.
             <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">Or.intro_left</span> A  B 
             </pre></div>
             <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">Or.intro_right</span> B  A 
             </pre></div> 
-            Note in LEAN the order of the disjunctions matters. The rule of the Elimination is a bit more complicated. You need to show that C follows from both A, B independently to be able to eliminate the disjunction.
-            This is done using the same tactic as above with the conditional using assume. 
-            So we write 
-            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">Or.elim</span>A \lor B (assume h1: A, C) (assume h1:B, C)
+            The syntax for the disjunction elimination rule is a bit more complicated. You need to show that C follows from both A and B independently to be able to eliminate the disjunction.
+            This is done using the same tactic we saw with the conditional "assume". So we write 
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">Or.elim</span> A \lor B (assume h1: A, C) (assume h1:B, C)
             </pre></div> 
         <p>
             Now look at an example natural deduction proof using the rules for conjunction and its implementation in LEAN. 
-            Example : $$A\lor B \vdash A \lor (B \lor C)$$
-            $$\infer[=\lor Elim]{A\lor (B \lor C)}{A\lor B &\infer[=\lor Intro]{A\lor (B\lor C)}{[A]} & \infer[=\lor Intro]{A\lor (B\lor C)}{\infer[=\lor Intro]{B\lor C}{[B]}}} $$
-            And there are again some exercises for you to complete. 
+            $$A\lor B \vdash A \lor (B \lor C)$$
+            $$\infer=[\lor Elim]{A\lor (B \lor C)}{A\lor B &\infer=[\lor Intro]{A\lor (B\lor C)}{[A]} & \infer=[\lor Intro]{A\lor (B\lor C)}{\infer=[\lor Intro]{B\lor C}{[B]}}} $$
+            And there are again some exercises for you to complete in LEAN in the editor. 
         </p>
     
