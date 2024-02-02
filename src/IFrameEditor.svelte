@@ -1,26 +1,13 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-
     export let editorUrl;
     let frame: HTMLIFrameElement;
+    let frameActive = true;
     console.log(editorUrl);
-    function onLoad () {//TODO Fix This
-        let loadHelper = async function () { setTimeout(async function () {
-            const head : HTMLIFrameElement = (frame.contentDocument).querySelector(".leanheader");
-            if (head) {
-            console.log("loaded frame: " + head);
-            head.remove();
-            return;
-            }else{
-                loadHelper();
-            }
-        }, 10);
-        }
-        loadHelper();
-    }
-    
 </script>
-        <iframe bind:this={frame} src = {editorUrl} width = "300" height = "100vh"></iframe>
+        {#key editorUrl}
+            <iframe bind:this={frame} src = {editorUrl} width = "300" height = "100vh"></iframe>
+        {/key}  
 
 <style>
     iframe {

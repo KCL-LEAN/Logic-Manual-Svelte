@@ -1,0 +1,27 @@
+variables A B C D: Prop 
+--Correct Example
+example {p q : Prop} (H_pq : p ∧ q) : p := begin
+  show p, from and.left H_pq
+end
+
+-- easy Exercises 
+
+example (h: A∧B): A:= begin
+sorry
+end
+
+example (h: A∧B): B:=begin
+sorry
+end
+
+example (h: A∧B): A ∧ B ∧ A:=begin
+sorry
+end
+
+-- harder Exercises 
+example (h1: A∧B)(h2: C): A ∧ B ∧ C:=begin
+sorry 
+end
+example (h: A ∧ (B ∧ C)): (C ∧ A) ∧ B:=begin
+ sorry  
+end

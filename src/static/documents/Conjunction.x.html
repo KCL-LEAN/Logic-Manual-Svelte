@@ -7,12 +7,13 @@
         In LEAN if the rules function very similarly. To extract from your hypothesis
     $$h: A \land B$$ the $$A$$ then you enter
 
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">and</span>.right h
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">show <span style="color: #BB0066; font-weight: bold">A</span><span style="color: #333333">,</span> from <span style="color: #000000; font-weight: bold">and</span><span style="color: #333333">.</span><span style="color: #008800; font-weight: bold">left</span> h
+</pre></div>
 </pre></div>
 
     Similarly for B you write
 
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">and</span>.left h
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">show <span style="color: #BB0066; font-weight: bold">B</span><span style="color: #333333">,</span> from <span style="color: #000000; font-weight: bold">and</span><span style="color: #333333">.</span><span style="color: #008800; font-weight: bold">right</span> h
 </pre></div>
 
     To introduce the $$\land$$ you write

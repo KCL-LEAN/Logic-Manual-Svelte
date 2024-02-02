@@ -31,7 +31,7 @@
     function handlePageChange(event) {
         const values = map.get(event.detail.document);
         selectedDocument = values[0];
-        //editorText = values[1]; //TODO: Resetting Editor Text Breaks IFrame Augh
+        editorText = values[1]; //TODO: Resetting Editor Text Breaks IFrame Augh
         console.log("caught event in App.svelte: " + selectedDocument);
         //TODO: Also need code to change editor content
         
@@ -45,6 +45,7 @@
     {/key}
 
     <IFrameEditor editorUrl={editorText}/>
+
   </main>
 </body>
 
