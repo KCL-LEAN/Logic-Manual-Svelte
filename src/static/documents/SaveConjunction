@@ -1,18 +1,18 @@
 <h3>Conjunction</h3>
         <p> The well-known rules for conjunction in propositional logic are the following:
-            $$\infer{\land Intro}{A\land B}{A&B}$$ 
-            $$\infer{\land Elim} {A} {A\land B}$$ 
-            $$\infer{\land Elim} {B} {A\land B}$$ </p> 
-
-    In the programming language LEAN, the rules function similarly. For example, in the LEAN syntax you write:
+            $$\infer=[\land Intro]{A\land B}{A&B}$$ 
+            $$\infer=[\land Elim] {A} {A\land B}$$ 
+            $$\infer=[\land Elim] {B} {A\land B}$$ </p> 
+       <p> 
+    In the programming languag LEAN, the rules function similarly. For example, in the LEAN syntax you write:
 <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">and</span>.right h
 </pre></div>
     This extracts - from the hypothesis h - the right conjunct A.
-    $h: A \land B$
+    $$h: A \land B$$ 
 
     Similarly, to get the left conjunct, you can use the following syntax in LEAN
 
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">show <span style="color: #BB0066; font-weight: bold">B</span><span style="color: #333333">,</span> from <span style="color: #000000; font-weight: bold">and</span><span style="color: #333333">.</span><span style="color: #008800; font-weight: bold">right</span> h
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">and</span>.left h
 </pre></div>
 
     We have to be more specific in LEAN, indicating exactly which conjunct we want to extract. We have already seen the elimination rule, now for the introduction of a conjunction of A and B we write:
@@ -27,14 +27,15 @@
    Next let us consider an example natural deduction proof involving both the introduction and the elimation rules for conjunction: 
        </p>
          <p>
-        Example 1: $B \land A \vdash A \land B$
-         $$\infer{\land Intro}
+        $$B \land A \vdash A \land B$$
+         $$\infer=[\land Intro]
              {A\land B} 
-               {\infer{\land Elim} {A} {B \land A}
-               & \infer{\land Elim}{B} {B \land A}}
+               {\infer=[\land Elim] {A} {B \land A}
+               & \infer=[\land Elim]{B} {B \land A}}
                   $$
         </p>
     This proof is also done in LEAN; as you can see in the code editor on the page. 
     This should give you an example to then continue the exercises in LEAN using the syntax for conjunction we just introduced. There are easier and harder exercises. 
 
 
+    

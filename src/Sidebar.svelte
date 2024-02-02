@@ -21,16 +21,13 @@
     </h1>
       <div class = "links_to_pages">
         <ul>
-          <button on:click={() => event("Introduction")}>1. Introduction to using Lean</button>
-        </ul>
-        <ul>
-          <button on:click={() => event("PropositionalLogic")} >Propositional Logic</button>
+          <button on:click={() => event("Introduction")}> Introduction to LEAN</button>
         </ul>
         <ul>
           <button on:click={() => event("Conjunction")}>Conjunction</button>
         </ul>
         <ul>
-          <button on:click={() => event("Conditional")} >Conditionals</button>
+          <button on:click={() => event("Conditional")} >Conditional</button>
         </ul>
         <ul>
           <button on:click={() => event("Disjunction")} >Disjunction</button>
@@ -39,7 +36,7 @@
           <button on:click={() => event("Negation")} >Negation</button>
         </ul>
         <ul>
-          <button on:click={() => event("CombinedRules")} >Putting It All Together</button>
+          <button on:click={() => event("CombinedRules")} >Putting it all together</button>
         </ul>
       </div>
    </div>
