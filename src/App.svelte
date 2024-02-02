@@ -23,10 +23,10 @@
     map.set("Conjunction", [ Conjunction, ConjunctionT ])
     map.set("Disjunction", [ Disjunction, DisjunctionT ])
     map.set("Introduction", [ Introduction, IntroductionT ])
-    map.set("Negation", { Negation, NegationT })
+    map.set("Negation", [ Negation, NegationT ])
     console.log("NegationT is : " + NegationT);
-    let selectedDocument = Conjunction;
-    let editorText = ConjunctionT;//This sets text in editor and updates lean web editor component
+    let selectedDocument = Introduction;
+    let editorText = ConditionalT;//This sets text in editor and updates lean web editor component
 
     function handlePageChange(event) {
         const values = map.get(event.detail.document);

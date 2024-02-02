@@ -22,7 +22,7 @@
 
     Example 2: $$\vdash A \rightarrow A \land A$$
 
-    $$\infer=[\rightarrow Intro]{A\rightarrow A \land A}{\infer=[\land Intro]{A\land A}{\infer=[Int]{A}{[A]} & \infer=[Int]{A}{[A]}}}$$
+    $$\infer=[\rightarrow Intro]{A\rightarrow A \land A}{\infer=[\land Intro]{A\land A}{[A] & {[A]}}}$$
 
     Example 3: $$A\rightarrow B, B\rightarrow C \vdash A \rightarrow C$$
     $$\infer=[\rightarrow Intro]{A\rightarrow C}{\infer=[\rightarrow Elim] {C}{B \rightarrow C & \infer=[\rightarrow Elim]{B} {A\rightarrow B & [A]}}}$$ 
