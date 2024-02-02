@@ -24,17 +24,17 @@
     map.set("Disjunction", [ Disjunction, DisjunctionT ])
     map.set("Introduction", [ Introduction, IntroductionT ])
     map.set("Negation", [ Negation, NegationT ])
-    console.log("NegationT is : " + NegationT);
+    //console.log("NegationT is : " + NegationT);
     let selectedDocument = Introduction;
-    let editorText = ConditionalT;//This sets text in editor and updates lean web editor component
+    let editorText = ConjunctionT;//This sets text in editor and updates lean web editor component
 
     function handlePageChange(event) {
         const values = map.get(event.detail.document);
         selectedDocument = values[0];
+        editorText = values[1];
         //editorText = values[1]; //TODO: Resetting Editor Text Breaks IFrame Augh
         console.log("caught event in App.svelte: " + selectedDocument);
         //TODO: Also need code to change editor content
-        
     }
 </script>
 <body>
@@ -44,7 +44,7 @@
         <Document ref="document" bind:page={selectedDocument}></Document>
     {/key}
 
-    <IFrameEditor editorUrl={editorText}/>
+    <IFrameEditor bind:editorUrl={editorText}></IFrameEditor>
   </main>
 </body>
 

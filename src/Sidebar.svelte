@@ -24,9 +24,6 @@
           <button on:click={() => event("Introduction")}> Introduction to LEAN</button>
         </ul>
         <ul>
-          <button on:click={() => event("PropositionalLogic")} >Propositional Logic</button>
-        </ul>
-        <ul>
           <button on:click={() => event("Conjunction")}>Conjunction</button>
         </ul>
         <ul>

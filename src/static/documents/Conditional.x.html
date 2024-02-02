@@ -16,14 +16,16 @@
     Here are three examples of natural deduction proofs involving the rules for the conditional. 
     Here are some examples so that the functioning of the assume tactic becomes clear.
     Below you see the deduction in propositional logic, see the code editor for their LEAN implementation.
-    Example 1: $$A \rightarrow B, B\rightarrow C, A \vdash C$$
+   </par>
+   <par>
+    Example 1: $A \rightarrow B, B\rightarrow C, A \vdash C$
 
     $$\infer={\rightarrow Elim}{C}{B\rightarrow C &\infer=[\rightarrow Elim]{B}{A\rightarrow B & A}}$$
 
-    Example 2: $$\vdash A \rightarrow A \land A$$
+    Example 2: $\vdash A \rightarrow A \land A$
 
     $$\infer=[\rightarrow Intro]{A\rightarrow A \land A}{\infer=[\land Intro]{A\land A}{[A] & {[A]}}}$$
 
-    Example 3: $$A\rightarrow B, B\rightarrow C \vdash A \rightarrow C$$
+    Example 3: $A\rightarrow B, B\rightarrow C \vdash A \rightarrow C$
     $$\infer=[\rightarrow Intro]{A\rightarrow C}{\infer=[\rightarrow Elim] {C}{B \rightarrow C & \infer=[\rightarrow Elim]{B} {A\rightarrow B & [A]}}}$$ 
 </p>

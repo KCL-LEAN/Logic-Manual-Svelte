@@ -15,7 +15,7 @@
             </pre></div> 
         <p>
             Now look at an example natural deduction proof using the rules for conjunction and its implementation in LEAN. 
-            $$A\lor B \vdash A \lor (B \lor C)$$
+            Example 1: $A\lor B \vdash A \lor (B \lor C)$
             $$\infer=[\lor Elim]{A\lor (B \lor C)}{A\lor B &\infer=[\lor Intro]{A\lor (B\lor C)}{[A]} & \infer=[\lor Intro]{A\lor (B\lor C)}{\infer=[\lor Intro]{B\lor C}{[B]}}} $$
             And there are again some exercises for you to complete in LEAN in the editor. 
         </p>

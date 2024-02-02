@@ -23,7 +23,7 @@
           <h1 class="logo"><a href="index.html">Logic Manual</a></h1>
           <ul class="current">
             <li class="modules">
-              <a class ="internal_reference" href="naturaldeduct.html">1. Natural Deduction</a>
+              <a class ="internal_reference" href="naturaldeduct.html"> Natural Deduction in Propositional Logic</a>
             </li>
           </ul>
         </div>
@@ -34,19 +34,19 @@
         <article class="lean_intro_body">
           <!-- Use article element for main content -->
           <h1> Introduction To Using Lean </h1>
-          <p> In this section, you'll acquire the skills to craft proofs in Lean. Initially, we'll delve into a mechanistic approach, providing you with the ability to express any natural deduction proof in Lean. </p>
-          <p> Subsequently, we'll explore certain features within Lean that facilitate a more forward-directed approach to argumentation. These mechanisms allow for proofs that resemble informal reasoning but can seamlessly transition into natural deduction, providing insight into the correlation between the two styles of proof.</p>
-        </article>
-        <article class="expressions_para">
-          <h2> Expressions for Propostional Proofs </h2>
-            <p>Lean allows us to write experessions and then check these expressons against tbe system. The system will also tell us the type objects involved in the expressions </p>
-            <p> Try this: INPUT EXAMPLE HERE</p>
-            <p> Explain the above EXAMPLE HERE</p>
-            <p>Example 1: $$B \land A \vdash A \land B$$</p>
-        </article>
+          <p> This section gives you the fundamental background to using LEAN. We introduce the LEAN syntax so that you can write the logical connectives.  
+              This will be particularly helpful in the next sections, where we go through the introduction and elimination rules of each connective. You will be able to verfiy your reasoning directly, being guided by the LEAN editor. </p>
+          <p> LEAN is an automated theorem prover- so if you input your deduction, it will show you errors and lead you to the correct path. 
+              We will familiarise ourselves with the basic reasoning in propositional logic, but LEAN is much more powerful. It is used for example at Imperial College by Kevin Buzzard to teach undergraduate mathematics. The tool helps to construct and verfiy proofs of difficult constructions.
+              With this resource, you can familiarise yourself with the basics of the LEAN and learn logical deductions using a different approach. 
+          </p>
+          <p>
+            You will have already seen the LEAN editor at the sidebar, this is where you can write LEAN. In this main page, we will do the basic introductions and you can directly test it in the editor. There will always be extra exerises to try on your own. But before, we need to learn the syntax of LEAN. 
+            How can you write the connective in the programming language? See the table below for instructions:
+          </p>
 
         <article class="syntax_para">
-            <h2> Using Conntectives in Lean</h2>
+            <h2> Using Connectives in Lean</h2>
             <table class="syntax_table">
               <colgroup>
                 <col style="border: 17%">
@@ -56,73 +56,13 @@
               <tbody>
                 <tr class="row-odd">
                   <td>
-                    <p>Unicode</p>
+                    <p>Connective </p>
                     </td>
                   <td>
-                    <p>Connective</p>
+                    <p>LEAN </p>
                     </td>
                   <td>
-                    <p>Lean Input</p>
-                  </td>
-                </tr>
-                <tr class="row-even">
-                  <td></td>
-                  <td>
-                    <p>true</p>
-                    </td>
-                  <td></td>
-                </tr>
-                <tr class="row-odd">
-                  <td>
-                    </td>
-                  <td>
-                    <p>false</p>
-                    </td>
-                  <td>
-                  </td>
-                </tr>
-                <tr class="row-even">
-                  <td>
-                    <p>￢</p>
-                    </td>
-                  <td>
-                    <p>not</p>
-                    </td>
-                  <td>
-                    <p>\not, \neg</p>
-                  </td>
-                </tr>
-                <tr class="row-odd">
-                  <td>
-                    <p>∧</p>
-                    </td>
-                  <td>
-                    <p>/\</p>
-                    </td>
-                  <td>
-                    <p>\and</p>
-                  </td>
-                </tr>
-                <tr class="row-even">
-                  <td>
-                    <p>→</p>
-                    </td>
-                  <td>
-                    <p>-></p>
-                    </td>
-                  <td>
-                    <p>\to, \r, \imp</p>
-                  </td>
-                </tr>
-                <tr class="row-odd">
-                  <td>
-                    <p>↔︎</p>
-                    </td>
-                  <td>
-                    <p><-></p>
-                    </td>
-                  <td>
-                    <p>\iff, \lr</p>
+                    <p>Description</p>
                   </td>
                 </tr>
                 <tr class="row-even">
@@ -130,20 +70,63 @@
                     <p>∨</p>
                     </td>
                   <td>
-                    <p>\/</p>
+                    <p>\or</p>
                     </td>
                     <td>
-                      <p>\or</p>
+                      <p>Disjunction</p>
                     </td>
+                </tr>
+                <tr class="row-odd">
+                  <td>
+                    <p>∧</p>
+                    </td>
+                  <td>
+                    <p>\and</p>
+                    </td>
+                  <td>
+                    <p>Conjunction</p>
+                  </td>
+                </tr>
+                <tr class="row-even">
+                  <td>
+                    <p>→</p>
+                    </td>
+                  <td>
+                    <p>\to, \r, \imp </p>
+                    </td>
+                  <td>
+                    <p>Conditional</p>
+                  </td>
+                </tr>
+                <tr class="row-odd">
+                  <td>
+                    <p>↔︎</p>
+                    </td>
+                  <td>
+                    <p>\iff, \lr</p>
+                    </td>
+                  <td>
+                    <p>Biconditional</p>
+                  </td>
+                </tr>
+                <tr class="row-even">
+                  <td>
+                    <p>￢</p>
+                    </td>
+                  <td>
+                    <p>\not, \neg</p>
+                    </td>
+                  <td>
+                    <p>Negation </p>
+                  </td>
                 </tr>
               </tbody>
             </table>
         </article>
       </section>
     </div>
-    <footer class="footer">
-      <!-- Use footer element for footer -->
-      <p>© 2023 Logic Manual. All rights reserved.</p>
-    </footer>
+    <p>
+      Acknowledgements: This project depends on the resources of the Logic and Proof Book https://leanprover.github.io/logic_and_proof/index.html, the Exercises from 
+    </p>
 </body>
 </html>
