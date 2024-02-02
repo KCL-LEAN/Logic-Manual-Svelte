@@ -1,14 +1,14 @@
 <h3>Conjunction</h3>
         <p> The well-known rules for conjunction in propositional logic are the following:
-            $$\infer=[\land Intro]{A\land B}{A&B}$$ 
-            $$\infer=[\land Elim] {A} {A\land B}$$ 
-            $$\infer=[\land Elim] {B} {A\land B}$$ </p> 
+            $$\infer{\land Intro}{A\land B}{A&B}$$ 
+            $$\infer{\land Elim} {A} {A\land B}$$ 
+            $$\infer{\land Elim} {B} {A\land B}$$ </p> 
 
     In the programming languag LEAN, the rules function similarly. For example, in the LEAN syntax you write:
 <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">and</span>.right h
 </pre></div>
     This extracts - from the hypothesis h - the right conjunct A.
-    $$h: A \land B$$ 
+    $h: A \land B$
 
     Similarly, to get the left conjunct, you can use the following syntax in LEAN
 
@@ -28,10 +28,10 @@
        </p>
          <p>
         Example 1: $B \land A \vdash A \land B$
-         $$\infer=[\land Intro]
+         $$\infer{\land Intro}
              {A\land B} 
-               {\infer=[\land Elim] {A} {B \land A}
-               & \infer=[\land Elim]{B} {B \land A}}
+               {\infer{\land Elim} {A} {B \land A}
+               & \infer{\land Elim}{B} {B \land A}}
                   $$
         </p>
     This proof is also done in LEAN; as you can see in the code editor on the page. 

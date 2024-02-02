@@ -27,7 +27,7 @@
           <button on:click={() => event("Conjunction")}>Conjunction</button>
         </ul>
         <ul>
-          <button on:click={() => event("Conditional")} >Conditionals</button>
+          <button on:click={() => event("Conditional")} >Conditional</button>
         </ul>
         <ul>
           <button on:click={() => event("Disjunction")} >Disjunction</button>

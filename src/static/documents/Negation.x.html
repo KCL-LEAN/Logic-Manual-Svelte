@@ -21,7 +21,7 @@
         <p>
             Let's look at some example derivations both in propositional logic and LEAN. Again, you can find exercises in the editor. 
             Example 1: $A\rightarrow B, \neg B\vdash \neg A$
-            $$\infer=[\neg Intro]{\neg A}{\infer{\rightarrow Elim}{B}{A\rightarrow B & [A]} & \neg B}$$
+            $$\infer{\neg Intro}{\neg A}{\infer{\rightarrow Elim}{B}{A\rightarrow B & [A]} & \neg B}$$
             Example 2: $A\land B, \neg A\vdash C$
             $$\infer=[  ]{C}{\infer{\land Elim}{A}{A\land B}&\neg A}$$
         </p>
