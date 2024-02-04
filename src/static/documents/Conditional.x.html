@@ -9,9 +9,12 @@
      <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">h1</span> h2
     </pre></div> 
     The introduction of the conditional is slightly more complex. By the introduction of the conditional, one discharges the assumption of the antecedent. In our case the assumption is A. 
-    The discharged assumption is indicated by the square brackets [ ] in the rule of propositional logic. In LEAN this discharging of the assumption works via a so called tactic. The tactic is assume:  
-    <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">assume</span> h: Antecedent, Consequent
-    </pre></div>
+    The discharged assumption is indicated by the square brackets [ ] in the rule of propositional logic. In LEAN this discharging of the assumption works via a so called tactic. The tactic is fun and may be familiar to you from $\lambda$ calculus. But this is not important here, it simply works like an assumption:  </p>
+    <p>
+    fun h: Antecedent $\Rightarrow$ Consequent
+    </p>
+    <p>
+    $\Rightarrow$ can be written using your keyboard, first the equality sign and then the greater than. See the code editor for an example. 
     The h: stands for hypothesis, you designate the Antecedent as an hypothesis.  You can define more complex statements in the antecedent. But importantly, with the assumption of the antecedent, you prove the consequent. </p>
     Here are three examples of natural deduction proofs involving the rules for the conditional. 
     Here are some examples so that the functioning of the assume tactic becomes clear.
@@ -28,4 +31,7 @@
 
     Example 3: $A\rightarrow B, B\rightarrow C \vdash A \rightarrow C$
     $$\infer{\rightarrow Intro}{A\rightarrow C}{\infer{\rightarrow Elim} {C}{B \rightarrow C & \infer{\rightarrow Elim}{B} {A\rightarrow B & [A]}}}$$ 
+</p>
+<p>
+    Now you can test your understanding in the exercises in the LEAN editor and replace the "sorry" placeholders with your deductions.
 </p>

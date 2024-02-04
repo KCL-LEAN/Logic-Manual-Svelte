@@ -7,8 +7,8 @@
             This works differently in LEAN. Negation $\neg A$ is here defined as $A \rightarrow \bot$, where $\bot$ is a contradiction such as $ 0\neq 0 $ for example.
             There are two main tactics with respect to negations in LEAN. The first one is a sort of negation introduction. If you want to prove $\neg A$ then you assume $A$ and show that it leads to a contradiction. 
             This assumption is constructed similarly to the conditional and disjunctive rules above. So under the assumption  $h1:$ $ A$, you proof a contradiction (this is called False in LEAN). Then you get the desired result $\neg A$. It is written as follows:
-            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">assume</span> h: A, show False from h1 h
-            </pre> </div>
+            $$ \text{fun }h: A, \text{ show False from } h1 \quad h$$
+           
             Here h1 and h, defined as $\neg A$ and $A$ respectively, gives the False. Note that the order matters here, the negated statement must come first. 
         </p>
         <p></p>

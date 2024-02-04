@@ -10,9 +10,9 @@
             <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">Or.intro_right</span> B  A 
             </pre></div> 
             The syntax for the disjunction elimination rule is a bit more complicated. You need to show that C follows from both A and B independently to be able to eliminate the disjunction.
-            This is done using the same tactic we saw with the conditional "assume". So we write 
-            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">Or.elim</span> A \lor B (assume h1: A, C) (assume h1:B, C)
-            </pre></div> 
+            This is done using the same tactic we saw with the conditional "fun". So we write 
+            $$\text{Or.elim } A \lor B \quad (\text{ fun } h1: A \Rightarrow C) ( \text{fun } h1:B \Rightarrow C)$$
+           
         <p>
             Now look at an example natural deduction proof using the rules for conjunction and its implementation in LEAN. 
             Example 1: $A\lor B \vdash A \lor (B \lor C)$

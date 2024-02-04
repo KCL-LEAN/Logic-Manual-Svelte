@@ -5,22 +5,22 @@
             $$\infer{\land Elim} {B} {A\land B}$$ </p> 
 
     In the programming language LEAN, the rules function similarly. For example, in the LEAN syntax you write:
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">and</span>.right h
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">And</span>.right h
 </pre></div>
     This extracts - from the hypothesis h - the right conjunct A.
     $h: A \land B$
 
     Similarly, to get the left conjunct, you can use the following syntax in LEAN
 
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">show <span style="color: #BB0066; font-weight: bold">B</span><span style="color: #333333">,</span> from <span style="color: #000000; font-weight: bold">and</span><span style="color: #333333">.</span><span style="color: #008800; font-weight: bold">right</span> h
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #BB0066; font-weight: bold"></span><span style="color: #333333"></span>  <span style="color: #000000; font-weight: bold">And</span><span style="color: #333333">.</span><span style="color: #008800; font-weight: bold">left</span> h
 </pre></div>
 
     We have to be more specific in LEAN, indicating exactly which conjunct we want to extract. We have already seen the elimination rule, now for the introduction of a conjunction of A and B we write:
 
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">and</span>.intro <span style="color: #BB0066; font-weight: bold">A</span> <span style="color: #BB0066; font-weight: bold">B</span>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">And</span>.intro <span style="color: #BB0066; font-weight: bold">A</span> <span style="color: #BB0066; font-weight: bold">B</span>
 </pre></div>
 
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">and</span>.intro hA hB
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">And</span>.intro hA hB
 </pre></div>
 
    The latter formulation works for hypothesis hA, hB respectively. 
@@ -35,6 +35,13 @@
                   $$
         </p>
     This proof is also done in LEAN; as you can see in the code editor on the page. 
-    This should give you an example to then continue the exercises in LEAN using the syntax for conjunction we just introduced. There are easier and harder exercises. 
+    This should give you an example to then continue the exercises in LEAN using the syntax for conjunction we just introduced. There are easier and harder exercises. You just remove the "sorry" placeholer and write your proof. You should be able to see LEAN messages regarding your proof. 
 
+    <p> 
+        Lastly, there is one helpful tool. Similar to when you write down your natural deduction proofs on paper, also online, you might want to use intermediary steps. See for example the last hard exercise, there to first prove C as an intermediary goal.
+        LEAN allows you to do this by writing 
+        <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #BB0066; font-weight: bold"></span><span style="color: #333333"></span>  <span style="color: #000000; font-weight: bold">show</span><span style="color: #333333"> C </span><span style="color: #008800; font-weight: bold">from And.right (And.right h)</span>
+        </pre></div>
+        
+    </p>
 
