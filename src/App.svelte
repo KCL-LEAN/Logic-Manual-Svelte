@@ -18,7 +18,7 @@
     import DisjunctionT from './static/exercises/Disjunction.txt'
     import IntroductionT from './static/exercises/Introduction.txt'
     import NegationT from './static/exercises/Negation.txt'
-    import PropositionalT from './static/documents/Propositional.txt'
+    import PropositionalT from './static/exercises/Propositional.txt'
 
 
     let map = new Map();
