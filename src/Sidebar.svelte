@@ -21,7 +21,10 @@
     </h1>
       <div class = "links_to_pages">
         <ul>
-          <button on:click={() => event("Introduction")}> Introduction to LEAN</button>
+          <button on:click={() => event("Introduction")}>Introduction to LEAN</button>
+        </ul>
+        <ul>
+          <button on:click={() => event("Propositional")}>Propositional Logic</button>
         </ul>
         <ul>
           <button on:click={() => event("Conjunction")}>Conjunction</button>

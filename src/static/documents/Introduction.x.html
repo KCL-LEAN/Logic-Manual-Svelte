@@ -51,13 +51,13 @@
               <tbody>
                 <tr class="row-odd">
                   <td>
-                    <p>Connective </p>
+                    <p>Symbol </p>
                     </td>
                   <td>
                     <p>LEAN </p>
                     </td>
                   <td>
-                    <p>Description</p>
+                    <p>Standard Connective</p>
                   </td>
                 </tr>
                 <tr class="row-even">
@@ -68,7 +68,7 @@
                     <p>\or</p>
                     </td>
                     <td>
-                      <p>Disjunction</p>
+                      <p>or (Disjunction)</p>
                     </td>
                 </tr>
                 <tr class="row-odd">
@@ -79,7 +79,7 @@
                     <p>\and</p>
                     </td>
                   <td>
-                    <p>Conjunction</p>
+                    <p> and (Conjunction) </p>
                   </td>
                 </tr>
                 <tr class="row-even">
@@ -90,7 +90,7 @@
                     <p>\to, \r, \imp </p>
                     </td>
                   <td>
-                    <p>Conditional</p>
+                    <p>if ... then (Conditional)</p>
                   </td>
                 </tr>
                 <tr class="row-odd">
@@ -101,7 +101,7 @@
                     <p>\iff, \lr</p>
                     </td>
                   <td>
-                    <p>Biconditional</p>
+                    <p>if and only if (Biconditional)</p>
                   </td>
                 </tr>
                 <tr class="row-even">
@@ -112,7 +112,7 @@
                     <p>\not, \neg</p>
                     </td>
                   <td>
-                    <p>Negation </p>
+                    <p>not (Negation) </p>
                   </td>
                 </tr>
               </tbody>
@@ -120,6 +120,17 @@
         </article>
       </section>
     </div>
+    In the LEAN editor, you might have noticed the following line at the top:
+        <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">variable</span>(A B C D: Prop)
+        </pre></div>
+    It specifies propositions in the language. In the Logic Manual, Halbach calls these sentence letters. Now a proposition is a sentence when has a truth value. 
+    A semantic structure assigns a truth value to exactly every sentence letter of the language. Hence, we can understand the sentence letters as proposition here. The semantics of propositional logic are the discussed more in detail in the next section.
+    <p>
+    By definition 2.2 in the Logic Manual, we know for sentence letters A,B that binary connectives $\land, \lor, \rightarrow, \biconditional$ applied to sentence letters also produces sentences $A\land B, A\lor B, A\rightarrow B, A \leftrightarrow B$.
+    Similarly for a sentence A and negation, $\neg A$ is also a sentence.
+    And you can check this by hovering over the statements in the code editor. We defined A, B as propositions and hence if we check the expressions such as $A\land B$, LEAN will give that these are also propositions.
+    We look at the semantics in the next section.
+    </p>
     <p>
       Acknowledgements: This project depends on the resources of the Book
       <a href="https://leanprover.github.io/logic_and_proof/index.html">Logic and Proof</a> especially pertaining to LEAN,

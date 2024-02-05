@@ -9,6 +9,8 @@
     import Disjunction from './static/documents/Disjunction.x.html'
     import Introduction from './static/documents/Introduction.x.html'
     import Negation from './static/documents/Negation.x.html'
+    import Propositional from './static/documents/Propositional.x.html'
+
 
     import CombinedRulesT from './static/exercises/CombinedRules.txt'
     import ConditionalT from './static/exercises/Conditional.txt'
@@ -16,6 +18,8 @@
     import DisjunctionT from './static/exercises/Disjunction.txt'
     import IntroductionT from './static/exercises/Introduction.txt'
     import NegationT from './static/exercises/Negation.txt'
+    import PropositionalT from './static/documents/Propositional.txt'
+
 
     let map = new Map();
     map.set("CombinedRules", [ CombinedRules, CombinedRulesT ])
@@ -23,10 +27,11 @@
     map.set("Conjunction", [ Conjunction, ConjunctionT ])
     map.set("Disjunction", [ Disjunction, DisjunctionT ])
     map.set("Introduction", [ Introduction, IntroductionT ])
+    map.set("Propositional", [Propositional, PropositionalT])
     map.set("Negation", [ Negation, NegationT ])
     //console.log("NegationT is : " + NegationT);
     let selectedDocument = Introduction;
-    let editorText = ConjunctionT;//This sets text in editor and updates lean web editor component
+    let editorText = IntroductionT;//This sets text in editor and updates lean web editor component
 
     function handlePageChange(event) {
         const values = map.get(event.detail.document);
