@@ -8,7 +8,6 @@
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "gh-pages": "^6.1.1",
-    "lean4": "https://gitpkg.now.sh/leanprover/vscode-lean4/vscode-lean4?79d345c739bf707024eef5057ccef81b404a2ddf",
     "mini-css-extract-plugin": "^2.6.0",
     "raw-loader": "^4.0.2",
     "svelte": "^4.0.0",
@@ -31,24 +30,17 @@
     "vscode": "npm:@codingame/monaco-vscode-api@>=1.83.7 <1.84.0"
   },
   "scripts": {
-    "deploy": "gh-pages -d dist",
-    "postinstall": "monaco-treemending && node ./scripts/monaco-error-fix.ts",
+    "deploy": "gh-pages -d public",
+    "alt-postinstall": "monaco-treemending && node ./scripts/monaco-error-fix.ts",
     "build": "cross-env NODE_ENV=production webpack",
-    "build_server": "server/build.sh",
     "dev": "webpack serve",
     "validate": "svelte-check"
   },
   "dependencies": {
-    "@codingame/monaco-editor-treemended": "^1.83.7",
-    "@codingame/monaco-vscode-configuration-service-override": "^1.83.16",
-    "@codingame/monaco-vscode-textmate-service-override": "^1.83.8",
     "copy-webpack-plugin": "^11.0.0",
     "fontsource-eczar": "^4.0.0",
     "html-webpack-plugin": "^5.5.3",
-    "monaco-editor-workers": "^0.44.0",
-    "monaco-languageclient": "^7.0.2",
     "onigasm": "^2.2.5",
-    "vscode-languageserver-protocol": "^3.17.5",
-    "vscode-ws-jsonrpc": "^3.1.0"
+    "vscode-languageserver-protocol": "^3.17.5"
   }
 }

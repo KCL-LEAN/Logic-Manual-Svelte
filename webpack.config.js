@@ -1,13 +1,9 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const sveltePreprocess = require('svelte-preprocess');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
- 
-const CopyPlugin = require('copy-webpack-plugin');
 const mode = process.env.NODE_ENV || 'development';
-const prod = mode === 'development';
+const prod = true;
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-
 
   const babelOptions = {
       presets: ['@babel/preset-env','@babel/preset-react', '@babel/preset-typescript'], 
@@ -28,6 +24,7 @@ module.exports = {
 	},
 	output: {
 		path: path.join(__dirname, '/public'),
+        publicPath: path.join(__dirname, '/Logic-Manual-Svete'),
 		filename: '[name].js',
 		chunkFilename: '[name].[id].js'
 	},
