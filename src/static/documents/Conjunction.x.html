@@ -7,15 +7,15 @@
     In the programming language LEAN, the rules function similarly. For example, in the LEAN syntax you write:
 <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">And</span>.right h
 </pre></div>
-    This extracts - from the hypothesis h - the right conjunct A.
-    $h: A \land B$
+    This extracts from the hypothesis h: $A \land B$ the right conjunct A.
 
     Similarly, to get the left conjunct, you can use the following syntax in LEAN
 
 <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #BB0066; font-weight: bold"></span><span style="color: #333333"></span>  <span style="color: #000000; font-weight: bold">And</span><span style="color: #333333">.</span><span style="color: #008800; font-weight: bold">left</span> h
 </pre></div>
 
-    We have to be more specific in LEAN, indicating exactly which conjunct we want to extract. We have already seen the elimination rule, now for the introduction of a conjunction of A and B we write:
+    We have to be specific in LEAN, indicating exactly which conjunct we want to extract. 
+    For the introduction of a conjunction of A and B we write:
 
 <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">And</span>.intro <span style="color: #BB0066; font-weight: bold">A</span> <span style="color: #BB0066; font-weight: bold">B</span>
 </pre></div>
@@ -24,6 +24,8 @@
 </pre></div>
 
    The latter formulation works for hypothesis hA, hB respectively. 
+</p>
+<p>
    Next let us consider an example natural deduction proof involving both the introduction and the elimation rules for conjunction: 
        </p>
          <p>
