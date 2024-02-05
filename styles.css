@@ -62,5 +62,9 @@ button:focus {
 	border-color: #666;
 }
 
-
-/*# sourceMappingURL=styles.css.map*/
+div.svelte-15kjbq5{background-color:#ffffff;color:rgb(54, 54, 54)}.document.svelte-15kjbq5{border-width:5px;border-color:black;text-align:center;position:relative;left:15vw;width:52vw;overflow:scroll}
+.sidebar.svelte-1ykojew{position:fixed;width:15vw;left:0;border:3px solid;border-color:#36454F;background:white;border-radius:35px;height:100vh;color:rgb(13, 13, 13);transition:all ease .3s;text-align:center;overflow:hidden}.links_to_pages.svelte-1ykojew{color:black;text-align:left;margin-right:30px;text-decoration:none;&:hover{
+      text-decoration: none;
+    }}
+iframe.svelte-s8fam7{position:fixed;overflow:hidden;flex:0.8 0 0px;right:0;top:0;height:100vh;width:30vw}
+@media(min-width: 640px){main.svelte-ifvhfs{max-width:none}}
