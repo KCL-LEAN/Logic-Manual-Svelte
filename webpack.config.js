@@ -24,7 +24,7 @@ module.exports = {
 	},
 	output: {
 		path: path.join(__dirname, '/public'),
-        publicPath: path.join(__dirname, '/Logic-Manual-Svete'),
+        publicPath: path.join(__dirname, '/public'),
 		filename: '[name].js',
 		chunkFilename: '[name].[id].js'
 	},
