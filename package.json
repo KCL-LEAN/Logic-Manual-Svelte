@@ -28,7 +28,7 @@
     "alt-deploy": "gh-pages -d public",
     "alt-postinstall": "monaco-treemending && node ./scripts/monaco-error-fix.ts",
     "build": "cross-env NODE_ENV=production webpack",
-    "dev": "webpack serve",
+    "dev": "npm run build && webpack serve",
     "validate": "svelte-check"
   },
   "dependencies": {
