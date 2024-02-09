@@ -4,15 +4,19 @@
     <div>
        <p>
          This section will discuss the semantics of Propositional Logic, following Chapter 5 of the Logic Manual. 
+         <i>Please do not consider the first 6 lines of the code editor, this defines the interpret function in LEAN . </i>
         </p> 
         <p>
-        First, a small warning: please do not consider the first 6 lines of the code editor, this is just LEAN background functioning. 
-        Semantic structures assign truth values to sentences in the language. We construct here a toy model and declare sentences A, C as true and B, D as false.
+        Semantic structures assign truth values to sentences in the language. We construct here a toy model and declare sentences A, B as false and C, D as true.
         Now following the definition of satisfaction (Def 5.2) you can evaluate the truth value of compound sentences. 
-        Instead of truth tables, LEAN automatically completes this interpretation. If you click over the #eval statements, you should be able to see 'true' or 'false'. 
+        Instead of truth tables, LEAN automatically completes this interpretation. If you click on the #eval statements, you can see 'true' or 'false'. 
         </p>
         <p>
-        Test your own examples here! You can define your own assigments and evaluate more complex expression. 
+        You have to be precise with your brackets in LEAN. First, you need brackets around your expression because we evaluate the <i>interpret</i> function. If you use multiple connectives and don't specify the brackets, LEAN <b> automatically</b> adds brackets from left to right. 
+        The first example shows this: if you input $A \land \neg A \lor C$, LEAN will evaluate $(A \land \neg A) \lor C$. 
+        </p>
+        <p>
+        Test your own examples! You can define your own assigments and evaluate more complex expression. 
         </p>
      
     

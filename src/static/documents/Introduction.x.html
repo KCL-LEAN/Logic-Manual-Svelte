@@ -126,14 +126,14 @@
     </p>
     <p>
     You may have noticed the following line at the top of the LEAN editor window:
-        <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">variable</span>(A B C D: Prop)
-        </pre></div>
+        <h4 style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">variable</span>(A B C D: Prop)
+        </pre></h4>
     It specifies propositions in the language. In the Logic Manual, Halbach calls these sentence letters. Now a proposition is a sentence letter which has a truth value. 
     A semantic structure assigns a truth value to exactly every sentence letter of the language. Hence, we can understand the sentence letters as propositions here. The semantics of propositional logic are discussed in detail in the next section.
     <p>
     By definition 2.2 in the Logic Manual, we know for sentence letters A,B that binary connectives $\land, \lor, \rightarrow, \leftrightarrow$ produce new sentences $A\land B, A\lor B, A\rightarrow B, A \leftrightarrow B$.
     Similarly, for a sentence A and negation, $\neg A$ is also a sentence.
-    You can confirm this by clicking on the statements in the code editor. We defined A, B as propositions and hence LEAN returns that $A\land B$ etc. are also propositions.
+    You can confirm this by clicking on the statements in the code editor. We defined A, B as propositions and hence LEAN returns that $A \lor B$, $A\land B$ etc. are also propositions.
     </p>
     
 </body>

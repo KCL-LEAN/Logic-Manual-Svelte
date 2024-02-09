@@ -24,7 +24,6 @@
           <button on:click={() => event("Introduction")}>LEAN syntax</button>
         </ul>
         <h4>Propositional Logic</h4>
-        <h5>Semantics</h5>
         <ul>
           <button on:click={() => event("Propositional")}>Semantics</button>
         </ul>
@@ -55,18 +54,16 @@
 <style>
   .sidebar {
     position: fixed;
-    width: 15vw;
+    width: 13vw;
     left: 0;
-    border: 3px solid;
-    border-color: #36454F;
+    border-color: #000000;
     background: white;
-    border-radius: 35px;
-    height: 100vh;
+    border-right: 2px solid #000000;
     /* z-index: 3; */
     color: rgb(13, 13, 13);
     transition: all ease .3s;
     text-align: center;
-    overflow: hidden;
+    overflow: scroll;
   }
 
   .links_to_pages{
@@ -74,6 +71,7 @@
     text-align: left;
     margin-right: 30px;
     text-decoration: none;
+    outline: 0;
     &:hover{
       text-decoration: none;
     }

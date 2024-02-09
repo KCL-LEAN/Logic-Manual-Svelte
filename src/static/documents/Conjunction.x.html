@@ -5,23 +5,23 @@
             $$\infer{\land Elim} {B} {A\land B}$$ </p> 
 
     In the programming language LEAN, the rules function similarly. For example, in the LEAN syntax you write:
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">And</span>.right h
-</pre></div>
+<h4 style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">And</span>.right h
+</pre></h4>
     This extracts from the hypothesis h: $A \land B$ the right conjunct A.
 
     Similarly, to get the left conjunct, you can use the following syntax in LEAN
 
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #BB0066; font-weight: bold"></span><span style="color: #333333"></span>  <span style="color: #000000; font-weight: bold">And</span><span style="color: #333333">.</span><span style="color: #008800; font-weight: bold">left</span> h
-</pre></div>
+<h4 style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">And</span>.left h
+ </pre></h4>
 
     We have to be specific in LEAN, indicating exactly which conjunct we want to extract. 
     For the introduction of a conjunction of A and B we write:
 
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">And</span>.intro <span style="color: #BB0066; font-weight: bold">A</span> <span style="color: #BB0066; font-weight: bold">B</span>
-</pre></div>
+<h4 style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">And</span>.intro <span style="color: #BB0066; font-weight: bold">A</span> <span style="color: #BB0066; font-weight: bold">B</span>
+</pre></h4>
 
-<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">And</span>.intro hA hB
-</pre></div>
+<h4 style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">And</span>.intro hA hB
+</pre></h4>
 
    The latter formulation works for hypothesis hA, hB respectively. 
 </p>
@@ -42,8 +42,8 @@
     <p> 
         Lastly, there is one helpful tool. When you write down natural deduction proofs on paper, you might want to use intermediary steps, similarly online. See for example the last hard exercise in the LEAN editor. It could be helpful to prove C as an intermediary goal there.
         LEAN allows you to do this by writing 
-        <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #BB0066; font-weight: bold"></span><span style="color: #333333"></span>  <span style="color: #000000; font-weight: bold">show</span><span style="color: #333333"> C </span><span style="color: #008800; font-weight: bold">from And.right (And.right h)</span>
-        </pre></div>
+        <h4 style="background: #ffffff; text-align: center;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #BB0066; font-weight: bold"></span><span style="color: #333333"></span>  <span style="color: #000000; font-weight: bold">show C </span><span style="color: #008800; font-weight: bold">from And.right (And.right h)</span>
+        </pre></h4>
         
     </p>
 

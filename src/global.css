@@ -1,7 +1,8 @@
 html, 
 
-div {text-align: left;}
-
+div{text-align: left;}
+h4 {text-align: center;}
+h5 {text-align: center;}
 body {
 	position: relative;
 	width: 100%;
@@ -39,8 +40,7 @@ input, button, select, textarea {
 	-webkit-padding: 0.4em 0;
 	padding: 0.4em;
 	margin: 0 0 0.5em 0;
-	box-sizing: border-box;
-	border: 1px solid #ccc;
+	border: none ;
 	border-radius: 2px;
 }
 
@@ -55,7 +55,7 @@ button {
 }
 
 button:disabled {
-	color: #999;
+	color: #fffefe;
 }
 
 button:not(:disabled):active {
@@ -63,5 +63,5 @@ button:not(:disabled):active {
 }
 
 button:focus {
-	border-color: #666;
+	border-color: #fffdfd;
 }
