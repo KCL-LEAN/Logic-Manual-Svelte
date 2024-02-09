@@ -16,31 +16,37 @@
    <!-- <slot/> -->
 
    <div>
-    <h1>
-      <a href="">Logic Manual</a>
-    </h1>
       <div class = "links_to_pages">
         <ul>
-          <button on:click={() => event("Introduction")}>Introduction to LEAN</button>
+          <button on:click={() => event("Welcome")}>Welcome</button>
         </ul>
         <ul>
-          <button on:click={() => event("Propositional")}>Propositional Logic</button>
+          <button on:click={() => event("Introduction")}>LEAN syntax</button>
         </ul>
+        <h4>Propositional Logic</h4>
+        <h5>Semantics</h5>
         <ul>
+          <button on:click={() => event("Propositional")}>Semantics</button>
+        </ul>
+        <h5>Natural deduction</h5>
+        
+        <ul><li>
+          
           <button on:click={() => event("Conjunction")}>Conjunction</button>
-        </ul>
-        <ul>
+        </li></ul>
+
+        <ul><li>
           <button on:click={() => event("Conditional")} >Conditional</button>
-        </ul>
-        <ul>
+        </li></ul>
+        <ul><li>
           <button on:click={() => event("Disjunction")} >Disjunction</button>
-        </ul>
-        <ul>
-          <button on:click={() => event("Negation")} >Negation</button>
-        </ul>
-        <ul>
-          <button on:click={() => event("CombinedRules")} >Putting it all together</button>
-        </ul>
+        </li></ul>
+        <ul><li>
+         <button on:click={() => event("Negation")} >Negation</button>
+        </li></ul>
+        <ul><li>
+          <button on:click={() => event("CombinedRules")} >Combined Rules</button>
+        </li></ul>
       </div>
    </div>
 </div>

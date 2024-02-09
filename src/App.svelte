@@ -10,6 +10,7 @@
     import Introduction from './static/documents/Introduction.x.html'
     import Negation from './static/documents/Negation.x.html'
     import Propositional from './static/documents/Propositional.x.html'
+    import Welcome from './static/documents/Welcomepage.x.html'
 
 
     import CombinedRulesT from './static/exercises/CombinedRules.txt'
@@ -19,7 +20,7 @@
     import IntroductionT from './static/exercises/Introduction.txt'
     import NegationT from './static/exercises/Negation.txt'
     import PropositionalT from './static/exercises/Propositional.txt'
-
+    import WelcomeT from './static/exercises/Welcome.txt'
 
     let map = new Map();
     map.set("CombinedRules", [ CombinedRules, CombinedRulesT ])
@@ -29,9 +30,10 @@
     map.set("Introduction", [ Introduction, IntroductionT ])
     map.set("Propositional", [Propositional, PropositionalT])
     map.set("Negation", [ Negation, NegationT ])
+    map.set("Welcome", [Welcome, WelcomeT ])
     //console.log("NegationT is : " + NegationT);
-    let selectedDocument = Introduction;
-    let editorText = IntroductionT;//This sets text in editor and updates lean web editor component
+    let selectedDocument = Welcome;
+  let editorText = WelcomeT;//This sets text in editor and updates lean web editor component
 
     function handlePageChange(event) {
         const values = map.get(event.detail.document);

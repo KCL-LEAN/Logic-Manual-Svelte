@@ -1,22 +1,20 @@
-<h1>
-    Propositional Logic in LEAN
-    </h1>
+<h3>
+    Semantics of Propositional Logic
+    </h3>
     <div>
        <p>
-        In the introduction, we learned how to write compound sentences in LEAN. This section will discuss the semantics of Propositional Logic, following Chapter 5 of the Logic Manual. 
+         This section will discuss the semantics of Propositional Logic, following Chapter 5 of the Logic Manual. 
         </p> 
         <p>
         First, a small warning: please do not consider the first 6 lines of the code editor, this is just LEAN background functioning. 
-        You already will have seen that a semantic structure assigns truth values to sentences in the language. 
-        We do this here for a toy model by hand and declare sentences A, C as true and B, D as false. Now following the definition of satisfaction (Def 5.2) you can evaluate the truth value of compound expressions. 
-        This is typically done via truth tables, where you identify the central connective and then deduce whether the expression is true or false based on its components. 
-        Now LEAN does this automatically for you. If you hover over the #eval statements, then you should be able to see 'true' or 'false'. 
+        Semantic structures assign truth values to sentences in the language. We construct here a toy model and declare sentences A, C as true and B, D as false.
+        Now following the definition of satisfaction (Def 5.2) you can evaluate the truth value of compound sentences. 
+        Instead of truth tables, LEAN automatically completes this interpretation. If you click over the #eval statements, you should be able to see 'true' or 'false'. 
         </p>
         <p>
-        Test your own examples here! You can define your own assigments and evaluate more complex expression. This is a good place to learn using LEAN and familiarise yourself with the connectives. 
+        Test your own examples here! You can define your own assigments and evaluate more complex expression. 
         </p>
-        In the next few sections, we will look at the natural deduction rules for propositional logic. We look at the introduction and elimination rules for each connective separately and learn their implementation in LEAN.
-        This will allow you do natural deduction proofs in LEAN and have them checked automatically. 
+     
     
     
     

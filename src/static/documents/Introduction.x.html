@@ -13,40 +13,21 @@
         });
     </script>
   </head>
-
-  <body>
-    <div class="container">
-      <!-- Use semantic elements for structure -->
-      <nav class="navbar">
-        <!-- Use descriptive class names -->
-        <div>
-          <h1 class="logo"><a href="index.html">LEAN and the Logic Manual</a></h1>
-        </div>
-      </nav>
-
-      <section class="lean_intro">
+  <div>
         <!-- Use section element for each section -->
         <article class="lean_intro_body">
           <!-- Use article element for main content -->
-          <h1> Introduction To Using Lean </h1>
-          <p> This section gives you the fundamental background to using LEAN. We introduce the LEAN syntax so that you can write the logical connectives.  
-              This will be particularly helpful in the next sections, when we go through the introduction and elimination rules of each connective. You will be able to verify your reasoning directly, being guided by the LEAN editor. </p>
-          <p> LEAN is an automated theorem prover so if you input your deduction, it will show you errors and lead you to the correct path. 
-              We will familiarise ourselves with the basic reasoning in propositional logic, but LEAN is much more powerful. It is used for example at Imperial College by Kevin Buzzard to teach mathematics to undergraduates. The tool can help verify diffuclt proofs.
-            </p>
-            <p> 
-            With this resource, you can familiarise yourself with the basics of the LEAN and learn logical deductions. 
-          
+          <h3> Introduction To Using Lean </h3>
+          <p> This section gives you the fundamental background to using LEAN. We introduce the LEAN syntax so that you can write the logical connectives.   
             You will have already seen the LEAN editor on the right. This is where you can write LEAN. 
-            But before writing in LEAN, we need to learn its syntax. 
-            How can you write the connective in the programming language? See the table below for instructions:
+             See the table below for instructions on how to write for example the connectives in LEAN:
           </p>
 
         <article class="syntax_para">
-            <h2> Using Connectives in Lean</h2>
+            <h4> Using Connectives in Lean</h4>
             <table class="syntax_table">
               <colgroup>
-                <col style="border: 17%">
+                <col style="border: 18%">
                 <col style="width: 30%">
                 <col style="width: 52%">
               </colgroup>
@@ -140,23 +121,18 @@
         </article>
       </section>
     </div>
+    </p>
+    <p>
     You may have noticed the following line at the top of the LEAN editor window:
         <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">variable</span>(A B C D: Prop)
         </pre></div>
-    It specifies propositions in the language. In the Logic Manual, Halbach calls these sentence letters. Now a proposition is a sentence which has a truth value. 
+    It specifies propositions in the language. In the Logic Manual, Halbach calls these sentence letters. Now a proposition is a sentence letter which has a truth value. 
     A semantic structure assigns a truth value to exactly every sentence letter of the language. Hence, we can understand the sentence letters as propositions here. The semantics of propositional logic are discussed in detail in the next section.
     <p>
     By definition 2.2 in the Logic Manual, we know for sentence letters A,B that binary connectives $\land, \lor, \rightarrow, \leftrightarrow$ produce new sentences $A\land B, A\lor B, A\rightarrow B, A \leftrightarrow B$.
     Similarly, for a sentence A and negation, $\neg A$ is also a sentence.
-    You can confirm this by hovering over the statements in the code editor. We defined A, B as propositions and hence if we check expressions such as $A\land B$, LEAN will give that these are also propositions.
-    We look at the semantics in the next section.
+    You can confirm this by clicking on the statements in the code editor. We defined A, B as propositions and hence LEAN returns that $A\land B$ etc. are also propositions.
     </p>
-    <p>
-      Acknowledgements: This project depends on the resources of the Book
-      <a href="https://leanprover.github.io/logic_and_proof/index.html">Logic and Proof</a> especially pertaining to LEAN,
-      the <a href="https://users.ox.ac.uk/~logicman/">Resources</a>
-      of the Logic Manual Book by Volker Halbach are the fundation for all exercises. In particular, the Natural Deduction Pack.
-      Moreover, we use the server of the ADAM project of HHU Düsseldorf. 
-    </p>
+    
 </body>
 </html>
