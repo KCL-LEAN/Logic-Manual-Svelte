@@ -1,4 +1,8 @@
-html, body {
+html, 
+
+div {text-align: left;}
+
+body {
 	position: relative;
 	width: 100%;
 	height: 100%;
