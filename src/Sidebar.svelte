@@ -23,17 +23,14 @@
         <ul>
           <button on:click={() => event("Introduction")}>LEAN syntax</button>
         </ul>
-        <h4>Propositional Logic</h4>
+        <h5>Propositional Logic</h5>
         <ul>
           <button on:click={() => event("Propositional")}>Semantics</button>
         </ul>
         <h5>Natural deduction</h5>
-        
         <ul><li>
-          
           <button on:click={() => event("Conjunction")}>Conjunction</button>
         </li></ul>
-
         <ul><li>
           <button on:click={() => event("Conditional")} >Conditional</button>
         </li></ul>
@@ -54,7 +51,7 @@
 <style>
   .sidebar {
     position: fixed;
-    width: 13vw;
+    width: 14vw;
     left: 0;
     border-color: #000000;
     background: white;
