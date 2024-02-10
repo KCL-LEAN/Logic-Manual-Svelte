@@ -10,10 +10,12 @@
     </pre></h4> 
     The introduction of the conditional is slightly more complex. By the introduction of the conditional, one discharges the assumption of the antecedent. In our case the assumption is A. 
     The discharged assumption is indicated by the square brackets [ ] in the rule of propositional logic. In LEAN this discharging of the assumption works via a so called tactic. The tactic is fun and may be familiar to you from $\lambda$ calculus. But this is not important here, it simply works like an assumption:  </p>
-    <p>
-        fun h: Antecedent $\Rightarrow$ Consequent
-   <pre> fun h: Antecedent => Consequent </pre> 
-    </p>
+ <p>
+    <p> fun h: Antecedent $\Rightarrow$ Consequent </p>
+    <pre> fun h: Antecedent "=" > Consequent </pre>
+   <pre> fun h: Antecedent =&gt; Consequent</pre>
+   <pre>fun h: Antecedent &amp;gt; Consequent</pre>
+   <pre>fun h: Antecedent &rarr; Consequent</pre>
     <p>
     $\Rightarrow$ can be written using your keyboard, first the equality sign and then the greater than. See the code editor for an example. 
     The h: stands for hypothesis, you designate the Antecedent as an hypothesis.  You can define more complex statements in the antecedent. But importantly, with the assumption of the antecedent, you prove the consequent. </p>
