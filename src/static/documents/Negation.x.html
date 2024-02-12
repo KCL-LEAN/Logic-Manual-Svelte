@@ -6,20 +6,21 @@
         <p>
             This works differently in LEAN. Negation $\neg A$ is here defined as $A \rightarrow \bot$, where $\bot$ is a contradiction such as $ 0\neq 0 $ for example.
             There are two main tactics for negation in LEAN. The first one is similar to negation introduction. If you want to prove $\neg A$ then you assume $A$ and show that it leads to a contradiction. 
-            This assumption is constructed similarly to the conditional and disjunctive rules above. So under the assumption  $h1:$ $ A$, you proof a contradiction (this is called False in LEAN). Then you get the desired result $\neg A$. It is written as follows:
-            $$ \text{fun }h: A, \text{ show False from } h1 \quad h$$
+            This assumption is constructed similarly to the conditional and disjunctive rules above. So under some assumption you proof a contradiction (a False in LEAN). Then you get the desired result $\neg A$. It is written as follows:
+            $$ \text{fun }h: A, \text{ show False from } \neg B \quad B$$
            
-            Here h1 and h, defined as $\neg A$ and $A$ respectively, gives the False. Note that the order matters here, the negated statement must come first. 
+            Note that the order matters here, if you want to show False from $B$ and $\neg B$, you must state the negated statement first. 
+            
         </p>
         <p></p>
-            The second tactic involving negation used in LEAN is the so called Ex falso quodlibet principle, which you have seen in class as well. It states that anything can be derived from a contradiction. In LEAN this is done by a new tactic: absurd. 
+            The second tactic involving negation used in LEAN is the so called Ex falso quodlibet principle that anything can be derived from a contradiction. In LEAN this is done by a new tactic: absurd. 
             So suppose you are given some contradictory assumptions such as h1: $ A$ and h2: $\neg A$. Then you can prove any claim $B$ simply by stating 
             <h4 style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">absurd</span> h2 h1
             </pre></h4>
             Again here the order matters. 
         </p>
         <p>
-            Let's look at some example derivations both in propositional logic and LEAN. Again, you can find exercises in the editor. 
+            Let's look at some example derivations both in propositional logic and LEAN. Again, you can find more exercises in the editor. 
             Example 1: $A\rightarrow B, \neg B\vdash \neg A$
             $$\infer{\neg Intro}{\neg A}{\infer{\rightarrow Elim}{B}{A\rightarrow B & [A]} & \neg B}$$
             Example 2: $A\land B, \neg A\vdash C$

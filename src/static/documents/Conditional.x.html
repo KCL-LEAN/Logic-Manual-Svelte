@@ -4,12 +4,12 @@
 
     $$\infer{\rightarrow Elim}{B} {A\rightarrow B&A}$$
 </p>
-<p> Their LEAN implementation functions in a parallel way. First, let's look at the simpler case, the elimination of the conditional, the rule of Modus Ponens. 
+<p> Their LEAN implementation functions in a parallel way. First, let's look at the elimination of the conditional, the rule of Modus Ponens. 
     The rule goes as follows, given two assumptions $(h1: A \rightarrow B)$ $(h2: A)$ you can deduce B. In LEAN this is simply written as: 
      <h4 style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">h1</span> h2
     </pre></h4> 
     The introduction of the conditional is slightly more complex. By the introduction of the conditional, one discharges the assumption of the antecedent. In our case the assumption is A. 
-    The discharged assumption is indicated by the square brackets [ ] in the rule of propositional logic. In LEAN this discharging of the assumption works via a so called tactic. The tactic is fun and may be familiar to you from $\lambda$ calculus. But this is not important here, it simply works like an assumption:  </p>
+    The discharged assumption is indicated by the square brackets [ ] in the rule of propositional logic. In LEAN this discharging of the assumption works via a so called tactic. The tactic is called fun and may be familiar to you from $\lambda$ calculus. It simply works like an assumption:  </p>
  <p>
     <p> fun h: Antecedent $\Rightarrow$ Consequent </p>
     <pre> fun h: Antecedent "=" > Consequent </pre>
@@ -18,10 +18,9 @@
    <pre>fun h: Antecedent &rarr; Consequent</pre>
     <p>
     $\Rightarrow$ can be written using your keyboard, first the equality sign and then the greater than. See the code editor for an example. 
-    The h: stands for hypothesis, you designate the Antecedent as an hypothesis.  You can define more complex statements in the antecedent. But importantly, with the assumption of the antecedent, you prove the consequent. </p>
+    The h: stands for hypothesis, you designate the antecedent as an hypothesis.  You can define more complex statements in the antecedent. But importantly, with the assumption of the antecedent, you prove the consequent. </p>
     Here are three examples of natural deduction proofs involving the rules for the conditional. 
-    There are some more examples so that the functioning of the fun tactic becomes clear.
-    Below you see the deduction in propositional logic, see the code editor for their LEAN implementation.
+    See the code editor for their LEAN implementation.
    </par>
    <par>
     Example 1: $A \rightarrow B, B\rightarrow C, A \vdash C$
