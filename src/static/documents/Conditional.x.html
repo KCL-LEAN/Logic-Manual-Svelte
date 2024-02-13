@@ -11,13 +11,8 @@
     The introduction of the conditional is slightly more complex. By the introduction of the conditional, one discharges the assumption of the antecedent. In our case the assumption is A. 
     The discharged assumption is indicated by the square brackets [ ] in the rule of propositional logic. In LEAN this discharging of the assumption works via a so called tactic. The tactic is called fun and may be familiar to you from $\lambda$ calculus. It simply works like an assumption:  </p>
  <p>
-    <p> fun h: Antecedent $\Rightarrow$ Consequent </p>
-    <pre> fun h: Antecedent +=> Consequent </pre>
-    <pre> fun h: Antecedent +=> Consequent</pre>
-    <pre>fun h: Antecedent +=> Consequent</pre>
-<pre>fun h: Antecedent +=> Consequent</pre>
+<h4>fun h: Antecedent +=> Consequent</h4>
     <p>
-    $\Rightarrow$ can be written using your keyboard, first the equality sign and then the greater than. See the code editor for an example. 
     The h: stands for hypothesis, you designate the antecedent as an hypothesis.  You can define more complex statements in the antecedent. But importantly, with the assumption of the antecedent, you prove the consequent. </p>
     Here are three examples of natural deduction proofs involving the rules for the conditional. 
     See the code editor for their LEAN implementation.
