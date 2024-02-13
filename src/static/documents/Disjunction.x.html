@@ -11,7 +11,7 @@
             </pre></h4> 
             The syntax for the disjunction elimination rule is a bit more complicated. You need to show that C follows from both A and B independently to be able to eliminate the disjunction.
             This is done using the same tactic we saw with the conditional "fun". So we write 
-            <h4>Or.elim  A $\lor$ B  fun h1: A +=> C ( fun h1: B +=> C) </h4>
+            <h4>Or.elim  A $\lor$ B ( fun h1: A +=> C) ( fun h1: B +=> C) </h4>
            
         <p>
             Now look at an example natural deduction proof using the rules for conjunction and its implementation in LEAN. 

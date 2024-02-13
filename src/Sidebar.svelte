@@ -63,30 +63,31 @@
     text-align: center;
     overflow: scroll;
   }
-    ::-webkit-scrollbar {
-        display: none;
-    }
+    
+
   .sidebar-title {
       color:black;
-      font-size:x-large;
+      font-size:medium;
       text-align:center;
-      border-top:2px solid #000000;
-      border-bottom:2px solid #000000;
+      margin-left: 5px;
+      border-top:1px solid hsl(0, 0%, 60%);
+      border-bottom:1px solid hsl(0, 0%, 60%);
 
   }
 
   .sidebar-subtitle{
       color:black;
-      font-size:larger;
+      font-size:medium;
       text-align:center;
-      border-bottom:2px solid #000000;
+      margin-left: 5px;
+      border-bottom:1px solid hsl(0, 0%, 60%);
 
   }
   .links_to_pages{
     color: black;
     text-align: left;
-    text-size:large;
-    margin-right: 30px;
+    font-size:medium;
+    margin-right: 10px;
     text-decoration: none;
     outline: 0;
     &:hover{
