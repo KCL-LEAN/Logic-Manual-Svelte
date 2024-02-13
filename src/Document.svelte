@@ -41,4 +41,8 @@
         width: 52vw;
         overflow: scroll;
     }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
 </style>
