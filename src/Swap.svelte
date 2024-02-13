@@ -14,6 +14,7 @@ const map = { //here is where we're going to store constants, I just think it lo
     splitr: "&",
     splitrRep: "\\qquad ",
     labelMark: "=",
+    escapeChar: "+",
     singleVarRep: "\\lower5pt", //TODO: remove awkward height of single variables when next to large formulas
     entail: "*",
     entailRep: "\\vdots"
@@ -34,7 +35,9 @@ onMount(() => {
         if(char == map.splitr){
             ns = addAll(ns, map.splitrRep);
         }
+            else if(char == map.escapeChar){
 
+            }
 
         else if(char == map.entail){
             let labelIndices: number[] = [];
@@ -46,7 +49,7 @@ onMount(() => {
             ns = addAll(ns, map.entailRep + "}");
             i = i+map.entailRep.length + labelIndices[1]-labelIndices[0];
         }
-        else if(char == map.labelMark){
+        else if(char == map.labelMark && samp.charAt(i-1) != map.escapeChar){
             let labelIndices: number[] = [];
             for(let ii=i; ii < samp.length; ii++){
                 if(samp.charAt(ii) == "[" || samp.charAt(ii) == "]"){

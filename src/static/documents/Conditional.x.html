@@ -12,10 +12,10 @@
     The discharged assumption is indicated by the square brackets [ ] in the rule of propositional logic. In LEAN this discharging of the assumption works via a so called tactic. The tactic is called fun and may be familiar to you from $\lambda$ calculus. It simply works like an assumption:  </p>
  <p>
     <p> fun h: Antecedent $\Rightarrow$ Consequent </p>
-    <pre> fun h: Antecedent "=" > Consequent </pre>
-   <pre> fun h: Antecedent =&gt; Consequent</pre>
-   <pre>fun h: Antecedent &amp;gt; Consequent</pre>
-   <pre>fun h: Antecedent &rarr; Consequent</pre>
+    <pre> fun h: Antecedent +=> Consequent </pre>
+    <pre> fun h: Antecedent +=> Consequent</pre>
+    <pre>fun h: Antecedent +=> Consequent</pre>
+<pre>fun h: Antecedent +=> Consequent</pre>
     <p>
     $\Rightarrow$ can be written using your keyboard, first the equality sign and then the greater than. See the code editor for an example. 
     The h: stands for hypothesis, you designate the antecedent as an hypothesis.  You can define more complex statements in the antecedent. But importantly, with the assumption of the antecedent, you prove the consequent. </p>
