@@ -7,9 +7,9 @@
     import Conditional from './static/documents/Conditional.x.html'
     import Conjunction from './static/documents/Conjunction.x.html'
     import Disjunction from './static/documents/Disjunction.x.html'
-    import Introduction from './static/documents/Introduction.x.html'
+    import Syntax from './static/documents/Syntax.x.html'
     import Negation from './static/documents/Negation.x.html'
-    import Propositional from './static/documents/Propositional.x.html'
+    import Semantics from './static/documents/Semantics.x.html'
     import Welcome from './static/documents/Welcomepage.x.html'
 
 
@@ -17,9 +17,9 @@
     import ConditionalT from './static/exercises/Conditional.txt'
     import ConjunctionT from './static/exercises/Conjunction.txt'
     import DisjunctionT from './static/exercises/Disjunction.txt'
-    import IntroductionT from './static/exercises/Introduction.txt'
+    import SyntaxT from './static/exercises/Syntax.txt'
     import NegationT from './static/exercises/Negation.txt'
-    import PropositionalT from './static/exercises/Propositional.txt'
+    import SemanticsT from './static/exercises/Semantics.txt'
     import WelcomeT from './static/exercises/Welcome.txt'
 
     let map = new Map();
@@ -27,8 +27,8 @@
     map.set("Conditional", [ Conditional, ConditionalT ])
     map.set("Conjunction", [ Conjunction, ConjunctionT ])
     map.set("Disjunction", [ Disjunction, DisjunctionT ])
-    map.set("Introduction", [ Introduction, IntroductionT ])
-    map.set("Propositional", [Propositional, PropositionalT])
+    map.set("Syntax", [ Syntax, SyntaxT ])
+    map.set("Semantics", [Semantics, SemanticsT])
     map.set("Negation", [ Negation, NegationT ])
     map.set("Welcome", [Welcome, WelcomeT ])
     //console.log("NegationT is : " + NegationT);

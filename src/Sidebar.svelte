@@ -20,12 +20,12 @@
         <ul>
           <button on:click={() => event("Welcome")}>Welcome</button>
         </ul>
-        <ul>
-          <button on:click={() => event("Introduction")}>LEAN syntax</button>
-        </ul>
         <h5 class = "sidebar-title">Propositional Logic</h5>
         <ul>
-          <button on:click={() => event("Propositional")}>Semantics</button>
+          <button on:click={() => event("Syntax")}>LEAN syntax</button>
+        </ul>
+        <ul>
+          <button on:click={() => event("Semantics")}>Semantics</button>
         </ul>
         <h5 class = "sidebar-subtitle">Natural deduction</h5>
         <ul><li>
