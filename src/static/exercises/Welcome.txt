@@ -1,1 +1,1 @@
-https://lean.math.hhu.de/
+https://live.lean-lang.org/

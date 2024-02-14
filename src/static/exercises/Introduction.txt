@@ -1,1 +1,1 @@
-https://lean.math.hhu.de/#code=variable%20(A%20B%20C%20D%3A%20Prop)%20%0A%0A%23check%20A%20%E2%88%A8%20B%0A%0A%23check%20A%E2%88%A7%20B%0A%0A%23check%20A%20%E2%86%92%20B%0A%0A%23check%20A%20%E2%86%94%20B%0A%0A%23check%20%C2%AC%20A
+https://live.lean-lang.org/#code=variable%20(A%20B%20C%20D%3A%20Prop)%20%0A%0A%23check%20A%20%E2%88%A8%20B%0A%0A%23check%20A%20%E2%88%A7%20B%0A%0A%23check%20A%20%E2%86%92%20B%0A%0A%23check%20A%20%E2%86%94%20B%0A%0A%23check%20%C2%AC%20A
