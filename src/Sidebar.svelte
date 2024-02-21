@@ -28,9 +28,9 @@
           <button on:click={() => event("Semantics")}>Semantics</button>
         </ul>
         <h5 class = "sidebar-subtitle">Natural deduction</h5>
-        <ul><li>
+        <ul>
           <button on:click={() => event("Conjunction")}>Conjunction</button>
-        </li></ul>
+        </ul>
         <ul>
           <button on:click={() => event("Conditional")} >Conditional</button>
         </ul>
@@ -42,7 +42,7 @@
         </ul>
         <ul>
           <button on:click={() => event("CombinedRules")} >Combined Rules</button>
-        <ß/ul>
+        </ul>
       </div>
    </div> 
 </div> 
