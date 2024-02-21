@@ -15,10 +15,12 @@
         You have to be precise with your brackets in LEAN. First, because we evaluate the <i>interpret</i> function, we need to put brackets around the sentences. If you use multiple connectives and don't specify the brackets, LEAN <b> automatically</b> adds brackets from left to right. 
         The first example shows this: if you input $A \land \neg A \lor C$, LEAN will evaluate $(A \land \neg A) \lor C$. 
         </p>
-        <h3>Logical consequence</h3>
+        <h3>Countermodels</h3>
         <p>
-          countermodels. 
-        </p>
+        We just looked at an example model in the previous example. Now we say that a sentence $\phi$ is logically implied by a set of sentences $\Gamma$ (formally $\Gamma \vDash \phi$) if there is no counterexample to the argument. 
+        The next exercise is for you to define the values of P, Q and R such that the statements in the code editor are false. So you provide a countermodel. 
+        You have to remove the -- lines in your code editor for your answer to be processed. 
+      </p>
         <p>
         Test your own examples! You can define your own assigments and evaluate more complex expression. 
         </p>

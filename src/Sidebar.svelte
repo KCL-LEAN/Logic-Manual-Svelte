@@ -15,7 +15,7 @@
 <div class = 'sidebar'>
    <!-- <slot/> -->
 
-   <div>
+  <div>
       <div class = "links_to_pages">
         <ul>
           <button on:click={() => event("Welcome")}>Welcome</button>
@@ -44,8 +44,8 @@
           <button on:click={() => event("CombinedRules")} >Combined Rules</button>
         </li></ul>
       </div>
-   </div>
-</div>
+   </div> 
+</div> 
 
 
 <style>
