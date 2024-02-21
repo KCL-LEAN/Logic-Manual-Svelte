@@ -31,18 +31,18 @@
         <ul><li>
           <button on:click={() => event("Conjunction")}>Conjunction</button>
         </li></ul>
-        <ul><li>
+        <ul>
           <button on:click={() => event("Conditional")} >Conditional</button>
-        </li></ul>
-        <ul><li>
+        </ul>
+        <ul>
           <button on:click={() => event("Disjunction")} >Disjunction</button>
-        </li></ul>
-        <ul><li>
+        </ul>
+        <ul>
          <button on:click={() => event("Negation")} >Negation</button>
-        </li></ul>
-        <ul><li>
+        </ul>
+        <ul>
           <button on:click={() => event("CombinedRules")} >Combined Rules</button>
-        </li></ul>
+        <ß/ul>
       </div>
    </div> 
 </div> 
