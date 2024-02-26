@@ -20,10 +20,8 @@
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
   },
-  "overrides": {
-  },
-  "resolutions": {
-  },
+  "overrides": {},
+  "resolutions": {},
   "scripts": {
     "alt-deploy": "gh-pages -d public",
     "alt-postinstall": "monaco-treemending && node ./scripts/monaco-error-fix.ts",
@@ -34,6 +32,7 @@
   "dependencies": {
     "copy-webpack-plugin": "^11.0.0",
     "fontsource-eczar": "^4.0.0",
+    "gh-pages": "^6.1.1",
     "html-webpack-plugin": "^5.5.3",
     "onigasm": "^2.2.5",
     "vscode-languageserver-protocol": "^3.17.5"
