@@ -1,22 +1,22 @@
 <h2>Disjunction</h2>
         <p> 
             The rules for disjunction in propositional logic are the following: 
-            $$\infer{\lor Intro} {A\lor B} {A}$$   $$\infer{\lor Intro} {A\lor B} {B}$$ 
-            $$\infer{\lor Elim} {C} {A \lor B & {\underset{C}{\overset{[A]}{\vdots}}} & {\underset{C}{\overset{[B]}{\vdots}}}}$$
+            $$\infer{\lor Intro} {P\lor Q} {P}$$   $$\infer{\lor Intro} {P\lor Q} {Q}$$ 
+            $$\infer{\lor Elim} {R} {P \lor Q & {\underset{R}{\overset{[P]}{\vdots}}} & {\underset{R}{\overset{[Q]}{\vdots}}}}$$
         </p>
         <p> The syntax of the rules in LEAN is again similar. For the introduction of the disjunction, you can use one of the following. Note in LEAN the order of the disjuncts matters.
-            <h4 style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">Or.intro_left</span> A  B 
+            <h4 style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">Or.intro_left</span> P  Q 
             </pre></h4>
-            <h4 style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">Or.intro_right</span> B  A 
+            <h4 style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">Or.intro_right</span> Q  P 
             </pre></h4> 
-            The syntax for the disjunction elimination rule is a bit more complicated. You need to show that C follows from both A and B independently to be able to eliminate the disjunction.
+            The syntax for the disjunction elimination rule is p bit more complicated. You need to show that R follows from both P and Q independently to be able to eliminate the disjunction.
             This is done using the same tactic we saw with the conditional "fun". So we write 
-            <h4>Or.elim  A $\lor$ B ( fun h1: A +=> C) ( fun h1: B +=> C) </h4>
+            <h4>Or.elim  P $\lor$ Q ( fun h1: P +=> R) ( fun h1: Q +=> R) </h4>
            
         <p>
             Now look at an example natural deduction proof using the rules for conjunction and its implementation in LEAN. 
-            Example 1: $A\lor B \vdash A \lor (B \lor C)$
-            $$\infer{\lor Elim}{A\lor (B \lor C)}{A\lor B &\infer{\lor Intro}{A\lor (B\lor C)}{[A]} & \infer{\lor Intro}{A\lor (B\lor C)}{\infer{\lor Intro}{B\lor C}{[B]}}} $$
+            Example 1: $P\lor Q \vdash P \lor (Q \lor R)$
+            $$\infer{\lor Elim}{P\lor (Q \lor R)}{P\lor Q &\infer{\lor Intro}{P\lor (Q\lor R)}{[P]} & \infer{\lor Intro}{P\lor (Q\lor R)}{\infer{\lor Intro}{Q\lor R}{[Q]}}} $$
             And there are again some exercises for you to complete in LEAN in the editor. 
         </p>
     

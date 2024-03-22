@@ -7,13 +7,13 @@
          <i>Please do not consider the first 2 lines of the code editor, this defines the interpret function in LEAN. </i>
         </p> 
         <p>
-        Semantic structures assign truth values to sentences in the language. We construct here a toy model and declare sentences A, B as false and C, D as true.
+        Semantic structures assign truth values to sentences in the language. We construct here p toy model and declare sentences P, Q as false and R as true.
         Now following the definition of satisfaction (Def 5.2) you can evaluate the truth value of compound sentences. 
         Instead of truth tables, LEAN automatically completes this interpretation. If you click on the #eval statements, you can see 'true' or 'false'. 
         </p>
         <p>
         You have to be precise with your brackets in LEAN. First, because we evaluate the <i>interpret</i> function, we need to put brackets around the sentences. If you use multiple connectives and don't specify the brackets, LEAN <b> automatically</b> adds brackets from left to right. 
-        The first example shows this: if you input $A \land \neg A \lor C$, LEAN will evaluate $(A \land \neg A) \lor C$. 
+        The first example shows this: if you input $P \land \neg P \lor R$, LEAN will evaluate $(P \land \neg P) \lor R$. 
         </p>
         <h3>Countermodels</h3>
         <p>

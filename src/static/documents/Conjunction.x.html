@@ -1,13 +1,13 @@
 <h2>Conjunction</h2>
         <p> The well-known rules for conjunction in propositional logic are the following:
-            $$\infer{\land Intro}{A\land B}{A&B}$$ 
-            $$\infer{\land Elim} {A} {A\land B}$$ 
-            $$\infer{\land Elim} {B} {A\land B}$$ </p> 
+            $$\infer{\land Intro}{P\land Q}{P&Q}$$ 
+            $$\infer{\land Elim} {P} {P\land Q}$$ 
+            $$\infer{\land Elim} {Q} {P\land Q}$$ </p> 
 
     In the programming language LEAN, the rules function similarly. For example, in the LEAN syntax you write:
 <h4 style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">And</span>.right h
 </pre></h4>
-    This extracts from the hypothesis h: $A \land B$ the right conjunct A.
+    This extracts from the hypothesis h: $P \land Q$ the right conjunct P.
 
     Similarly, to get the left conjunct, you can use the following syntax in LEAN
 
@@ -15,9 +15,9 @@
  </pre></h4>
 
     We have to be specific in LEAN, indicating exactly which conjunct we want to extract. 
-    For the introduction of a conjunction of A and B we write:
+    For the introduction of a conjunction of P and Q we write:
 
-<h4 style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">And</span>.intro <span style="color: #BB0066; font-weight: bold">A</span> <span style="color: #BB0066; font-weight: bold">B</span>
+<h4 style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">And</span>.intro <span style="color: #BB0066; font-weight: bold">P</span> <span style="color: #BB0066; font-weight: bold">Q</span>
 </pre></h4>
 
 <h4 style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">And</span>.intro hA hB
@@ -29,20 +29,20 @@
    Next let us consider an example natural deduction proof involving both the introduction and the elimation rules for conjunction: 
        </p>
          <p>
-        Example 1: $B \land A \vdash A \land B$
+        Example 1: $Q \land P \vdash P \land Q$
          $$\infer{\land Intro}
-             {A\land B} 
-               {\infer{\land Elim} {A} {B \land A}
-               & \infer{\land Elim}{B} {B \land A}}
+             {P\land Q} 
+               {\infer{\land Elim} {P} {Q \land P}
+               & \infer{\land Elim}{Q} {Q \land P}}
                   $$
         </p>
     This proof is also done in LEAN; as you can see in the code editor on the page. 
     This should give you an example to then continue the exercises in LEAN using the syntax for conjunction we just introduced. There are easier and harder exercises. You just remove the "sorry" placeholer and write your proof. You should be able to see LEAN messages regarding your proof. 
 
     <p> 
-        Lastly, there is one helpful tool. When you write down natural deduction proofs on paper, you might want to use intermediary steps, similarly online. See for example the last hard exercise in the LEAN editor. It could be helpful to prove C as an intermediary goal there.
+        Lastly, there is one helpful tool. When you write down natural deduction proofs on paper, you might want to use intermediary steps, similarly online. See for example the last hard exercise in the LEAN editor. It could be helpful to prove R as an intermediary goal there.
         LEAN allows you to do this by writing 
-        <h4 style="background: #ffffff; text-align: center;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #BB0066; font-weight: bold"></span><span style="color: #333333"></span>  <span style="color: #000000; font-weight: bold">show C </span><span style="color: #008800; font-weight: bold">from And.right (And.right h)</span>
+        <h4 style="background: #ffffff; text-align: center;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #BB0066; font-weight: bold"></span><span style="color: #333333"></span>  <span style="color: #000000; font-weight: bold">show R </span><span style="color: #008800; font-weight: bold">from And.right (And.right h)</span>
         </pre></h4>
         
     </p>
