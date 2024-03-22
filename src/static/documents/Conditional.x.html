@@ -4,8 +4,8 @@
 
     $$\infer{\rightarrow Elim}{Q} {P\rightarrow Q&P}$$
 </p>
-<p> Their LEAN implementation functions in p parallel way. First, let's look at the elimination of the conditional, the rule of Modus Ponens. 
-    The rule goes as follows, given two assumptions $(h1: P \rightarrow Q)$ $(h2: P)$ you can deduce Q. In LEAN this is simply written as: 
+<p> Their LEAN implementation functions in a parallel way. First, let's look at the elimination of the conditional, the rule of Modus Ponens. 
+    The rule goes as follows, given two assumptions h1:$ P \rightarrow Q$ h2:$ P$ you can deduce Q. In LEAN this is simply written as: 
      <h4 style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">h1</span> h2
     </pre></h4> 
     The introduction of the conditional is slightly more complex. By the introduction of the conditional, one discharges the assumption of the antecedent. In our case the assumption is $P$. 

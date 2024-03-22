@@ -4,7 +4,7 @@
             $$\infer{\neg Intro} {\neg P} { {\underset{Q}{\overset{[P]}{\vdots}} &  {\underset{\neg Q}{\overset{[P]}{\vdots}}}}}$$  $$\infer{\neg Elim } { P}  {\underset{Q}{\overset{[\neg P]}{\vdots}} &  {\underset{\neg Q}{\overset{[\neg P]}{\vdots}}}}$$
         </p>
         <p>
-            This works differently in LEAN. Negation $\neg P$ is here defined as $A \rightarrow \bot$, where $\bot$ is a contradiction such as $ 0\neq 0 $ for example.
+            This works differently in LEAN. Negation $\neg P$ is here defined as $P \rightarrow \bot$, where $\bot$ is a contradiction such as $ 0\neq 0 $ for example.
             There are two main tactics for negation in LEAN. The first one is similar to negation introduction. If you want to prove $\neg P$ then you assume $P$ and show that it leads to a contradiction. 
             This assumption is constructed similarly to the conditional and disjunctive rules above. So under some assumption you proof a contradiction (a False in LEAN). Then you get the desired result $\neg P$. It is written as follows:
             <h4>fun h: P +=> show False from $\neg Q \quad Q$</h4>
@@ -14,7 +14,7 @@
         </p>
         <p></p>
             The second tactic involving negation used in LEAN is the so called Ex falso quodlibet principle that anything can be derived from p contradiction. In LEAN this is done by p new tactic: absurd. 
-            So suppose you are given some contradictory assumptions such as h1: $ P$ and h2: $\neg A$. Then you can prove any claim $Q$ simply by stating 
+            So suppose you are given some contradictory assumptions such as h1: $ P$ and h2: $\neg P$. Then you can prove any claim $Q$ simply by stating 
             <h4 style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">absurd</span> h2 h1
             </pre></h4>
             Again here the order matters. 
