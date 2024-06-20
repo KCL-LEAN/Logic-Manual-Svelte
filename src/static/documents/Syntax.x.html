@@ -1,39 +1,56 @@
 <html>
   <head>
-    <link rel="stylesheet" href="introduction.css">
-    <!-- Link to an external CSS file -->
-    <link rel="stylesheet" href="style.css">
-    <!-- Load MathJax script -->
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script type="text/javascript">
-      MathJax.Hub.Config({
-      tex2jax: {
-      inlineMath: [ ['$','$'], ['\\(','\\)'] ]
-          }
-        });
-    </script>
-    
-  </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Connectives in LEAN</title>
+    <style>
+        table.syntax_table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .row-odd {
+            background-color: #f9f9f9;
+        }
+        .row-even {
+            background-color: #ffffff;
+        }
+        
+    </style>
+</head>
 
   <div>
         <!-- Use section element for each section -->
         <article class="lean_intro_body">
           <!-- Use article element for main content -->
-          <h2> Introduction To LEAN </h2>
+          <h2> Introduction to LEAN: Syntax</h2>
           <p> 
-              This section gives you the basics of using LEAN for logic exercises.  
-            We start by introducing the syntax of LEAN so that you can write the logical connectives.   
-            You will have already seen the LEAN editor on the right. This is where you can write LEAN. 
-             See the table below for instructions on how to write for example the connectives in LEAN:
+            We start by learning the syntax of propositional logic in LEAN. The syntax can be understood as the grammar of the language. 
+  
           </p>
-
-        <article class="syntax_para">
-            <h3> Using Connectives in LEAN</h3>
+          <p>
+            We denote sentence letters in the language of propositional logic by P,Q,R. 
+            All sentence letters are sentences and if $\phi, \psi$ are sentences then $\neg \phi, \phi \land \psi, \phi \lor \psi, \phi \rightarrow \psi, \phi \leftrightarrow \psi$ 
+            are also sentences of the language of propositional logic. In LEAN, sentence letters are of the type proposition or Prop. A proposition is a sentence letter which has a truth value. 
+          </p>
+          <p>
+            Now how can we write these sentences in LEAN?   
+            Here is a table with an overview for how to write the propositional connectives in LEAN:
+          </p>
+  
             <table class="syntax_table">
               <colgroup>
-                <col style="border:18%">
+                <col style="width: 18%">
                 <col style="width: 30%">
-                <col style="width: 52%">
+                <col style="width: 26%">
+                <col style="width: 26%">
               </colgroup>
               <tbody>
                 <tr class="row-odd">
@@ -121,25 +138,20 @@
                 </tr>
               </tbody>
             </table>
-        </article>
-      </section>
-    </div>
-    </p>
+    <h3>LEAN editor</h3>
     <p>
-    You may have noticed the following line at the top of the LEAN editor window:
-        <h4 style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">variable</span>(P Q R: Prop)
-        </pre></h4>
-    It specifies propositions in the language. In the Logic Manual, Halbach calls these sentence letters. Now a proposition is a sentence letter which has a truth value. 
-    A semantic structure assigns a truth value to exactly every sentence letter of the language. Hence, we can understand the sentence letters as propositions here. The semantics of propositional logic are discussed in detail in the next section.
-    <p>
-    By definition 2.2 in the Logic Manual, we know for sentence letters P,Q that binary connectives $\land, \lor, \rightarrow, \leftrightarrow$ produce new sentences $P\land Q, P\lor Q, P\rightarrow Q, P \leftrightarrow Q$.
-    Similarly, for a sentence $P$ and negation, $\neg P$ is also a sentence.
-    You can confirm this by clicking on the statements in the code editor. We defined $P, Q$ as propositions and hence LEAN returns that $P \lor Q$, $P\land Q$ etc. are also propositions.
-    </p>
+      On the right side of the screen you can see the LEAN editor. It is split into two. In the upper half you can see code already and there you code yourself. 
+      In the lower half you see two displays: "mathlib-demo.lean:X.X" and "All Messages(X)". "mathlib-demo.lean:X.X" evaluates and verifies the code you click on. 
+      If you click in the upper half of the editor for example on line $3$, stating $\#\text{check }P\lor Q$,  you can see that under "mathlib-demo.lean:X.X" two messages appear. If you open "Expected type" it will say P,Q are Prop (propositions), so LEAN expects to output a Prop.
+      Under "Messages", you can see $P\lor Q$ is a Prop, as expected. The section "mathlib-demo.lean:X.X" displays the messages for the code that you work on, whereas "All Messages" will show the messages for all the code that is written in the editor.
+      Try writing some code yourself.   
+      </p>  
+
+
     <h3>Brackets</h3>
     <p>
-    The logic manual gives three conventions concerning brackets for compound sentences in section $2.3$. LEAN evaluates sentences from left to right and will assume brackets from left to right if you do not specify them. 
-    For example, if you input $P \land \neg P \lor R$, LEAN will evaluate $(P \land \neg P) \lor R$. This example will also be discussed in more detail in the next section.
+    The Logic Manual gives three conventions concerning brackets for compound sentences in section $2.3$. LEAN has its own convention. It evaluates sentences from left to right and will assume brackets from left to right if you do not specify them. 
+    For example, if you input $P \land \neg P \lor R$, LEAN will evaluate $(P \land \neg P) \lor R$ automatically. So be careful to specify brackets.
     
     </p>
 </body>

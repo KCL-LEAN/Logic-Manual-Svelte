@@ -7,9 +7,9 @@
          <i>Please do not consider the first 2 lines of the code editor, this defines the interpret function in LEAN. </i>
         </p> 
         <p>
-        Semantic structures assign truth values to sentences in the language. We construct here p toy model and declare sentences P, Q as false and R as true.
+        Semantic structures assign truth values to sentences in the language. We construct here a toy model and declare sentences P, Q as false and R as true. You can see this in the code editor. 
         Now following the definition of satisfaction (Def 5.2) you can evaluate the truth value of compound sentences. 
-        Instead of truth tables, LEAN automatically completes this interpretation. If you click on the #eval statements, you can see 'true' or 'false'. 
+        Instead of truth tables, LEAN automatically completes this interpretation. If you click on the #eval statements, in the lower part of the code editor under "Messages" you can see 'true' or 'false'. 
         </p>
         <p>
         You have to be precise with your brackets in LEAN. First, because we evaluate the <i>interpret</i> function, we need to put brackets around the sentences. If you use multiple connectives and don't specify the brackets, LEAN <b> automatically</b> adds brackets from left to right. 
@@ -17,7 +17,7 @@
         </p>
         <h3>Countermodels</h3>
         <p>
-        We just looked at an example model in the previous example. Now we say that a sentence $\phi$ is logically implied by a set of sentences $\Gamma$ (formally $\Gamma \vDash \phi$) if there is no counterexample to the argument. 
+        We just looked at a toy model in the previous example. We say that a sentence $\phi$ is logically implied by a set of sentences $\Gamma$ (formally $\Gamma \vDash \phi$) if there is no counterexample to the argument. 
         The next exercise is for you to define the values of P, Q and R such that the statements in the code editor are false. So you provide a countermodel. 
         You have to remove the -- lines in your code editor for your answer to be processed. 
       </p>
