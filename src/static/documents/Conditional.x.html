@@ -1,23 +1,23 @@
 <h2> Conditional</h2>
 <p> The inference rules for the classical material conditional in propositional logic are the following: 
-    $$\infer{\rightarrow Intro}{P\rightarrow Q} {\underset{Q}{\overset{[P]}{\vdots} }}$$ 
-
     $$\infer{\rightarrow Elim}{Q} {P\rightarrow Q&P}$$
+    $$\infer{\rightarrow Intro}{P\rightarrow Q} {\underset{Q}{\overset{[P]}{\vdots} }}$$     
 </p>
 <p> Their LEAN implementation functions in a parallel way. First, let's look at the elimination of the conditional, the rule of Modus Ponens. 
-    The rule goes as follows, given two assumptions h1:$ P \rightarrow Q$ h2:$ P$ you can deduce Q. In LEAN this is simply written as: 
+    Given two assumptions h1: $P \rightarrow Q$ and h2: $P$ you can deduce $Q$. In LEAN this is written as: 
      <h4 style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">h1</span> h2
     </pre></h4> 
     The introduction of the conditional is slightly more complex. By the introduction of the conditional, one discharges the assumption of the antecedent. In our case the assumption is $P$. 
-    The discharged assumption is indicated by the square brackets [ ] in the rule of propositional logic. In LEAN this discharging of the assumption works via a so called tactic. The tactic is called fun and may be familiar to you from $\lambda$ calculus. It simply works like an assumption:  </p>
+    The discharged assumption is indicated by the square brackets [ ] in the rule of propositional logic. In LEAN this discharging of the assumption works via a <i>tactic</i>. The tactic is called <i>fun</i> and may be familiar to you from $\lambda$ calculus. 
+    It works like an assumption:  </p>
  <p>
 <h4>fun h: Antecedent +=> Consequent</h4>
     <p>
     The h: stands for hypothesis, you designate the antecedent as an hypothesis.  You can define more complex statements in the antecedent. But importantly, with the assumption of the antecedent, you prove the consequent. </p>
     Here are three examples of natural deduction proofs involving the rules for the conditional. 
     See the code editor for their LEAN implementation.
-   </par>
-   <par>
+   </p>
+   <p>
     Example 1: $P \rightarrow Q, Q\rightarrow R, P \vdash R$
 
     $$\infer{\rightarrow Elim}{R}{Q\rightarrow R &\infer{\rightarrow Elim}{Q}{P\rightarrow Q & P}}$$

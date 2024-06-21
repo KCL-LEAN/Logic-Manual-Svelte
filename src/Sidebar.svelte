@@ -71,6 +71,8 @@
       text-align:center;
       margin-left: 5px;
       border-top:1px solid hsl(0, 0%, 60%);
+      padding-bottom: 10px;
+      padding-top:10px;
       border-bottom:1px solid hsl(0, 0%, 60%);
 
   }
@@ -80,6 +82,7 @@
       font-size:medium;
       text-align:center;
       margin-left: 5px;
+      padding-bottom: 10px;
       border-bottom:1px solid hsl(0, 0%, 60%);
 
   }

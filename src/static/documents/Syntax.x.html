@@ -8,9 +8,9 @@
             width: 100%;
             border-collapse: collapse;
         }
-        th, td {
+         td{
             border: 1px solid black;
-            padding: 8px;
+            padding: 6px;
             text-align: left;
         }
         th {
@@ -38,11 +38,11 @@
           <p>
             We denote sentence letters in the language of propositional logic by P,Q,R. 
             All sentence letters are sentences and if $\phi, \psi$ are sentences then $\neg \phi, \phi \land \psi, \phi \lor \psi, \phi \rightarrow \psi, \phi \leftrightarrow \psi$ 
-            are also sentences of the language of propositional logic. In LEAN, sentence letters are of the type proposition or Prop. A proposition is a sentence letter which has a truth value. 
+            are also sentences in the language of propositional logic. In LEAN, sentence letters are of the type proposition or Prop. A proposition is a sentence letter which has a truth value. 
           </p>
           <p>
             Now how can we write these sentences in LEAN?   
-            Here is a table with an overview for how to write the propositional connectives in LEAN:
+            Here is a table with an overview for how to write propositional connectives in LEAN:
           </p>
   
             <table class="syntax_table">
@@ -122,6 +122,7 @@
                   <td>
                     <p>\to, \r, \imp </p>
                     </td>
+                    </tr>
                 <tr class="row-odd">
                   <td>
                     <p>double arrow (biconditional)</p>
@@ -142,17 +143,16 @@
     <p>
       On the right side of the screen you can see the LEAN editor. It is split into two. In the upper half you can see code already and there you code yourself. 
       In the lower half you see two displays: "mathlib-demo.lean:X.X" and "All Messages(X)". "mathlib-demo.lean:X.X" evaluates and verifies the code you click on. 
-      If you click in the upper half of the editor for example on line $3$, stating $\#\text{check }P\lor Q$,  you can see that under "mathlib-demo.lean:X.X" two messages appear. If you open "Expected type" it will say P,Q are Prop (propositions), so LEAN expects to output a Prop.
-      Under "Messages", you can see $P\lor Q$ is a Prop, as expected. The section "mathlib-demo.lean:X.X" displays the messages for the code that you work on, whereas "All Messages" will show the messages for all the code that is written in the editor.
-      Try writing some code yourself.   
+      If you click in the upper half of the editor for example on line $3$ $(\#\text{check }P\lor Q)$,  you can see that under "mathlib-demo.lean:X.X" two messages appear. If you open "Expected type" it will say P,Q are Prop (propositions), so LEAN expects to output a Prop.
+      Under "Messages", you can see $P\lor Q$ is a Prop, as expected. The section "mathlib-demo.lean:X.X" displays the messages for the code that you work on, whereas if you open "All Messages", it will show messages for all the code written in the editor.
+      #check evaluates the type of the expression. Try writing some more complex expressions using $P$ and $Q$!  
       </p>  
 
 
     <h3>Brackets</h3>
     <p>
-    The Logic Manual gives three conventions concerning brackets for compound sentences in section $2.3$. LEAN has its own convention. It evaluates sentences from left to right and will assume brackets from left to right if you do not specify them. 
-    For example, if you input $P \land \neg P \lor R$, LEAN will evaluate $(P \land \neg P) \lor R$ automatically. So be careful to specify brackets.
-    
-    </p>
+    The Logic Manual defines conventions concerning brackets for compound sentences in section $2.3$. LEAN has its own conventions. It evaluates sentences from left to right and will assume brackets from left to right if you do not specify them. 
+    For example, if you input $P \land \neg P \lor Q$, LEAN will evaluate $(P \land \neg P) \lor Q$ automatically. If you want to evaluate $P \land (\neg P \lor Q)$ you have to specify the brackets.
+      </p>
 </body>
 </html>

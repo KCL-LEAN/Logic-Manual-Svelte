@@ -9,12 +9,14 @@
             </pre></h4>
             <h4 style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #fabd4e; font-weight: bold">Or.intro_right</span> Q  P 
             </pre></h4> 
-            The syntax for the disjunction elimination rule is p bit more complicated. You need to show that R follows from both P and Q independently to be able to eliminate the disjunction.
-            This is done using the same tactic we saw with the conditional "fun". So we write 
-            <h4>Or.elim  P $\lor$ Q ( fun h1: P +=> R) ( fun h1: Q +=> R) </h4>
+            The syntax for the disjunction elimination rule is more complicated. You need to show that R follows from both P and Q independently to be able to eliminate the disjunction.
+            This is done using the same tactic we saw with the conditional <i>fun</i>.
+            <h4>Or.elim  P $\lor$ Q ( fun h1: P +=> R) ( fun h2: Q +=> R) </h4>
            
         <p>
             Now look at an example natural deduction proof using the rules for conjunction and its implementation in LEAN. 
+        </p> 
+            <p>
             Example 1: $P\lor Q \vdash P \lor (Q \lor R)$
             $$\infer{\lor Elim}{P\lor (Q \lor R)}{P\lor Q &\infer{\lor Intro}{P\lor (Q\lor R)}{[P]} & \infer{\lor Intro}{P\lor (Q\lor R)}{\infer{\lor Intro}{Q\lor R}{[Q]}}} $$
             And there are again some exercises for you to complete in LEAN in the editor. 

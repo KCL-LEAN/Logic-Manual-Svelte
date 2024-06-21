@@ -1,29 +1,27 @@
-<h2>
-    Semantics of Propositional Logic
+<h2> Semantics of Propositional Logic
     </h2>
     <div>
        <p>
-         This section will discuss the semantics of Propositional Logic, following Chapter 5 of the Logic Manual. 
-         <i>Please do not consider the first 2 lines of the code editor, this defines the interpret function in LEAN. </i>
+         This section will discuss the semantics of propositional logic.
         </p> 
         <p>
         Semantic structures assign truth values to sentences in the language. We construct here a toy model and declare sentences P, Q as false and R as true. You can see this in the code editor. 
-        Now following the definition of satisfaction (Def 5.2) you can evaluate the truth value of compound sentences. 
-        Instead of truth tables, LEAN automatically completes this interpretation. If you click on the #eval statements, in the lower part of the code editor under "Messages" you can see 'true' or 'false'. 
-        </p>
+        Now following the definition of satisfaction you can evaluate the truth value of compound sentences. 
+        Instead of truth tables, LEAN automatically completes this interpretation. <i>Please do not change the first 2 lines of the code editor, they define the interpret function in LEAN. </i> 
+        If you click on the #eval statements, you evaluate the interpret function on the compound sentences. In the lower half of the code editor under "Messages" you can see the value of the compound expression, 'true' or 'false'. 
+        Verify LEAN's evaluation for the given expressions using a truth table.     </p>
         <p>
-        You have to be precise with your brackets in LEAN. First, because we evaluate the <i>interpret</i> function, we need to put brackets around the sentences. If you use multiple connectives and don't specify the brackets, LEAN <b> automatically</b> adds brackets from left to right. 
+        You have to be precise with your brackets in LEAN. First, because we evaluate the sentences using the <i>interpret</i> function, we need to put brackets around the sentences. If you use multiple connectives and don't specify the brackets, LEAN <b> automatically</b> adds brackets from left to right. 
         The first example shows this: if you input $P \land \neg P \lor R$, LEAN will evaluate $(P \land \neg P) \lor R$. 
         </p>
         <h3>Countermodels</h3>
         <p>
-        We just looked at a toy model in the previous example. We say that a sentence $\phi$ is logically implied by a set of sentences $\Gamma$ (formally $\Gamma \vDash \phi$) if there is no counterexample to the argument. 
-        The next exercise is for you to define the values of P, Q and R such that the statements in the code editor are false. So you provide a countermodel. 
+        We just looked at a toy model in the previous example, with given truth values for $P,Q,R$. 
+        Next, let's consider countermodels. As a reminder, a sentence $\phi$ is logically implied by a set of sentences $\Gamma$ (formally $\Gamma \vDash \phi$) if there is no counterexample to the argument. 
+        The next exercise is for you to define the values of P, Q and R such that the statements in the code editor are false. The task is to provide a countermodel. 
         You have to remove the -- lines in your code editor for your answer to be processed. 
       </p>
-        <p>
-        Test your own examples! You can define your own assigments and evaluate more complex expression. 
-        </p>
+       
      
     
     
