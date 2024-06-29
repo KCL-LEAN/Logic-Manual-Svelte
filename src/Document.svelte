@@ -37,8 +37,8 @@
         border-color:black;
         text-align: center;
         position:relative;
-        left:15vw;
-        width: 52vw;
+        left:11vw;
+        width: 47vw;
         overflow: scroll;
     }
 

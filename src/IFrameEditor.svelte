@@ -6,7 +6,7 @@
     console.log(editorUrl);
 </script>
         {#key editorUrl}
-            <iframe bind:this={frame} src = {editorUrl} width = "300" height = "100vh"></iframe>
+            <iframe bind:this={frame} src = {editorUrl} width = "35vh" height = "100vh"></iframe>
         {/key}  
 
 <style>
@@ -17,6 +17,6 @@
         right: 0;
         top: 0;
         height: 100vh;
-        width: 30vw;
+        width: 35vw;
     }
 </style>

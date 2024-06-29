@@ -69,7 +69,7 @@
   #footer{
     background-color: white;
     color: #36454F;
-    text-align: center;
+    text-align: left;
     position: fixed;
     padding: 1em;
     bottom: 0;

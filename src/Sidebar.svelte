@@ -1,100 +1,90 @@
 <script lang="ts">
-    import { createEventDispatcher } from "svelte";
-    const dispatch = createEventDispatcher();
-    function event(documentName: string) {
+  import { createEventDispatcher } from "svelte";
+  const dispatch = createEventDispatcher();
 
-        console.log("emitting event, button pressed: " + documentName);
-
-        dispatch ('documentSelection', {
-            document: documentName 
-        });
-    }
-
+  function event(documentName: string) {
+      console.log("emitting event, button pressed: " + documentName);
+      dispatch('documentSelection', {
+          document: documentName
+      });
+  }
 </script>
 
-<div class = 'sidebar'>
-   <!-- <slot/> -->
-
-  <div>
-      <div class = "links_to_pages">
-        <ul>
-          <button on:click={() => event("Welcome")}>Welcome</button>
-        </ul>
-        <h5 class = "sidebar-title">Propositional Logic</h5>
-        <ul>
-          <button on:click={() => event("Syntax")}>LEAN syntax</button>
-        </ul>
-        <ul>
-          <button on:click={() => event("Semantics")}>Semantics</button>
-        </ul>
-        <h5 class = "sidebar-subtitle">Natural deduction</h5>
-        <ul>
-          <button on:click={() => event("Conjunction")}>Conjunction</button>
-        </ul>
-        <ul>
-          <button on:click={() => event("Conditional")} >Conditional</button>
-        </ul>
-        <ul>
-          <button on:click={() => event("Disjunction")} >Disjunction</button>
-        </ul>
-        <ul>
-         <button on:click={() => event("Negation")} >Negation</button>
-        </ul>
-        <ul>
-          <button on:click={() => event("CombinedRules")} >Combined Rules</button>
-        </ul>
-      </div>
-   </div> 
-</div> 
-
+<div class="sidebar">
+  <div class="links_to_pages">
+      <ul>
+          <li><a href="#" on:click={() => event("Welcome")}>Welcome</a></li>
+      </ul>
+      <h5 class="sidebar-title">Propositional Logic</h5>
+      <ul>
+          <li><a href="#" on:click={() => event("Syntax")}>Syntax</a></li>
+          <li><a href="#" on:click={() => event("Semantics")}>Semantics</a></li>
+      </ul>
+      <h5 class="sidebar-subtitle">Natural deduction</h5>
+      <ul>
+          <li><a href="#" on:click={() => event("Conjunction")}>Conjunction</a></li>
+          <li><a href="#" on:click={() => event("Conditional")}>Conditional</a></li>
+          <li><a href="#" on:click={() => event("Disjunction")}>Disjunction</a></li>
+          <li><a href="#" on:click={() => event("Negation")}>Negation</a></li>
+          <li><a href="#" on:click={() => event("CombinedRules")}>Combinations</a></li>
+      </ul>
+  </div>
+</div>
 
 <style>
-
   .sidebar {
-    position: fixed;
-    width: 14vw;
-    left: 0;
-    border-color: #000000;
-    background: white;
-    border-right: 2px solid #000000;
-    /* z-index: 3; */
-    color: rgb(13, 13, 13);
-    transition: all ease .3s;
-    text-align: center;
-    overflow: scroll;
-  }
-    
-
-  .sidebar-title {
-      color:black;
-      font-size:medium;
-      text-align:center;
-      margin-left: 5px;
-      border-top:1px solid hsl(0, 0%, 60%);
-      padding-bottom: 10px;
-      padding-top:10px;
-      border-bottom:1px solid hsl(0, 0%, 60%);
-
+      position: fixed;
+      width: 10vw;
+      border-right: 1px solid #000000;
+      background: white;
+      color: #0d0d0d;
+      text-align: left;
+      overflow-y: auto;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      padding-top: 20px; /* Adjust top padding as needed */
   }
 
-  .sidebar-subtitle{
-      color:black;
-      font-size:medium;
-      text-align:center;
-      margin-left: 5px;
-      padding-bottom: 10px;
-      border-bottom:1px solid hsl(0, 0%, 60%);
-
+  .sidebar-title{
+      font-size: 17px; /* Adjust font size as needed */
+      text-align: left;
+      margin: 10px 0;
+      border-top: 1px solid hsl(0, 0%, 60%);
+      border-bottom: 1px solid hsl(0, 0%, 60%);
+      padding: 8px 16px;
   }
-  .links_to_pages{
-    color: black;
-    text-align: left;
-    font-size:medium;
-    margin-right: 10px;
-    text-decoration: none;
-    outline: 0;
-    &:hover{
+
+  .sidebar-subtitle {
+      font-size: 17px; /* Adjust font size as needed */
+      text-align: left;
+      margin: 10px 0;
+      border-bottom: 1px solid hsl(0, 0%, 60%);
+      padding: 8px 16px;
+      
+  }
+
+  .links_to_pages ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+  }
+
+  .links_to_pages li {
+      margin-bottom: 10px;
+  }
+
+  .links_to_pages a {
+      display: block;
+      padding: 8px 16px;
+      color: black;
       text-decoration: none;
-    }
+      text-align: left;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+  }
+
+  .links_to_pages a:hover {
+      background-color: #f0f0f0;
   }
 </style>
