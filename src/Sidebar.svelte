@@ -39,11 +39,13 @@
       background: white;
       color: #0d0d0d;
       text-align: left;
-      overflow-y: auto;
-      left: 0;
-      top: 0;
-      bottom: 0;
+      left: 2px;
+      top: 5px;
+      bottom:5px;
       padding-top: 20px; /* Adjust top padding as needed */
+      padding-right: 5px;
+      transition: all ease .3s;
+      overflow-y: hidden;
   }
 
   .sidebar-title{
